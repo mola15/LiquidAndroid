@@ -1,0 +1,58 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Outline}{3}{section.1.2}
+\contentsline {chapter}{\numberline {2}State of the Art}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Classical internet}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Internet of Things}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Definition}{6}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Building blocks: Smart Objects}{6}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Personal Area Network (PAN)}{8}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Challenges}{9}{subsection.2.2.4}
+\contentsline {paragraph}{IP addresses}{10}{section*.19}
+\contentsline {paragraph}{Big Data}{10}{section*.21}
+\contentsline {paragraph}{Security}{11}{section*.23}
+\contentsline {paragraph}{Energy}{12}{section*.24}
+\contentsline {subsection}{\numberline {2.2.5}IoT vs WoT}{13}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Web of Things}{14}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Definition}{14}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}WoT: refinement of the IoT}{15}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Need for WoT}{16}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Goals}{18}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}Requirements}{19}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.6}New division of objects}{20}{subsection.2.3.6}
+\contentsline {subsection}{\numberline {2.3.7}Sublayers}{22}{subsection.2.3.7}
+\contentsline {paragraph}{Accessibility}{23}{section*.31}
+\contentsline {paragraph}{Findability}{24}{section*.32}
+\contentsline {paragraph}{Sharing}{24}{section*.33}
+\contentsline {paragraph}{Composition}{25}{section*.34}
+\contentsline {chapter}{\numberline {3}Problem Analysis}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Brief recap}{27}{section.3.1}
+\contentsline {section}{\numberline {3.2}Definition}{28}{section.3.2}
+\contentsline {section}{\numberline {3.3}Constraints}{30}{section.3.3}
+\contentsline {chapter}{\numberline {4}Proposed Solution}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Already developed solutions}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}Choice of the \textit {container}}{37}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Web Service (WS)}{37}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}SOAP protocol}{39}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}REST paradigm}{43}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Comparison and choice}{46}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}Structure definition}{48}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Available alternatives}{48}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}JSON}{49}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}JSON-LD}{50}{subsection.4.3.3}
+\contentsline {paragraph}{Linked Data and Semantic Web}{50}{section*.40}
+\contentsline {subsection}{\numberline {4.3.4}W3C proposal: pros and cons}{54}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Syntax of the solution}{55}{subsection.4.3.5}
+\contentsline {paragraph}{Context}{55}{section*.42}
+\contentsline {paragraph}{Smartspace}{55}{section*.43}
+\contentsline {chapter}{\numberline {5}Proof of Concept}{57}{chapter.5}
+\contentsline {section}{\numberline {5.1}Non-functional requirements}{57}{section.5.1}
+\contentsline {section}{\numberline {5.2}Package organization}{58}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{59}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{61}{chapter*.44}
+\contentsline {chapter}{Bibliography}{63}{section*.47}

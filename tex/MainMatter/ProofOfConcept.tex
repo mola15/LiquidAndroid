@@ -1,0 +1,42 @@
+% ------------------------------------------------------------------------ %
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX root = ../Tesi.tex
+% !TEX spellcheck = it-IT
+% ------------------------------------------------------------------------ %
+%
+% ------------------------------------------------------------------------ %
+% 	CONCLUSIONI
+% ------------------------------------------------------------------------ %
+%
+\chapter{Proof of Concept}
+%
+\label{cap:proofofconcept}
+%
+% ------------------------------------------------------------------------ %
+
+\section{Non-functional requirements}
+If the section \ref{problemconstraints}, the constraints of the problem can be seen as the functional requirements my development has to have, there is another category of requirements: the non-functional ones, they are important properties that my system must have in order to guarantee full functionalities. They are not specific for the Web of Things but it is important that my system meets them.
+I am briefly here listing all the non-functional properties:
+
+\begin{itemize}
+	\item \textit{Portability:} to have my application users by the largest number of users possible, but this is not a real requirement in the sense that the application is developed on the web, easy reachable. We are on the border of functional and non-functional requirements.
+	
+	\item \textit{Stability:} system must be always available, and able to offer all its services. For example I should avoid possible system failures during the automatic reload of the configuration in case of a change in the smart space. In addition, data must be durable and not lost for any reasons.
+	
+	\item \textit{Availability:} the services must be always accessible in time. In case of malfunctioning, administrator will provide maintenance in order not to affect service availability.
+	
+	\item \textit{Reliability:} since data are shared among a large number of devices, reliability is essential. Users can base their actions on other users’ actions and on devices' status. Moreover, I suppose that the memory where data are stored is stable.
+	
+	\item \textit{Efficiency:} Within software development framework, efficiency means to use as less resources as possible. Thus, system will provide data structures and algorithms aimed to maximize efficiency. I will also try to use well known patterns reusing as many pieces of code as possible, taking care of avoiding any anti-pattern.
+	
+	\item \textit{Extensibility:} My application must provide a design where future updates are possible. It will be developed in a way such that the addition of new functionalities will not require strong changes to the internal structure and data flow.
+	
+	\item \textit{Maintainability:} Also modifications to code that already exists have to be taken into account. For this reason the code must be easily readable and fully commented.
+
+	\item \textit{Security:} Using an online service security is always required. The fact that the system will be available only on LANs is a one first step in this direction.
+
+\end{itemize}
+
+\section{Package organization}
+probabilmente diventerà subsection, solo citata qua per non dimenticarla + test cases, cost estimation? (cocomo etc)

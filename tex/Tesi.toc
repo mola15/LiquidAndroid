@@ -1,0 +1,46 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Outline}{2}{section.1.2}
+\contentsline {chapter}{\numberline {2}State of the Art}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Android OS}{3}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Brief History}{3}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Structure}{5}{subsection.2.1.2}
+\contentsline {paragraph}{Linux Kernel}{6}{section*.20}
+\contentsline {paragraph}{Runtime}{6}{section*.21}
+\contentsline {paragraph}{Application Framework}{6}{section*.22}
+\contentsline {paragraph}{Applications}{6}{section*.23}
+\contentsline {section}{\numberline {2.2}Distributed System}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Definition}{6}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Examples}{6}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Liquid Computation}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Definition}{6}{subsection.2.3.1}
+\contentsline {chapter}{\numberline {3}Problem Analysis}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Brief recap}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Definition}{8}{section.3.2}
+\contentsline {section}{\numberline {3.3}Constraints}{10}{section.3.3}
+\contentsline {chapter}{\numberline {4}Proposed Solution}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Already developed solutions}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Choice of the \textit {container}}{17}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Web Service (WS)}{17}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}SOAP protocol}{19}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}REST paradigm}{23}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Comparison and choice}{27}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}Structure definition}{28}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Available alternatives}{28}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}JSON}{29}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}JSON-LD}{30}{subsection.4.3.3}
+\contentsline {paragraph}{Linked Data and Semantic Web}{30}{section*.29}
+\contentsline {subsection}{\numberline {4.3.4}W3C proposal: pros and cons}{34}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Syntax of the solution}{35}{subsection.4.3.5}
+\contentsline {paragraph}{Context}{35}{section*.31}
+\contentsline {paragraph}{Smartspace}{35}{section*.32}
+\contentsline {chapter}{\numberline {5}Proof of Concept}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Non-functional requirements}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}Package organization}{38}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{39}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{41}{chapter*.33}

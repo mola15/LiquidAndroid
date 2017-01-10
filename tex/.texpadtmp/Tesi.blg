@@ -1,0 +1,15 @@
+[0] Config.pm:343> INFO - This is Biber 2.5
+[0] Config.pm:346> INFO - Logfile is '/Users/Federico/Google Drive/PoliMi/Magistrale/II anno/Tesi/LaTex/.texpadtmp/Tesi.blg'
+[62] biber-darwin:290> INFO - === Tue Oct  4, 2016, 11:31:27
+[87] Biber.pm:351> INFO - Reading '/Users/Federico/Google Drive/PoliMi/Magistrale/II anno/Tesi/LaTex/.texpadtmp/Tesi.bcf'
+[190] Biber.pm:773> INFO - Using all citekeys in bib section 0
+[203] Biber.pm:3493> INFO - Processing section 0
+[232] Biber.pm:3657> INFO - Looking for bibtex format file '/Users/Federico/Google Drive/PoliMi/Magistrale/II anno/Tesi/LaTex/Bibliografia.bib' for section 0
+[234] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[237] bibtex.pm:1048> INFO - Found BibTeX data source '/Users/Federico/Google Drive/PoliMi/Magistrale/II anno/Tesi/LaTex/Bibliografia.bib'
+[320] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[320] UCollate.pm:66> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[320] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
+[320] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-US'
+[371] bbl.pm:526> INFO - Writing '/Users/Federico/Google Drive/PoliMi/Magistrale/II anno/Tesi/LaTex/.texpadtmp/Tesi.bbl' with encoding 'UTF-8'
+[376] bbl.pm:619> INFO - Output to /Users/Federico/Google Drive/PoliMi/Magistrale/II anno/Tesi/LaTex/.texpadtmp/Tesi.bbl

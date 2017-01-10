@@ -1,0 +1,1004 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{akyildiz2002wireless}{article}{}
+      \name{author}{4}{}{%
+        {{hash=f567bce2e52982a6b060d5506dcdf0c1}{%
+           family={Akyildiz},
+           family_i={A\bibinitperiod},
+           given={Ian\bibnamedelima F},
+           given_i={I\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=1ac3cb4f45db67e0690eb4f01d212b40}{%
+           family={Su},
+           family_i={S\bibinitperiod},
+           given={Weilian},
+           given_i={W\bibinitperiod}}}%
+        {{hash=8b1eef2f46e3cff3a778437b9f86d06c}{%
+           family={Sankarasubramaniam},
+           family_i={S\bibinitperiod},
+           given={Yogesh},
+           given_i={Y\bibinitperiod}}}%
+        {{hash=d55e89b2c7ca7176dfc5aa53c26fe455}{%
+           family={Cayirci},
+           family_i={C\bibinitperiod},
+           given={Erdal},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{b4365237fe0ff096ea04190b346a1cbf}
+      \strng{fullhash}{ecc860c38893130590e960dd6bdae22d}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer networks}
+      \field{number}{4}
+      \field{title}{Wireless sensor networks: a survey}
+      \field{volume}{38}
+      \field{year}{2002}
+      \field{pages}{393\bibrangedash 422}
+      \range{pages}{30}
+    \endentry
+    \entry{alonso2004web}{incollection}{}
+      \name{author}{4}{}{%
+        {{hash=f1ee668aff7c15cdfccbd6a260a0317a}{%
+           family={Alonso},
+           family_i={A\bibinitperiod},
+           given={Gustavo},
+           given_i={G\bibinitperiod}}}%
+        {{hash=24e5d28857b49ba04b027167401759a0}{%
+           family={Casati},
+           family_i={C\bibinitperiod},
+           given={Fabio},
+           given_i={F\bibinitperiod}}}%
+        {{hash=5c23bffcf5e919f2d81ccc504f234d72}{%
+           family={Kuno},
+           family_i={K\bibinitperiod},
+           given={Harumi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=612f52916ae2663526ccc6bab6c24296}{%
+           family={Machiraju},
+           family_i={M\bibinitperiod},
+           given={Vijay},
+           given_i={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{75f3c62680c7d63ba517195fe0914358}
+      \strng{fullhash}{461db6f3792b31900c86a29d47af4ca7}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Web Services}
+      \field{title}{Web services}
+      \field{year}{2004}
+      \field{pages}{123\bibrangedash 149}
+      \range{pages}{27}
+    \endentry
+    \entry{carHackingImpossible}{online}{}
+      \name{author}{1}{}{%
+        {{hash=d08f512c3ad1f91b0180f2aa9d6326b1}{%
+           family={American},
+           family_i={A\bibinitperiod},
+           given={Scientific},
+           given_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{d08f512c3ad1f91b0180f2aa9d6326b1}
+      \strng{fullhash}{d08f512c3ad1f91b0180f2aa9d6326b1}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Why Car Hacking Is Nearly Impossible}
+      \field{urlday}{12}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://www.scientificamerican.com/article/why-car-hacking-is-nearly-impossible/
+      \endverb
+    \endentry
+    \entry{ashton2009internet}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2710e37a7e37dd6f0a784ffd7e37e589}{%
+           family={Ashton},
+           family_i={A\bibinitperiod},
+           given={Kevin},
+           given_i={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{2710e37a7e37dd6f0a784ffd7e37e589}
+      \strng{fullhash}{2710e37a7e37dd6f0a784ffd7e37e589}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{RFiD Journal}
+      \field{number}{7}
+      \field{title}{That ‘internet of things’ thing}
+      \field{volume}{22}
+      \field{year}{2009}
+      \field{pages}{97\bibrangedash 114}
+      \range{pages}{18}
+    \endentry
+    \entry{beigl2003smart}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=e388e818b5d378a48b33ef96462fea84}{%
+           family={Beigl},
+           family_i={B\bibinitperiod},
+           given={Michael},
+           given_i={M\bibinitperiod}}}%
+        {{hash=53bbb7d9c1eb0d226b3e67f0c7970605}{%
+           family={Gellersen},
+           family_i={G\bibinitperiod},
+           given={Hans},
+           given_i={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b223e0aea840387ea3680ab7b4d119a}
+      \strng{fullhash}{4b223e0aea840387ea3680ab7b4d119a}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Smart Objects Conference (sOc)}
+      \field{title}{Smart-its: An embedded platform for smart objects}
+      \field{volume}{2003}
+      \field{year}{2003}
+    \endentry
+    \entry{bizer2009linked}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c0ab52e226557a243a4a5277aec8acdc}{%
+           family={Bizer},
+           family_i={B\bibinitperiod},
+           given={Christian},
+           given_i={C\bibinitperiod}}}%
+        {{hash=c040f12898283360a9825ed80f52e777}{%
+           family={Heath},
+           family_i={H\bibinitperiod},
+           given={Tom},
+           given_i={T\bibinitperiod}}}%
+        {{hash=d469e0df304c98f67b55d087ea6187a1}{%
+           family={Berners-Lee},
+           family_i={B\bibinithyphendelim L\bibinitperiod},
+           given={Tim},
+           given_i={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{119c89bf63ca82bd819dbc4a7a4326c7}
+      \strng{fullhash}{119c89bf63ca82bd819dbc4a7a4326c7}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Semantic Services, Interoperability and Web Applications: Emerging Concepts}
+      \field{title}{Linked data-the story so far}
+      \field{year}{2009}
+      \field{pages}{205\bibrangedash 227}
+      \range{pages}{23}
+    \endentry
+    \entry{bui2012internet}{article}{}
+      \name{author}{4}{}{%
+        {{hash=d978786f54a5631f65268f5eaedfa9cc}{%
+           family={Bui},
+           family_i={B\bibinitperiod},
+           given={Nicola},
+           given_i={N\bibinitperiod}}}%
+        {{hash=9ed47a95a3afa924b3d62196cefc5945}{%
+           family={Castellani},
+           family_i={C\bibinitperiod},
+           given={Angelo\bibnamedelima P},
+           given_i={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=45bb6b531e4720ae470ef47fb08ff2fe}{%
+           family={Casari},
+           family_i={C\bibinitperiod},
+           given={Paolo},
+           given_i={P\bibinitperiod}}}%
+        {{hash=b76c4eca481ecdbf633c2bc5bf0e3a37}{%
+           family={Zorzi},
+           family_i={Z\bibinitperiod},
+           given={Michele},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d1496d020999c012d9bb728a01adfe6f}
+      \strng{fullhash}{e6b5b96c9fcd4dddd88dcc463c10f503}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Network}
+      \field{number}{4}
+      \field{title}{The internet of energy: a web-enabled smart grid system}
+      \field{volume}{26}
+      \field{year}{2012}
+      \field{pages}{39\bibrangedash 45}
+      \range{pages}{7}
+    \endentry
+    \entry{cha2009trust}{article}{}
+      \name{author}{5}{}{%
+        {{hash=d1b8c58cb2b35437abf3fe1b94b18535}{%
+           family={Cha},
+           family_i={C\bibinitperiod},
+           given={Inhyok},
+           given_i={I\bibinitperiod}}}%
+        {{hash=0a70021489bab2954baf5eace57f4d3a}{%
+           family={Shah},
+           family_i={S\bibinitperiod},
+           given={Yogendra},
+           given_i={Y\bibinitperiod}}}%
+        {{hash=951d1dd76a594de69c0b2f6eac7ff015}{%
+           family={Schmidt},
+           family_i={S\bibinitperiod},
+           given={Andreas\bibnamedelima U},
+           given_i={A\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+        {{hash=ea9de31641725812d78f61925ada560e}{%
+           family={Leicher},
+           family_i={L\bibinitperiod},
+           given={Andreas},
+           given_i={A\bibinitperiod}}}%
+        {{hash=aa06c0e35d3f3e2f0fa955ad0a594eef}{%
+           family={Meyerstein},
+           family_i={M\bibinitperiod},
+           given={Michael\bibnamedelima Victor},
+           given_i={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{37ff0186a8c0b5c24bef7b8ee2412d79}
+      \strng{fullhash}{3c3d1ccc26e7c6dfc1f5e1220f965bdb}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Vehicular Technology Magazine}
+      \field{number}{3}
+      \field{title}{Trust in M2M communication}
+      \field{volume}{4}
+      \field{year}{2009}
+      \field{pages}{69\bibrangedash 75}
+      \range{pages}{7}
+    \endentry
+    \entry{curbera2002unraveling}{article}{}
+      \name{author}{6}{}{%
+        {{hash=d242b74b900a6acca71998585077d35e}{%
+           family={Curbera},
+           family_i={C\bibinitperiod},
+           given={Francisco},
+           given_i={F\bibinitperiod}}}%
+        {{hash=d8e0d3b2d3dff4791cc2a63f1df49bbf}{%
+           family={Duftler},
+           family_i={D\bibinitperiod},
+           given={Matthew},
+           given_i={M\bibinitperiod}}}%
+        {{hash=20e2d6c83dde3bae32ef3c307bc8b9ba}{%
+           family={Khalaf},
+           family_i={K\bibinitperiod},
+           given={Rania},
+           given_i={R\bibinitperiod}}}%
+        {{hash=05e912c4c699fdd2d7017720c41a87bd}{%
+           family={Nagy},
+           family_i={N\bibinitperiod},
+           given={William},
+           given_i={W\bibinitperiod}}}%
+        {{hash=91e58734476095ce10ea9e0c65a48228}{%
+           family={Mukhi},
+           family_i={M\bibinitperiod},
+           given={Nirmal},
+           given_i={N\bibinitperiod}}}%
+        {{hash=ad25b96bff24b15f8bc4c35beab635c7}{%
+           family={Weerawarana},
+           family_i={W\bibinitperiod},
+           given={Sanjiva},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{7d8e3d0951812519ce8e9ea26f1d64dc}
+      \strng{fullhash}{168ea2e1a606e0cddf825d4715bba404}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Internet computing}
+      \field{number}{2}
+      \field{title}{Unraveling the Web services web: an introduction to SOAP, WSDL, and UDDI}
+      \field{volume}{6}
+      \field{year}{2002}
+      \field{pages}{86}
+      \range{pages}{1}
+    \endentry
+    \entry{soapMessage}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a9fc1213f0e84b983f726ae546da26e0}{%
+           family={ECMA},
+           family_i={E\bibinitperiod},
+           given={Standard},
+           given_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a9fc1213f0e84b983f726ae546da26e0}
+      \strng{fullhash}{a9fc1213f0e84b983f726ae546da26e0}
+      \field{sortinit}{E}
+      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SOAP message definition}
+      \field{urlday}{28}
+      \field{urlmonth}{09}
+      \field{urlyear}{2016}
+      \field{year}{1999}
+      \verb{url}
+      \verb http://www.json.org
+      \endverb
+    \endentry
+    \entry{farooq2015critical}{article}{}
+      \name{author}{4}{}{%
+        {{hash=88af0d43d66cfe8b37bb66ab41710794}{%
+           family={Farooq},
+           family_i={F\bibinitperiod},
+           given={MU},
+           given_i={M\bibinitperiod}}}%
+        {{hash=2a2d1aef53f7d50188c55f22ee3d6bd6}{%
+           family={Waseem},
+           family_i={W\bibinitperiod},
+           given={Muhammad},
+           given_i={M\bibinitperiod}}}%
+        {{hash=bfb6a0e6d065c82b487cf791b9c1106c}{%
+           family={Khairi},
+           family_i={K\bibinitperiod},
+           given={Anjum},
+           given_i={A\bibinitperiod}}}%
+        {{hash=a6c14b6b97b650b744197a323fad3967}{%
+           family={Mazhar},
+           family_i={M\bibinitperiod},
+           given={Sadia},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Foundation of Computer Science}%
+      }
+      \strng{namehash}{660e2be627ec9525c8276f85b80e4d54}
+      \strng{fullhash}{e451f231e8616ece402bd4fe4947d2f9}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Computer Applications}
+      \field{number}{7}
+      \field{title}{A critical analysis on the security concerns of internet of things (IoT)}
+      \field{volume}{111}
+      \field{year}{2015}
+    \endentry
+    \entry{fielding2000representational}{article}{}
+      \name{author}{1}{}{%
+        {{hash=c6055872081cf3b6db6ba40e9af2fad9}{%
+           family={Fielding},
+           family_i={F\bibinitperiod},
+           given={Roy},
+           given_i={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{c6055872081cf3b6db6ba40e9af2fad9}
+      \strng{fullhash}{c6055872081cf3b6db6ba40e9af2fad9}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Architectural Styles and the Design of Netowork-based Software Architecture}
+      \field{title}{Representational state transfer}
+      \field{year}{2000}
+      \field{pages}{76\bibrangedash 85}
+      \range{pages}{10}
+    \endentry
+    \entry{franks1999http}{report}{}
+      \name{author}{7}{}{%
+        {{hash=417b4279d53d8a32c5678e5603ba4762}{%
+           family={Franks},
+           family_i={F\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+        {{hash=d5c35aca4a53a77abbf15bc7212d441d}{%
+           family={Hallam-Baker},
+           family_i={H\bibinithyphendelim B\bibinitperiod},
+           given={Phillip},
+           given_i={P\bibinitperiod}}}%
+        {{hash=18f8e4027a02a27877797dcefc491caa}{%
+           family={Hostetler},
+           family_i={H\bibinitperiod},
+           given={Jeffrey},
+           given_i={J\bibinitperiod}}}%
+        {{hash=893e315538f712e82bacf65a9c4dd7ae}{%
+           family={Lawrence},
+           family_i={L\bibinitperiod},
+           given={Scott},
+           given_i={S\bibinitperiod}}}%
+        {{hash=4014eb6286266825c465e7288fc9dc9d}{%
+           family={Leach},
+           family_i={L\bibinitperiod},
+           given={Paul},
+           given_i={P\bibinitperiod}}}%
+        {{hash=a055d5a63ec7885a012138e361818d78}{%
+           family={Luotonen},
+           family_i={L\bibinitperiod},
+           given={Ari},
+           given_i={A\bibinitperiod}}}%
+        {{hash=2f95ec25357c154e84ad4652681bfb3b}{%
+           family={Stewart},
+           family_i={S\bibinitperiod},
+           given={Lawrence},
+           given_i={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{2398ffcaf6460120f5cfe7d13d025f92}
+      \strng{fullhash}{6bca644530003e5102a38773275c26ec}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{HTTP authentication: Basic and digest access authentication}
+      \field{type}{techreport}
+      \field{year}{1999}
+    \endentry
+    \entry{epcStandard}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4dbd98ba909c4214c42a9e11465fc2d7}{%
+           family={Global},
+           family_i={G\bibinitperiod},
+           given={EPC},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{4dbd98ba909c4214c42a9e11465fc2d7}
+      \strng{fullhash}{4dbd98ba909c4214c42a9e11465fc2d7}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GS1 EPCglobal Architecture Framework}
+      \field{urlday}{22}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://www.gs1.org/sites/default/files/docs/architecture/EPC_architecture_1_7-framework-May-2015.pdf
+      \endverb
+    \endentry
+    \entry{guinard2011web}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=a8d6294bc3d3f233e968795a0ecc700d}{%
+           family={Guinard},
+           family_i={G\bibinitperiod},
+           given={Dominique},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{a8d6294bc3d3f233e968795a0ecc700d}
+      \strng{fullhash}{a8d6294bc3d3f233e968795a0ecc700d}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A web of things application architecture-Integrating the real-world into the web}
+      \field{type}{phdthesis}
+      \field{year}{2011}
+    \endentry
+    \entry{hardt2012oauth}{article}{}
+      \name{author}{1}{}{%
+        {{hash=645c23d98c8c0ad0899cb4be651e6a02}{%
+           family={Hardt},
+           family_i={H\bibinitperiod},
+           given={Dick},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \strng{fullhash}{645c23d98c8c0ad0899cb4be651e6a02}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The OAuth 2.0 authorization framework}
+      \field{year}{2012}
+    \endentry
+    \entry{4VsIMBInfographic}{online}{}
+      \name{author}{1}{}{%
+        {{hash=3f8c1d92da70970692b0c743e41cdd03}{%
+           family={Hub},
+           family_i={H\bibinitperiod},
+           given={IBM\bibnamedelimb Big\bibnamedelimb Data\bibnamedelimb \&\bibnamedelima Analytics},
+           given_i={I\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim \~A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f8c1d92da70970692b0c743e41cdd03}
+      \strng{fullhash}{3f8c1d92da70970692b0c743e41cdd03}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The four V's of Big Data}
+      \field{urlday}{11}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2013}
+      \verb{url}
+      \verb http://www.ibmbigdatahub.com/infographic/four-vs-big-data
+      \endverb
+    \endentry
+    \entry{beaconMuseum}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5cf4b56f2a9b90a93ce7275a7857bac2}{%
+           family={Intern},
+           family_i={I\bibinitperiod},
+           given={MediaLab},
+           given_i={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{5cf4b56f2a9b90a93ce7275a7857bac2}
+      \strng{fullhash}{5cf4b56f2a9b90a93ce7275a7857bac2}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Beacons: Exploring Location-Based Technology in Museums}
+      \field{urlday}{24}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://www.metmuseum.org/blogs/digital-underground/2015/beacons
+      \endverb
+    \endentry
+    \entry{lukoianova2014veracity}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7077476c0219766cb9ea1ab61f4b4a5e}{%
+           family={Lukoianova},
+           family_i={L\bibinitperiod},
+           given={Tatiana},
+           given_i={T\bibinitperiod}}}%
+        {{hash=755086b7611bfa2e25d746b706893260}{%
+           family={Rubin},
+           family_i={R\bibinitperiod},
+           given={Victoria\bibnamedelima L},
+           given_i={V\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{665d34cc8bf7609cd6bb9d6a4d8c1030}
+      \strng{fullhash}{665d34cc8bf7609cd6bb9d6a4d8c1030}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Classification Research Online}
+      \field{number}{1}
+      \field{title}{Veracity roadmap: Is big data objective, truthful and credible?}
+      \field{volume}{24}
+      \field{year}{2014}
+      \field{pages}{4\bibrangedash 15}
+      \range{pages}{12}
+    \endentry
+    \entry{morville2005ambient}{book}{}
+      \name{author}{1}{}{%
+        {{hash=e7f06f2b98c047d8c26a680d59bebe98}{%
+           family={Morville},
+           family_i={M\bibinitperiod},
+           given={Peter},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {" O'Reilly Media, Inc."}%
+      }
+      \strng{namehash}{e7f06f2b98c047d8c26a680d59bebe98}
+      \strng{fullhash}{e7f06f2b98c047d8c26a680d59bebe98}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ambient findability: What we find changes who we become}
+      \field{year}{2005}
+    \endentry
+    \entry{pastor2007evolution}{book}{}
+      \name{author}{2}{}{%
+        {{hash=c393ec202f2fc7875421592989acbc18}{%
+           family={Pastor-Satorras},
+           family_i={P\bibinithyphendelim S\bibinitperiod},
+           given={Romualdo},
+           given_i={R\bibinitperiod}}}%
+        {{hash=8f9932ed1839be02bb53a62b258449a8}{%
+           family={Vespignani},
+           family_i={V\bibinitperiod},
+           given={Alessandro},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{ec5b8981218647d03b9afff0d548dece}
+      \strng{fullhash}{ec5b8981218647d03b9afff0d548dece}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Evolution and structure of the Internet: A statistical physics approach}
+      \field{year}{2007}
+      \field{pages}{10\bibrangedash 11}
+      \range{pages}{2}
+    \endentry
+    \entry{pautasso2008restful}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=72f4c42f181b1843dc1b20d49f768775}{%
+           family={Pautasso},
+           family_i={P\bibinitperiod},
+           given={Cesare},
+           given_i={C\bibinitperiod}}}%
+        {{hash=bf0c5cc5d9e500fedda1d337af7eb24e}{%
+           family={Zimmermann},
+           family_i={Z\bibinitperiod},
+           given={Olaf},
+           given_i={O\bibinitperiod}}}%
+        {{hash=415e2bec5763afbeeeadd2e0c4bd0696}{%
+           family={Leymann},
+           family_i={L\bibinitperiod},
+           given={Frank},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{5497556067556368328da3d9577fd9ac}
+      \strng{fullhash}{5497556067556368328da3d9577fd9ac}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 17th international conference on World Wide Web}
+      \field{title}{Restful web services vs. big'web services: making the right architectural decision}
+      \field{year}{2008}
+      \field{pages}{805\bibrangedash 814}
+      \range{pages}{10}
+    \endentry
+    \entry{applehomekitprotocol}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b586fab9e7f81dc5f5cdb2dadaf1890b}{%
+           family={Quora},
+           family_i={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{fullhash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \field{sortinit}{Q}
+      \field{sortinithash}{15867262911a166ca2270ec58a0e3fe9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Apple HomeKit Accessory Protocol}
+      \field{urlday}{08}
+      \field{urlmonth}{09}
+      \field{urlyear}{2016}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://www.quora.com/What-protocol-does-HomeKit-use-to-communicate-with-its-devices
+      \endverb
+    \endentry
+    \entry{batchProcessingStreamProcessing}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b586fab9e7f81dc5f5cdb2dadaf1890b}{%
+           family={Quora},
+           family_i={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{fullhash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \field{sortinit}{Q}
+      \field{sortinithash}{15867262911a166ca2270ec58a0e3fe9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Differences between batch processing and stream processing}
+      \field{urlday}{11}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2014}
+      \verb{url}
+      \verb https://www.quora.com/What-are-the-differences-between-batch-processing-and-stream-processing-systems
+      \endverb
+    \endentry
+    \entry{streamProcessingRealtimeProcessing}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b586fab9e7f81dc5f5cdb2dadaf1890b}{%
+           family={Quora},
+           family_i={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{fullhash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \field{sortinit}{Q}
+      \field{sortinithash}{15867262911a166ca2270ec58a0e3fe9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Differences between real time processing and stream processing}
+      \field{urlday}{11}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2012}
+      \verb{url}
+      \verb https://www.quora.com/Whats-the-difference-between-real-time-processing-and-stream-processing
+      \endverb
+    \endentry
+    \entry{romer2010real}{article}{}
+      \name{author}{5}{}{%
+        {{hash=9dae396a25a5762bf9180771841977bf}{%
+           family={Romer},
+           family_i={R\bibinitperiod},
+           given={Kay},
+           given_i={K\bibinitperiod}}}%
+        {{hash=4d819d1ec55cfa54a9acfde9827f211f}{%
+           family={Ostermaier},
+           family_i={O\bibinitperiod},
+           given={Benedikt},
+           given_i={B\bibinitperiod}}}%
+        {{hash=e07c4272d13053fc36d770d4735f2c14}{%
+           family={Mattern},
+           family_i={M\bibinitperiod},
+           given={Friedemann},
+           given_i={F\bibinitperiod}}}%
+        {{hash=6be97eb1742403894fdd53c224e7ef87}{%
+           family={Fahrmair},
+           family_i={F\bibinitperiod},
+           given={Michael},
+           given_i={M\bibinitperiod}}}%
+        {{hash=effeba42594d47693501bec4e14531d2}{%
+           family={Kellerer},
+           family_i={K\bibinitperiod},
+           given={Wolfgang},
+           given_i={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d6d6f933dc0d5e0869ef2b34a9834e5c}
+      \strng{fullhash}{cc63ae98f66fcf6b2d75188a739bd59a}
+      \field{sortinit}{R}
+      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{11}
+      \field{title}{Real-time search for real-world entities: A survey}
+      \field{volume}{98}
+      \field{year}{2010}
+      \field{pages}{1887\bibrangedash 1902}
+      \range{pages}{16}
+    \endentry
+    \entry{vasseur2010interconnecting}{book}{}
+      \name{author}{2}{}{%
+        {{hash=989c99d5d9d0e37ac19ae9a3e262d3f4}{%
+           family={Vasseur},
+           family_i={V\bibinitperiod},
+           given={Jean-Philippe},
+           given_i={J\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=298b842d17be52c979ec078531d1cfbe}{%
+           family={Dunkels},
+           family_i={D\bibinitperiod},
+           given={Adam},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{5d5b5f886ff12d4b9f04666b47d120b5}
+      \strng{fullhash}{5d5b5f886ff12d4b9f04666b47d120b5}
+      \field{sortinit}{V}
+      \field{sortinithash}{d18f5ce25ce0b5ca7f924e3f6c04870e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Interconnecting smart objects with ip: The next internet}
+      \field{year}{2010}
+    \endentry
+    \entry{jsonlddraft}{online}{}
+      \name{author}{1}{}{%
+        {{hash=446a1ae6601a5c59360c7d591c3992da}{%
+           family={W3C},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{446a1ae6601a5c59360c7d591c3992da}
+      \strng{fullhash}{446a1ae6601a5c59360c7d591c3992da}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A JSON-based Serialization for Linked Data}
+      \field{urlday}{28}
+      \field{urlmonth}{09}
+      \field{urlyear}{2016}
+      \field{year}{2014}
+      \verb{url}
+      \verb https://www.w3.org/TR/json-ld/#design-goals-and-rationale
+      \endverb
+    \endentry
+    \entry{jsondef}{online}{}
+      \name{author}{1}{}{%
+        {{hash=446a1ae6601a5c59360c7d591c3992da}{%
+           family={W3C},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{446a1ae6601a5c59360c7d591c3992da}
+      \strng{fullhash}{446a1ae6601a5c59360c7d591c3992da}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introducing JSON}
+      \field{urlday}{12}
+      \field{urlmonth}{09}
+      \field{urlyear}{2016}
+      \field{year}{2007}
+      \verb{url}
+      \verb http://www.w3schools.com/xml/xml_soap.asp
+      \endverb
+    \endentry
+    \entry{soap}{online}{}
+      \name{author}{1}{}{%
+        {{hash=446a1ae6601a5c59360c7d591c3992da}{%
+           family={W3C},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{446a1ae6601a5c59360c7d591c3992da}
+      \strng{fullhash}{446a1ae6601a5c59360c7d591c3992da}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{SOAP 1.2 Specifications}
+      \field{urlday}{12}
+      \field{urlmonth}{09}
+      \field{urlyear}{2016}
+      \field{year}{2007}
+      \verb{url}
+      \verb https://www.w3.org/TR/soap12/
+      \endverb
+    \endentry
+    \entry{w3cwot}{online}{}
+      \name{author}{1}{}{%
+        {{hash=446a1ae6601a5c59360c7d591c3992da}{%
+           family={W3C},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{446a1ae6601a5c59360c7d591c3992da}
+      \strng{fullhash}{446a1ae6601a5c59360c7d591c3992da}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WoT Current Practices - Unofficial draft}
+      \field{urlday}{01}
+      \field{urlmonth}{10}
+      \field{urlyear}{2016}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://w3c.github.io/wot/current-practices/wot-practices.html#temperature-sensor
+      \endverb
+    \endentry
+    \entry{wilde2007putting}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f296960570b55b9357825d30c04fe353}{%
+           family={Wilde},
+           family_i={W\bibinitperiod},
+           given={Erik},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{f296960570b55b9357825d30c04fe353}
+      \strng{fullhash}{f296960570b55b9357825d30c04fe353}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{School of Information}
+      \field{title}{Putting things to REST}
+      \field{year}{2007}
+    \endentry
+    \entry{hackedJeepOnHighway}{online}{}
+      \name{author}{1}{}{%
+        {{hash=1a346a023e7001dff4c6467ce061e681}{%
+           family={Wired},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a346a023e7001dff4c6467ce061e681}
+      \strng{fullhash}{1a346a023e7001dff4c6467ce061e681}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hackers Remotely Kill a Jeep on the Highway—With Me in It}
+      \field{urlday}{12}
+      \field{urlmonth}{08}
+      \field{urlyear}{2016}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/
+      \endverb
+    \endentry
+    \entry{yu2008understanding}{article}{}
+      \name{author}{4}{}{%
+        {{hash=ee546239b3853560d932c660fdd25836}{%
+           family={Yu},
+           family_i={Y\bibinitperiod},
+           given={Jin},
+           given_i={J\bibinitperiod}}}%
+        {{hash=c9ce8728a694167faa03305d9fb19b09}{%
+           family={Benatallah},
+           family_i={B\bibinitperiod},
+           given={Boualem},
+           given_i={B\bibinitperiod}}}%
+        {{hash=24e5d28857b49ba04b027167401759a0}{%
+           family={Casati},
+           family_i={C\bibinitperiod},
+           given={Fabio},
+           given_i={F\bibinitperiod}}}%
+        {{hash=55abf2add943ddfd7f67ce4b8536b18c}{%
+           family={Daniel},
+           family_i={D\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8ceccda0e90bb4b4b7fd1059ceb65298}
+      \strng{fullhash}{0f9b5a2b76693c0611c6b3276026f2fd}
+      \field{sortinit}{Y}
+      \field{sortinithash}{3cbc1e3d286284cedb5e5218a3248f94}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Internet computing}
+      \field{number}{5}
+      \field{title}{Understanding mashup development}
+      \field{volume}{12}
+      \field{year}{2008}
+      \field{pages}{44\bibrangedash 52}
+      \range{pages}{9}
+    \endentry
+    \entry{zaslavsky2013sensing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8da289bb46b6a95f52ced670c23af820}{%
+           family={Zaslavsky},
+           family_i={Z\bibinitperiod},
+           given={Arkady},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e5b420aba58a8d93cbbcaf2b1b0f4dab}{%
+           family={Perera},
+           family_i={P\bibinitperiod},
+           given={Charith},
+           given_i={C\bibinitperiod}}}%
+        {{hash=25d9d97c240056793c5abcc6aee6a4d0}{%
+           family={Georgakopoulos},
+           family_i={G\bibinitperiod},
+           given={Dimitrios},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{db4ad314ec4bb7a058a9dd25265a9928}
+      \strng{fullhash}{db4ad314ec4bb7a058a9dd25265a9928}
+      \field{sortinit}{Z}
+      \field{sortinithash}{fdda4caaa6b5fa63e0c081dcb159543a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1301.0159}
+      \field{title}{Sensing as a service and big data}
+      \field{year}{2013}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

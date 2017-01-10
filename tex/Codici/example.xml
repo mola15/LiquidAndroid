@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <name>Jane</name>
+        <surname>Doe</surname>
+        <number>+3933333333</number>
+    </user>
+    <user>
+        <name>Jack</name>
+        <surname>Sparrow</surname>
+        <number>+3944444444</number>
+    </user>
+</users>

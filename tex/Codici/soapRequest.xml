@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope
+        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+  <soap:Header>
+    <ns1:RequestHeader
+         soapenv:actor="http://schemas.xmlsoap.org/soap/actor/next"
+         soapenv:mustUnderstand="0"
+         xmlns:ns1="https://www.google.com/apis/ads/publisher/v201605">
+      <ns1:networkCode>123456</ns1:networkCode>
+      <ns1:applicationName>Babel Framework</ns1:applicationName>
+    </ns1:RequestHeader>
+  </soap:Header>
+    
+  <soap:Body xmlns:m="http://www.xyz.org/quotations" >
+      <m:GetQuotation>
+         <m:QuotationsName>Apple</m:QuotationsName>
+      </m:GetQuotation>	
+   </soap:Body>
+    
+</soap:Envelope>

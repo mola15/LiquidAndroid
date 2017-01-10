@@ -1972,20 +1972,22 @@
     <bcf:citekey order="2">devandroiddash</bcf:citekey>
     <bcf:citekey order="3">vogel2016android</bcf:citekey>
     <bcf:citekey order="4">hartman2006linux</bcf:citekey>
-    <bcf:citekey order="5">guinard2011web</bcf:citekey>
-    <bcf:citekey order="6">cha2009trust</bcf:citekey>
-    <bcf:citekey order="7">applehomekitprotocol</bcf:citekey>
-    <bcf:citekey order="8">alonso2004web</bcf:citekey>
-    <bcf:citekey order="9">soap</bcf:citekey>
-    <bcf:citekey order="10">soapMessage</bcf:citekey>
-    <bcf:citekey order="11">curbera2002unraveling</bcf:citekey>
-    <bcf:citekey order="12">fielding2000representational</bcf:citekey>
-    <bcf:citekey order="13">pautasso2008restful</bcf:citekey>
-    <bcf:citekey order="14">jsondef</bcf:citekey>
-    <bcf:citekey order="15">bizer2009linked</bcf:citekey>
-    <bcf:citekey order="16">jsonlddraft</bcf:citekey>
-    <bcf:citekey order="17">w3cwot</bcf:citekey>
-    <bcf:citekey order="18">guinard2011web</bcf:citekey>
+    <bcf:citekey order="5">vogel2016android</bcf:citekey>
+    <bcf:citekey order="6">devandroidintent</bcf:citekey>
+    <bcf:citekey order="7">guinard2011web</bcf:citekey>
+    <bcf:citekey order="8">cha2009trust</bcf:citekey>
+    <bcf:citekey order="9">applehomekitprotocol</bcf:citekey>
+    <bcf:citekey order="10">alonso2004web</bcf:citekey>
+    <bcf:citekey order="11">soap</bcf:citekey>
+    <bcf:citekey order="12">soapMessage</bcf:citekey>
+    <bcf:citekey order="13">curbera2002unraveling</bcf:citekey>
+    <bcf:citekey order="14">fielding2000representational</bcf:citekey>
+    <bcf:citekey order="15">pautasso2008restful</bcf:citekey>
+    <bcf:citekey order="16">jsondef</bcf:citekey>
+    <bcf:citekey order="17">bizer2009linked</bcf:citekey>
+    <bcf:citekey order="18">jsonlddraft</bcf:citekey>
+    <bcf:citekey order="19">w3cwot</bcf:citekey>
+    <bcf:citekey order="20">guinard2011web</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">

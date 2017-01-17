@@ -9,13 +9,21 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Android OS fragmentation chart\relax }}{5}{table.caption.18}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Android OS 4 layers\relax }}{5}{figure.caption.19}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Intent resolution mechanism\relax }}{7}{figure.caption.25}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Android 5.1- permission example\relax }}{9}{figure.caption.31}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Android 6.0+ permission example\relax }}{9}{figure.caption.31}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Android permission Examples\relax }}{9}{figure.caption.31}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Distributed system structure\relax }}{11}{figure.caption.33}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Distributed system challenges\relax }}{11}{figure.caption.34}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Client server architecture\relax }}{13}{figure.caption.40}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces P2P architecture\relax }}{13}{figure.caption.42}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Publish-subscribe architecture\relax }}{14}{figure.caption.45}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Stack result vs double step implementation\relax }}{11}{figure.caption.28}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Stack result vs double step implementation\relax }}{17}{figure.caption.46}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces HomeKit Accessory Protocol (HAP)\relax }}{18}{figure.caption.29}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces HTTP Messages\relax }}{28}{figure.caption.31}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces JSON syntax rules\relax }}{32}{figure.caption.32}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces An example of semantic web\relax }}{33}{figure.caption.34}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces HomeKit Accessory Protocol (HAP)\relax }}{24}{figure.caption.47}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces HTTP Messages\relax }}{34}{figure.caption.49}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces JSON syntax rules\relax }}{38}{figure.caption.50}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces An example of semantic web\relax }}{39}{figure.caption.52}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

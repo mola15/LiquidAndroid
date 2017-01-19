@@ -124,13 +124,14 @@
 % style=numeric-comp,	<-- ufficialmente richiesto dal PoliMi (numeri tra [ ])
 % style=philosophy-modern,	<-- autore-anno (meno anonimo, più immediato e più elegante)
 %
-\usepackage[style=numeric,	% numeric-comp oppure philosophy-modern,
+\usepackage[style=numeric-comp,	% numeric-comp oppure philosophy-modern,
 	hyperref,			% riferimenti cliccabili
 	backref,			% link alle pagine in cui il riferimento è citato
 	natbib, 			% mantiene compatibilità con eventuali comandi natbib
 	backend=biber,		% motore bibliografico (v. ArteLatex di Pantieri)
-	defernumbers=true,	 	% riferimenti ordinati in ordine di comparsa
+	% defernumbers=true,	 	% riferimenti ordinati in ordine di comparsa
 	]{biblatex}
+	
 %
 \usepackage{bibentry}
 %

@@ -10,7 +10,7 @@
 \contentsline {section}{\numberline {2.1}Android OS}{3}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Brief History}{3}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Structure}{5}{subsection.2.1.2}
-\contentsline {paragraph}{Linux Kernel}{6}{section*.20}
+\contentsline {paragraph}{Linux Kernel}{5}{section*.20}
 \contentsline {paragraph}{Runtime and Libraries}{6}{section*.21}
 \contentsline {paragraph}{Application Framework}{6}{section*.22}
 \contentsline {paragraph}{Applications}{6}{section*.23}
@@ -21,7 +21,7 @@
 \contentsline {paragraph}{Broadcast Receivers}{8}{section*.28}
 \contentsline {subsection}{\numberline {2.1.4}Security}{8}{subsection.2.1.4}
 \contentsline {paragraph}{Application Sandboxing}{8}{section*.29}
-\contentsline {paragraph}{Permissions}{9}{section*.30}
+\contentsline {paragraph}{Permissions}{8}{section*.30}
 \contentsline {paragraph}{SeLinux}{9}{section*.32}
 \contentsline {subsection}{\numberline {2.1.5}Connectivity}{9}{subsection.2.1.5}
 \contentsline {section}{\numberline {2.2}Distributed System}{10}{section.2.2}
@@ -29,37 +29,40 @@
 \contentsline {subsection}{\numberline {2.2.2}Challenges}{11}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Comunication Model}{12}{subsection.2.2.3}
 \contentsline {paragraph}{Remote procedure call (RPC)}{12}{section*.36}
-\contentsline {paragraph}{Remote method invocation (RMI)}{12}{section*.37}
-\contentsline {paragraph}{Message oriented}{12}{section*.38}
-\contentsline {subsection}{\numberline {2.2.4}Architectures}{12}{subsection.2.2.4}
-\contentsline {paragraph}{Client-Server}{13}{section*.39}
-\contentsline {paragraph}{Peer-to-Peer (P2P)}{13}{section*.41}
-\contentsline {paragraph}{REST style}{14}{section*.43}
-\contentsline {paragraph}{Event based}{14}{section*.44}
-\contentsline {subsection}{\numberline {2.2.5}Examples}{14}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Liquid Computation}{14}{subsection.2.2.6}
-\contentsline {chapter}{\numberline {3}Problem Analysis}{15}{chapter.3}
-\contentsline {section}{\numberline {3.1}Brief recap}{15}{section.3.1}
-\contentsline {section}{\numberline {3.2}Definition}{16}{section.3.2}
-\contentsline {section}{\numberline {3.3}Constraints}{18}{section.3.3}
-\contentsline {chapter}{\numberline {4}Proposed Solution}{23}{chapter.4}
-\contentsline {section}{\numberline {4.1}Already developed solutions}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}Choice of the \textit {container}}{25}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Web Service (WS)}{25}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}SOAP protocol}{27}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}REST paradigm}{31}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Comparison and choice}{35}{subsection.4.2.4}
-\contentsline {section}{\numberline {4.3}Structure definition}{36}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Available alternatives}{36}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}JSON}{37}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}JSON-LD}{38}{subsection.4.3.3}
-\contentsline {paragraph}{Linked Data and Semantic Web}{38}{section*.51}
-\contentsline {subsection}{\numberline {4.3.4}W3C proposal: pros and cons}{42}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Syntax of the solution}{43}{subsection.4.3.5}
-\contentsline {paragraph}{Context}{43}{section*.53}
-\contentsline {paragraph}{Smartspace}{43}{section*.54}
-\contentsline {chapter}{\numberline {5}Proof of Concept}{45}{chapter.5}
-\contentsline {section}{\numberline {5.1}Non-functional requirements}{45}{section.5.1}
-\contentsline {section}{\numberline {5.2}Package organization}{46}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{47}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{49}{chapter*.55}
+\contentsline {paragraph}{Remote method invocation (RMI)}{13}{section*.38}
+\contentsline {paragraph}{Message oriented}{13}{section*.40}
+\contentsline {subsection}{\numberline {2.2.4}Architectures}{14}{subsection.2.2.4}
+\contentsline {paragraph}{Client-Server}{14}{section*.42}
+\contentsline {paragraph}{Peer-to-Peer (P2P)}{14}{section*.44}
+\contentsline {paragraph}{REST style}{15}{section*.46}
+\contentsline {paragraph}{Event based}{15}{section*.47}
+\contentsline {section}{\numberline {2.3}Liquid computing}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Definition}{16}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Examples}{16}{subsection.2.3.2}
+\contentsline {chapter}{\numberline {3}Problem Analysis}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Contextualization}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}Considered Devices}{20}{section.3.2}
+\contentsline {section}{\numberline {3.3}Definition}{20}{section.3.3}
+\contentsline {section}{\numberline {3.4}Constraints}{22}{section.3.4}
+\contentsline {chapter}{\numberline {4}Proposed Solution}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Already developed solutions}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Choice of the \textit {container}}{27}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Web Service (WS)}{27}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}SOAP protocol}{29}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}REST paradigm}{33}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Comparison and choice}{37}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}Structure definition}{38}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Available alternatives}{38}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}JSON}{39}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}JSON-LD}{40}{subsection.4.3.3}
+\contentsline {paragraph}{Linked Data and Semantic Web}{40}{section*.54}
+\contentsline {subsection}{\numberline {4.3.4}W3C proposal: pros and cons}{44}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Syntax of the solution}{45}{subsection.4.3.5}
+\contentsline {paragraph}{Context}{45}{section*.56}
+\contentsline {paragraph}{Smartspace}{45}{section*.57}
+\contentsline {chapter}{\numberline {5}Proof of Concept}{47}{chapter.5}
+\contentsline {section}{\numberline {5.1}Non-functional requirements}{47}{section.5.1}
+\contentsline {section}{\numberline {5.2}Package organization}{48}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{49}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{51}{chapter*.58}
+\contentsline {chapter}{Bibliography}{53}{section*.61}

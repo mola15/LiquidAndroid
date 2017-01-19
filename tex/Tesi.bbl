@@ -1,0 +1,377 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{secure2017android}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e84e30b9390cdb64db6db2c9ab87846d}{%
+           family={Android},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \strng{fullhash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \strng{authornamehash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \strng{authorfullhash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Security-Enhanced Linux in Android}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://source.android.com/security/selinux/
+      \endverb
+    \endentry
+    \entry{bondi2000characteristics}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7050168bf92df675e289983578c51928}{%
+           family={Bondi},
+           familyi={B\bibinitperiod},
+           given={André\bibnamedelima B.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {WOSP '00}%
+      }
+      \strng{namehash}{7050168bf92df675e289983578c51928}
+      \strng{fullhash}{7050168bf92df675e289983578c51928}
+      \strng{authornamehash}{7050168bf92df675e289983578c51928}
+      \strng{authorfullhash}{7050168bf92df675e289983578c51928}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{158113195X}
+      \field{title}{Characteristics of scalability and their impact on performance}
+      \field{year}{2000}
+    \endentry
+    \entry{cha2009trust}{article}{}
+      \name{author}{5}{}{%
+        {{hash=d1b8c58cb2b35437abf3fe1b94b18535}{%
+           family={Cha},
+           familyi={C\bibinitperiod},
+           given={Inhyok},
+           giveni={I\bibinitperiod}}}%
+        {{hash=0a70021489bab2954baf5eace57f4d3a}{%
+           family={Shah},
+           familyi={S\bibinitperiod},
+           given={Yogendra},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=951d1dd76a594de69c0b2f6eac7ff015}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Andreas\bibnamedelima U},
+           giveni={A\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+        {{hash=ea9de31641725812d78f61925ada560e}{%
+           family={Leicher},
+           familyi={L\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=aa06c0e35d3f3e2f0fa955ad0a594eef}{%
+           family={Meyerstein},
+           familyi={M\bibinitperiod},
+           given={Michael\bibnamedelima Victor},
+           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{37ff0186a8c0b5c24bef7b8ee2412d79}
+      \strng{fullhash}{3c3d1ccc26e7c6dfc1f5e1220f965bdb}
+      \strng{authornamehash}{37ff0186a8c0b5c24bef7b8ee2412d79}
+      \strng{authorfullhash}{3c3d1ccc26e7c6dfc1f5e1220f965bdb}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Vehicular Technology Magazine}
+      \field{number}{3}
+      \field{title}{Trust in M2M communication}
+      \field{volume}{4}
+      \field{year}{2009}
+      \field{pages}{69\bibrangedash 75}
+      \range{pages}{7}
+    \endentry
+    \entry{devandroifundamentals}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b07be1e88df1499bf2220d10639a3357}{%
+           family={developer},
+           familyi={d\bibinitperiod},
+           given={Android},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{fullhash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authornamehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authorfullhash}{b07be1e88df1499bf2220d10639a3357}
+      \field{sortinit}{d}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Application Fundamentals}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://developer.android.com/guide/components/fundamentals.html
+      \endverb
+    \endentry
+    \entry{devandroidintent}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b07be1e88df1499bf2220d10639a3357}{%
+           family={developer},
+           familyi={d\bibinitperiod},
+           given={Android},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{fullhash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authornamehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authorfullhash}{b07be1e88df1499bf2220d10639a3357}
+      \field{sortinit}{d}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Intents and Intent Filters}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://developer.android.com/guide/components/intents-filters.html#Types
+      \endverb
+    \endentry
+    \entry{devandroidactivity}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b07be1e88df1499bf2220d10639a3357}{%
+           family={developer},
+           familyi={d\bibinitperiod},
+           given={Android},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{fullhash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authornamehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authorfullhash}{b07be1e88df1499bf2220d10639a3357}
+      \field{sortinit}{d}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Intents and Intent Filters}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://developer.android.com/guide/components/activities/index.htmls
+      \endverb
+    \endentry
+    \entry{devandroiddash}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b07be1e88df1499bf2220d10639a3357}{%
+           family={developer},
+           familyi={d\bibinitperiod},
+           given={Android},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{fullhash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authornamehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authorfullhash}{b07be1e88df1499bf2220d10639a3357}
+      \field{sortinit}{d}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Platform Versions}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://developer.android.com/about/dashboards/index.html#Screens
+      \endverb
+    \endentry
+    \entry{elenkov2014android}{book}{}
+      \name{author}{1}{}{%
+        {{hash=124647a257f84eafc020f3b2c11205c1}{%
+           family={Elenkov},
+           familyi={E\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {No Starch Press}%
+      }
+      \strng{namehash}{124647a257f84eafc020f3b2c11205c1}
+      \strng{fullhash}{124647a257f84eafc020f3b2c11205c1}
+      \strng{authornamehash}{124647a257f84eafc020f3b2c11205c1}
+      \strng{authorfullhash}{124647a257f84eafc020f3b2c11205c1}
+      \field{sortinit}{E}
+      \field{sortinithash}{07bbd5a529b5beaa311df5be05b874bc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781593275815}
+      \field{title}{Android Security Internals: An In-Depth Guide to Android's Security Architecture}
+      \field{year}{2014}
+      \verb{url}
+      \verb https://books.google.it/books?id=y11NBQAAQBAJ
+      \endverb
+    \endentry
+    \entry{Jerome2009Principles}{book}{}
+      \name{author}{1}{}{%
+        {{hash=67377981d81ed512e4f3dbfd479e33d4}{%
+           family={Jerome\bibnamedelimb H.\bibnamedelimi Saltzer},
+           familyi={J\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={M.\bibnamedelimi Frans\bibnamedelima Kaashoek},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{67377981d81ed512e4f3dbfd479e33d4}
+      \strng{fullhash}{67377981d81ed512e4f3dbfd479e33d4}
+      \strng{authornamehash}{67377981d81ed512e4f3dbfd479e33d4}
+      \strng{authorfullhash}{67377981d81ed512e4f3dbfd479e33d4}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780123749574}
+      \field{title}{Principles of Computer System Design}
+      \field{year}{2009}
+    \endentry
+    \entry{hartman2006linux}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8edf24ea3e75c726f2c163493ab3e3c3}{%
+           family={Kroah-Hartman},
+           familyi={K\bibinithyphendelim H\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{fullhash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{authornamehash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{authorfullhash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linux Kernel in a Nutshell}
+      \field{year}{2006}
+      \field{pages}{3}
+      \range{pages}{1}
+    \endentry
+    \entry{lamport1978time}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5d77435450d10a850a5b58577b9a456b}{%
+           family={Lamport},
+           familyi={L\bibinitperiod},
+           given={Leslie},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {R. Stockton GainesEditor}%
+      }
+      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7bba64db83423e3c29ad597f3b682cf3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Time, Clocks, and the Ordering of Events in a Distributed System}
+      \field{year}{1978}
+    \endentry
+    \entry{verge2011android}{online}{}
+      \name{author}{1}{}{%
+        {{hash=315d97ef9abc271158b72ec6d671c78d}{%
+           family={Staff},
+           familyi={S\bibinitperiod},
+           given={Verge},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{315d97ef9abc271158b72ec6d671c78d}
+      \strng{fullhash}{315d97ef9abc271158b72ec6d671c78d}
+      \strng{authornamehash}{315d97ef9abc271158b72ec6d671c78d}
+      \strng{authorfullhash}{315d97ef9abc271158b72ec6d671c78d}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Android: A visual history}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://www.theverge.com/2011/12/7/2585779/android-history
+      \endverb
+    \endentry
+    \entry{tanenbaum2010distributed}{book}{}
+      \name{author}{2}{}{%
+        {{hash=475fc20325ef27087752520d6ff3f10d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={A.S.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=940fc5236e1bc3cbe161e070a037d3ec}{%
+           family={Van\bibnamedelima Steen},
+           familyi={V\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice-Hall Of India Pvt. Limited}%
+      }
+      \strng{namehash}{9cff29f4b7ed94d9e433c1f219b1d8ca}
+      \strng{fullhash}{9cff29f4b7ed94d9e433c1f219b1d8ca}
+      \strng{authornamehash}{9cff29f4b7ed94d9e433c1f219b1d8ca}
+      \strng{authorfullhash}{9cff29f4b7ed94d9e433c1f219b1d8ca}
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9788120334984}
+      \field{title}{Distributed Systems Principles And Paradigms 2Nd Ed.}
+      \field{year}{2010}
+      \verb{url}
+      \verb https://books.google.it/books?id=Fs4YrgEACAAJ
+      \endverb
+    \endentry
+    \entry{vogel2016android}{online}{}
+      \name{author}{1}{}{%
+        {{hash=f4613620d7a837540a63918891f1b7e3}{%
+           family={Vogel},
+           familyi={V\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{f4613620d7a837540a63918891f1b7e3}
+      \strng{fullhash}{f4613620d7a837540a63918891f1b7e3}
+      \strng{authornamehash}{f4613620d7a837540a63918891f1b7e3}
+      \strng{authorfullhash}{f4613620d7a837540a63918891f1b7e3}
+      \field{sortinit}{V}
+      \field{sortinithash}{555737dafdcf1396ebfeae5822e5bde2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Android development with Android Studio - Tutorial}
+      \field{urlday}{20}
+      \field{urlmonth}{6}
+      \field{urlyear}{2016}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://www.vogella.com/tutorials/Android/article.html
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

@@ -48,7 +48,7 @@ In the table below there is a brief description of the various distribution of t
 	%
 	\centering
 	%
-	\begin{tabular}{llll}
+	\begin{tabular}{lclc}
 		%
 		\toprule
 		%
@@ -96,7 +96,7 @@ In the table below there is a brief description of the various distribution of t
  ~\hfill~
  \begin{minipage}{0.5 \textwidth}
  	\centering
- 	\begin{tabular}{lll}
+ 	\begin{tabular}{ccc}
  		%
  		\toprule
  		%
@@ -258,6 +258,8 @@ There are many challenges in distributed systems field: distributed applications
 	fact, access to shared resources (information or services)
 	must be carefully synchronized.
 	\item Transparency level are listed in \tablename~\ref{tab:transparency}
+\end{itemize}
+
 	\begin{table}[h]
 		%
 		\caption{Transparency levels}
@@ -266,7 +268,7 @@ There are many challenges in distributed systems field: distributed applications
 		%
 		\centering
 		%
-		\begin{tabular}{ll}
+		\begin{tabular}{lp{0.75\textwidth}}
 			%
 			\toprule
 			%
@@ -288,29 +290,86 @@ There are many challenges in distributed systems field: distributed applications
 		\end{tabular}
 		%
 	\end{table}
-\end{itemize}
 
 \subsection{Comunication Model}
-\paragraph{Remote procedure call (RPC)}
-\paragraph{Remote method invocation (RMI)}
-\paragraph{Message oriented}
+\par
+There are, in distributed system literature, some well known techniques to let communicate machines, programs and components. Each of the methods described later exploits the network protocols by acting as a middleware: they use and mask lower layer protocols to provide ready to use communication services.
+
+\paragraph{Remote procedure call (RPC)} is a paradigm in which a client process invokes a remotely located procedure (a server process), the remote procedure executes and sends the response back to the client \cite{Jerome2009Principles}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{rpc}
+	\caption{RPC in detail}
+	\label{fig:2.10}
+\end{figure} 
+As described in \figurename~\ref{fig:2.10} RPC provides the localization of the code to be executed exploiting the network transport services, create a message which can be serialized and transferred over a standard network protocol and then provides methods to de-serialize the message and convert in into a standard local procedure call in the receiver machine. Very important in this mechanism is the concept of \textit{ILD} (Interface definition language) which raises the level of abstraction of the service by separating the interface from its implementation: in this way RPC can be language independent by generating automatic translations from IDL to target language.  
+\paragraph{Remote method invocation (RMI)} exploits the same idea of RPC but with different programming constructs: it is designed to let communicate object oriented (OO) programming languages.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{rmi}
+	\caption{RMI in detail}
+	\label{fig:2.11}
+\end{figure} 
+The \figurename~\ref{fig:2.11} shows in detail how RMI is supposed to work. Like RPC, RMI uses an IDL which is designed to support OO programming languages features such as inheritance and exception handling.
+\paragraph{Message oriented} communication is a style based and centered on the notion of simple messages and events.The most straightforward example of it is \textit{message passing}. Typically message passing is implemented directly on the network sublayers (eg. sockets). Message passing differs from conventional programming where a process, subroutine, or function is directly invoked by name. 
+\begin{table}[h]
+	%
+	\caption{Comparison between communication models}
+	%
+	\label{tab:comp}
+	%
+	\centering
+	%
+	\begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}}
+		%
+		\toprule
+		%
+		\textbf{RPC/RMI} & \textbf{Message Oriented} \\
+		%
+		\midrule
+		%
+		& \\
+	      \begin{minipage}[t]{0.45\textwidth}
+	     	\begin{itemize}
+	     		\item natural programming abstractions
+	     		\item point to point communication
+	     		\item designed for synchronous communication
+	     		\item high coupling between the caller and the callee
+	     	\end{itemize}
+	     \end{minipage} &  \begin{minipage}[t]{0.45\textwidth}
+	     \begin{itemize}
+	     	\item centered around the notion of message/event
+	     	\item multipoint support
+	     	\item usually asynchronous
+	     	\item high level of decoupling
+	     \end{itemize}
+     \end{minipage} \\
+  & \\
+		
+		%
+		\bottomrule
+		%
+	\end{tabular}
+	%
+\end{table}
+In \tablename~\ref{tab:comp} are shown the most significant differences between RPC/RMI approach and message communication models. Moreover there are some implementation of message passing at middleware layer like \textit{publish-subscribe} which is further explained in the following paragraph.
 
 \subsection{Architectures}
 \par
-There are actually many different kinds of distributed systems which can be classified in by means of their architecture composition.
+There are actually many different kinds of distributed systems which can be classified by means of their architecture composition.
 \paragraph{Client-Server} is the most common architecture in computer systems, there are many variants depending on the internal division of its components but it has a common separation of duties. Server side components are passive and wait for clients invocations.Client computers provide an interface to allow a computer user to request services of the server and to display the results it returns. Servers wait for requests to arrive from clients and then respond to them. Ideally, a server provides a standardized transparent interface to clients so that clients need not be aware of the specifics of the system (i.e., the hardware and software) that is providing the service. The communication adopted by these kind of systems is message oriented or through RPC.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{clientserver}
 	\caption{Client server architecture}
-	\label{fig:2.10}
+	\label{fig:2.12}
 \end{figure} 
 \paragraph{Peer-to-Peer (P2P)} is a fully distributed architecture which in contrast to client-server has not a centralized service provider. Peers are both clients and servers themselves, P2P promotes sharing of resources and services trough direct exchange between peers. Compared to a centralized client-server architecture a P2P net scales better and typically does not have a single point of failure. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{p2p}
 	\caption{P2P architecture}
-	\label{fig:2.11}
+	\label{fig:2.13}
 \end{figure} 
 \paragraph{REST style} Representational State Transfer (REST) is a style of architecture based on a set of principles that describe how networked resources are defined and addressed.An application or architecture considered RESTful or REST-style is characterized by:
 \begin{itemize}
@@ -321,17 +380,26 @@ There are actually many different kinds of distributed systems which can be clas
 
 
 
-\paragraph{Event based} is an architecture in which components collaborate by exchanging information about occurring events. In particular components in the net can \textit{pubblish} notifications about the events they observe or \textins{subscribe} to events they are interested to be notified about. This architecture can be fully distributed with all the same nodes or can have some semi-centralized nodes which are specialized in computing events or routing messages. Communication is, in this case, purely message based asynchronous and multicast. 
+\paragraph{Event based} is an architecture in which components collaborate by exchanging information about occurring events. In particular components in the net can \textit{publish} notifications about the events they observe or \textins{subscribe} to events they are interested to be notified about. This architecture can be fully distributed with all the same nodes or can have some semi-centralized nodes which are specialized in computing events or routing messages. Communication is, in this case, purely message based asynchronous and multicast. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{publishsubscribe}
 	\caption{Publish-subscribe architecture}
-	\label{fig:2.12}
+	\label{fig:2.14}
 \end{figure} 
 
-\subsection{Liquid Computation}
-\par 
-
+\section{Liquid computing}\label{liquid computing}
+\subsection{Definition}
+The term was coined for Apple's liquid computing feature and  refers to a style of workflow interaction of applications and computing services across multiple devices, such as computers, smartphones, and tablets.\\
+In a liquid computing approach, a person might work on a task on one device, then go to another device that detects the task in progress at the first device and offer to take over that task.
+In other terms liquid computation is a sort of what is called \textit{ubiquitous computing} which is a model of man-machine interaction in which information elaboration is integrated in everyday objects.
+\subsection{Examples}
+There are some implementation of this concept in mobile computer science, the most significant are:
+\begin{itemize}
+	\item Apple continuity, is a system, developed by Apple, with which a user can initiate a task on one device and end the task on another. For example it is possible to answer a call with a computer without using the phone.
+	\item Google chrome and Gmail, developed by Google, allow users to surf the web and to write email on every available device as if they were using a single device. By registering a Google account chrome can save the navigation history of the user and show it on any logged device. In the same way Gmail saves automatically emails and for example is possible to start writing an email on a desktop pc and then completing and sending that email on a smartphone.
+	\item Microsoft One Drive synch is a system, developed by microsoft to allow users to synchronize setting among their devices like desktops, notebook smartphones and so on.
+\end{itemize}
 
 
 

@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import it.polimi.molinaroli.liquidandroid.Logic.Client;
@@ -43,10 +44,13 @@ public class MainActivity extends AppCompatActivity {
         helper.initializeNsd();
         helper.registerService(server.getmLocalPort());
         Log.d("local port"," " + server.getmLocalPort());
-        helper.discoverServices();
         Log.d("activity","executed");
-        helper.discoverServices();
-
-
+        discover = (Button) findViewById(R.id.discover);
+        discover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helper.discoverServices();
+            }
+        });
     }
 }

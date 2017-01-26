@@ -36,14 +36,16 @@
 \contentsline {paragraph}{Peer-to-Peer (P2P)}{14}{section*.44}
 \contentsline {paragraph}{REST style}{15}{section*.46}
 \contentsline {paragraph}{Event based}{15}{section*.47}
-\contentsline {section}{\numberline {2.3}Liquid computing}{16}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Definition}{16}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Examples}{16}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.2.5}Naming}{16}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Liquid computing}{17}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Definition}{17}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Examples}{17}{subsection.2.3.2}
 \contentsline {chapter}{\numberline {3}Problem Analysis}{19}{chapter.3}
 \contentsline {section}{\numberline {3.1}Contextualization}{19}{section.3.1}
 \contentsline {section}{\numberline {3.2}Considered Devices}{20}{section.3.2}
 \contentsline {section}{\numberline {3.3}Definition}{20}{section.3.3}
-\contentsline {section}{\numberline {3.4}Constraints}{22}{section.3.4}
+\contentsline {section}{\numberline {3.4}Probelm scenarios}{22}{section.3.4}
+\contentsline {section}{\numberline {3.5}Constraints}{22}{section.3.5}
 \contentsline {chapter}{\numberline {4}Proposed Solution}{25}{chapter.4}
 \contentsline {section}{\numberline {4.1}Already developed solutions}{25}{section.4.1}
 \contentsline {section}{\numberline {4.2}Choice of the \textit {container}}{27}{section.4.2}

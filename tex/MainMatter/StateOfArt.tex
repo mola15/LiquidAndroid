@@ -2,7 +2,7 @@
 % !TEX encoding = UTF-8 Unicode
 % !TEX TS-program = pdflatex
 % !TEX root = ../Tesi.tex
-% !TEX spellcheck = it-IT
+% !TeX spellcheck = en_US
 % ------------------------------------------------------------------------ %
 %
 % ------------------------------------------------------------------------ %
@@ -386,11 +386,31 @@ There are actually many different kinds of distributed systems which can be clas
 	\includegraphics[width=0.8\textwidth]{publishsubscribe}
 	\caption{Publish-subscribe architecture}
 	\label{fig:2.14}
-\end{figure} 
+\end{figure} \\\\\\
+
+\subsection{Naming}
+%descrivere problemi di naming e 0 conf
+Naming is one of the major issues when building distributed systems, in fact, it is often impossible to know a priori, exactly the addresses and port services of all the components in a distributed network, especially when the system allows dynamic connections and disconnections. It is important therefore, to adopt a naming model or service, to automatize components discovery and connections, when running a distributed system. To understand how naming models e solvers work it is important to introduce some naming concepts in the distributed systems paradigm.\\
+In distributed systems names are used to identify a wide variety of resources such as computers, hosts, files, services as well as users. Names are usually accessed by an \textit{access point} which is a special entity characterized by an \textit{address}. Addresses are just special names which can be used by communications protocol to connect different machines. For this reason it is important to know access point addresses because otherwise it would be impossible to connect components. Dynamic systems let components change access points frequently, so having \textit{location-independent} names is much more convenient than known static addresses which can change during system execution. \textit{Identifiers} such that they never change during the lifetime of an entity, are unique, and can not be exchanged between different entities. In this way, using identifiers, it is possible to split the naming problem in two: mapping a name to the entity and then locating the entity itself.
+Naming schemes are the solution to the first problem, and the most used ones are:
+\begin{itemize}
+	\item \textit{Flat naming}, or unstructured, are simple identifiers represented by random strings of bits.An important property of such a name is that it does not contain any information whatsoever on how to locate the	access point of its associated entity \cite{tanenbaum2010distributed}.
+	\item \textit{Structured naming} are composed from simple, human-readable names, not only file naming,but also host naming on the Internet follow this approach,in fact, flat names are good for machines, but are generally not very convenient for humans to use \cite{tanenbaum2010distributed}.
+	\item \textit{Attribute based naming} is a way to describe an entity in terms of \textit{(attribute, value)}
+	pairs. Flat and structured names generally provide a unique and location-independent
+	way of referring to entities. Moreover, structured names have been partly
+	designed to provide a human-friendly way to name entities so that they can be
+	conveniently accessed. In most cases, it is assumed that the name refers to only a
+	single entity. However, location independence and human friendliness are not the
+	only criterion for naming entities \cite{tanenbaum2010distributed}. Using attribute based naming is possible to give more information about entities or services to be found.
+\end{itemize}
+The solution to the second problem is called \textit{name resolution}. Name resolution in the process of obtaining the address of a valid access point of an entity having its name. Name resolution services highly depends of the naming model adopted by a system.\\
+For sake of brevity here are not reported any detail of name resolution systems, but only basic naming notions to understand author's design choices in solving the thesis problem. 
+
 
 \section{Liquid computing}\label{liquid computing}
 \subsection{Definition}
-The term was coined for Apple's liquid computing feature and  refers to a style of workflow interaction of applications and computing services across multiple devices, such as computers, smartphones, and tablets.\\
+The term was coined for Apple's liquid computing feature and  refers to a style of work-flow interaction of applications and computing services across multiple devices, such as computers, smartphones, and tablets.\\
 In a liquid computing approach, a person might work on a task on one device, then go to another device that detects the task in progress at the first device and offer to take over that task.
 In other terms liquid computation is a sort of what is called \textit{ubiquitous computing} which is a model of man-machine interaction in which information elaboration is integrated in everyday objects.
 \subsection{Examples}
@@ -398,8 +418,9 @@ There are some implementation of this concept in mobile computer science, the mo
 \begin{itemize}
 	\item Apple continuity, is a system, developed by Apple, with which a user can initiate a task on one device and end the task on another. For example it is possible to answer a call with a computer without using the phone.
 	\item Google chrome and Gmail, developed by Google, allow users to surf the web and to write email on every available device as if they were using a single device. By registering a Google account chrome can save the navigation history of the user and show it on any logged device. In the same way Gmail saves automatically emails and for example is possible to start writing an email on a desktop pc and then completing and sending that email on a smartphone.
-	\item Microsoft One Drive synch is a system, developed by microsoft to allow users to synchronize setting among their devices like desktops, notebook smartphones and so on.
+	\item Microsoft One Drive sync is a system, developed by microsoft to allow users to synchronize file and settings among their devices like desktops, notebooks smartphones and so on.
 \end{itemize}
+
 
 
 

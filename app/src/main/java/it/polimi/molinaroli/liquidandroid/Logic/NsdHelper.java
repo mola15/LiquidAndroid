@@ -27,7 +27,7 @@ public class NsdHelper {
     NsdManager.ResolveListener mResolveListener;
     NsdManager.DiscoveryListener mDiscoveryListener;
     NsdManager.RegistrationListener mRegistrationListener;
-    public static final String SERVICE_TYPE = "_http._tcp.";
+    public static final String SERVICE_TYPE = "_liquid._tcp.";
     public static final String TAG = "NsdHelper";
     public String mServiceName = "Liquid";
     NsdServiceInfo mService;

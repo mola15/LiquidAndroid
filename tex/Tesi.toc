@@ -45,26 +45,12 @@
 \contentsline {section}{\numberline {3.2}Considered Devices}{20}{section.3.2}
 \contentsline {section}{\numberline {3.3}Definition}{20}{section.3.3}
 \contentsline {section}{\numberline {3.4}Probelm scenarios}{22}{section.3.4}
-\contentsline {section}{\numberline {3.5}Constraints}{22}{section.3.5}
-\contentsline {chapter}{\numberline {4}Proposed Solution}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Already developed solutions}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Choice of the \textit {container}}{27}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Web Service (WS)}{27}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}SOAP protocol}{29}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}REST paradigm}{33}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Comparison and choice}{37}{subsection.4.2.4}
-\contentsline {section}{\numberline {4.3}Structure definition}{38}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Available alternatives}{38}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}JSON}{39}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}JSON-LD}{40}{subsection.4.3.3}
-\contentsline {paragraph}{Linked Data and Semantic Web}{40}{section*.54}
-\contentsline {subsection}{\numberline {4.3.4}W3C proposal: pros and cons}{44}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Syntax of the solution}{45}{subsection.4.3.5}
-\contentsline {paragraph}{Context}{45}{section*.56}
-\contentsline {paragraph}{Smartspace}{45}{section*.57}
-\contentsline {chapter}{\numberline {5}Proof of Concept}{47}{chapter.5}
-\contentsline {section}{\numberline {5.1}Non-functional requirements}{47}{section.5.1}
-\contentsline {section}{\numberline {5.2}Package organization}{48}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{49}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{51}{chapter*.58}
-\contentsline {chapter}{Bibliography}{53}{section*.61}
+\contentsline {paragraph}{Background working middleware}{22}{section*.50}
+\contentsline {paragraph}{Development API}{23}{section*.53}
+\contentsline {paragraph}{Data management}{24}{section*.55}
+\contentsline {section}{\numberline {3.5}Constraints}{24}{section.3.5}
+\contentsline {chapter}{\numberline {4}Proposed Solution}{27}{chapter.4}
+\contentsline {chapter}{\numberline {5}Proof of Concept}{29}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{31}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{33}{chapter*.56}
+\contentsline {chapter}{Bibliography}{35}{section*.59}

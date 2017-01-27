@@ -2163,18 +2163,6 @@
     <bcf:citekey order="18">cha2009trust</bcf:citekey>
     <bcf:citekey order="19">bondi2000characteristics</bcf:citekey>
     <bcf:citekey order="20">lamport1978time</bcf:citekey>
-    <bcf:citekey order="21">applehomekitprotocol</bcf:citekey>
-    <bcf:citekey order="22">alonso2004web</bcf:citekey>
-    <bcf:citekey order="23">soap</bcf:citekey>
-    <bcf:citekey order="24">soapMessage</bcf:citekey>
-    <bcf:citekey order="25">curbera2002unraveling</bcf:citekey>
-    <bcf:citekey order="26">fielding2000representational</bcf:citekey>
-    <bcf:citekey order="27">pautasso2008restful</bcf:citekey>
-    <bcf:citekey order="28">jsondef</bcf:citekey>
-    <bcf:citekey order="29">bizer2009linked</bcf:citekey>
-    <bcf:citekey order="30">jsonlddraft</bcf:citekey>
-    <bcf:citekey order="31">w3cwot</bcf:citekey>
-    <bcf:citekey order="32">guinard2011web</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">

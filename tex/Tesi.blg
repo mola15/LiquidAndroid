@@ -1,15 +1,17 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'Tesi.blg'
-[41] biber-MSWIN64:303> INFO - === 
-[70] Biber.pm:359> INFO - Reading 'Tesi.bcf'
-[179] Biber.pm:832> INFO - Using all citekeys in bib section 0
-[196] Biber.pm:3670> INFO - Processing section 0
-[222] Biber.pm:3840> INFO - Looking for bibtex format file 'Bibliografia.bib' for section 0
-[227] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[234] bibtex.pm:1292> INFO - Found BibTeX data source 'Bibliografia.bib'
-[313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[314] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[314] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
-[314] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
-[329] bbl.pm:608> INFO - Writing 'Tesi.bbl' with encoding 'UTF-8'
-[333] bbl.pm:712> INFO - Output to Tesi.bbl
+[37] biber-MSWIN64:303> INFO - === 
+[67] Biber.pm:359> INFO - Reading 'Tesi.bcf'
+[174] Biber.pm:832> INFO - Using all citekeys in bib section 0
+[191] Biber.pm:3670> INFO - Processing section 0
+[216] Biber.pm:3840> INFO - Looking for bibtex format file 'Bibliografia.bib' for section 0
+[222] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[229] bibtex.pm:1292> INFO - Found BibTeX data source 'Bibliografia.bib'
+[279] Utils.pm:164> WARN - Name "Gosling, James; Joy, Bill; Steele, Guy L., Jr.; Bracha, Gilad" has too many commas: skipping name
+[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[328] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
+[328] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
+[350] bbl.pm:608> INFO - Writing 'Tesi.bbl' with encoding 'UTF-8'
+[354] bbl.pm:712> INFO - Output to Tesi.bbl
+[354] Biber.pm:109> INFO - WARNINGS: 1

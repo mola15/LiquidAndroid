@@ -303,7 +303,7 @@ There are, in distributed system literature, some well known techniques to let c
 	\label{fig:2.10}
 \end{figure} 
 As described in \figurename~\ref{fig:2.10} RPC provides the localization of the code to be executed exploiting the network transport services, create a message which can be serialized and transferred over a standard network protocol and then provides methods to de-serialize the message and convert in into a standard local procedure call in the receiver machine. Very important in this mechanism is the concept of \textit{ILD} (Interface definition language) which raises the level of abstraction of the service by separating the interface from its implementation: in this way RPC can be language independent by generating automatic translations from IDL to target language.  
-\paragraph{Remote method invocation (RMI)} exploits the same idea of RPC but with different programming constructs: it is designed to let communicate object oriented (OO) programming languages.
+\paragraph{Remote method invocation (RMI)} \label{RMI} exploits the same idea of RPC but with different programming constructs: it is designed to let communicate object oriented (OO) programming languages.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{rmi}
@@ -408,18 +408,67 @@ The solution to the second problem is called \textit{name resolution}. Name reso
 For sake of brevity here are not reported any detail of name resolution systems, but only basic naming notions to understand author's design choices in solving the thesis problem. 
 
 
-\section{Liquid computing}\label{liquid computing}
-\subsection{Definition}
+\section{Technical Background}\label{techback}
+This section has the aim to give to readers a useful technical background to understand the implemented and proposed solution in the following chapters.
+\subsection{Liquid Computing}\label{liquid computing}
 The term was coined for Apple's liquid computing feature and  refers to a style of work-flow interaction of applications and computing services across multiple devices, such as computers, smartphones, and tablets.\\
 In a liquid computing approach, a person might work on a task on one device, then go to another device that detects the task in progress at the first device and offer to take over that task.
 In other terms liquid computation is a sort of what is called \textit{ubiquitous computing} which is a model of man-machine interaction in which information elaboration is integrated in everyday objects.
-\subsection{Examples}
+\subsubsection{Examples}
 There are some implementation of this concept in mobile computer science, the most significant are:
 \begin{itemize}
 	\item Apple continuity, is a system, developed by Apple, with which a user can initiate a task on one device and end the task on another. For example it is possible to answer a call with a computer without using the phone.
 	\item Google chrome and Gmail, developed by Google, allow users to surf the web and to write email on every available device as if they were using a single device. By registering a Google account chrome can save the navigation history of the user and show it on any logged device. In the same way Gmail saves automatically emails and for example is possible to start writing an email on a desktop pc and then completing and sending that email on a smartphone.
 	\item Microsoft One Drive sync is a system, developed by microsoft to allow users to synchronize file and settings among their devices like desktops, notebooks smartphones and so on.
 \end{itemize}
+
+\subsection{Java network programming}
+Since the entire Android development API is written in Java, the whole implemented solution will be in Java code.\\ Java is a known general-purpose computer programming language that is concurrent, class-based, object-oriented \cite{gosling2005the}, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA) \cite{computer2002write}, meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.\\
+The \textit{Java Development Kit (JDK)} includes many utility libraries, useful to develop any kind of application, I want to focus attention on network programming libraries to be used when developing distributed system using Java code.
+There are, currently many different possibilities among which to choose to let Java software components communicate on the network, the most simple and common are \textit{Sockets} and \textit{Java RMI}.
+\paragraph{Sockets} are abstractions through which an application may send and receive data, in much the same way as an open file handle allows an application to read and write data to stable storage.
+A socket allows an application to plug in to the network and communicate with other applications that are plugged in to the same network. Information written to the socket by
+an application on one machine can be read by an application on a different machine and vice versa \cite{calvert2011tcp}.
+Different types of sockets correspond to different underlying protocol suites and different
+stacks of protocols within a suite.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{tcpip}
+	\caption{TCP/IP sockets}
+	\label{fig:2.15}
+\end{figure}
+In \figurename~\ref{fig:2.15} it is shown the working mechanism of a \textit{TCP/IP socket}: the application exploiting the socket communicate using the TCP transport layer and the IP networking layer. In this way it is possible to read/write packets knowing four variables: socket TCP port number and IP address for the sender and the receiver.\\
+Java provide a network library with which is very easy to implement a client/server simple application using TCP/IP sockets. The following snippet of code are provided to give a concrete Java client/server application using sockets.
+%modo per inserire codice java da file
+\lstinputlisting[language=Java , caption=DateServer example]{Codici/DateServer.java}
+\lstinputlisting[language=Java , caption=DateClient example]{Codici/DateClient.java}
+Comments in the example gives the full explanation of how simple client/server Java application using TCP sockets works.
+
+\paragraph{Java RMI} it is an implementation of \textit{Remote Method Invocation} previously discussed in \ref{RMI}. It represent the best alternative to sockets when building network applications. Java RMI is a complete middleware itself, in fact, it raises the level of abstraction of the network communication environment.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{JavaRMI}
+	\caption{Java RMI structure}
+	\label{fig:2.16}
+\end{figure}
+
+Remote method invocation allows applications to call object methods located remotely, sharing resources and processing load across systems. Unlike other systems for remote execution which require that only simple data types or defined structures be passed to and from methods, RMI allows any Java object type to be used - even if the client or server has never encountered it before. RMI allows both client and server to dynamically load new object types as required.
+\subsection{Zeroconf} Zero-configuration networking or \textit{Zerconf} is a set of technologies that automatically creates a usable computer network based on the TCP/IP Internet paradigm, when computers or network peripherals are interconnected. \\
+The aim of this technology is to let users easily connects to various local network services, without the need of configurations. The architecture of Zeroconf is built around simplicity. It should be as easy for an end users to connect a printer or locate streamed music as it is for him to turn on light bulb \cite{cheshire2006zero}.\\
+It is built on three core technologies: automatic assignment of numeric network addresses for networked devices, automatic distribution and resolution of computer hostnames, and automatic location of network services.\\
+
+\subsubsection{Service Discovery and Name Resolution}
+To the end user, the most important facet of Zeroconf is the ability to easily browse for available services in the network. With Zeroconf you browse for services, not for hardware \cite{cheshire2006zero}. Internet protocols use IP addresses for communications, but these are not really human-readable; IPv6 in particular uses very long strings of digits that are not easily entered manually. To address this issue, the internet has long used the Domain Name System (DNS), which allows human-readable names to be associated with IP addresses, and includes code for looking up these names from a hierarchical database system. Users type in common names, like wikipedia.org, which the computer's DNS software looks up in the remote DNS databases, translates to the proper IP address, and then hands off that address to the networking software for further communications \cite{marshall2011how}. Zeroconf deals with record, find and resolve network services like DNS systems do. It associates the service itself, providing its name and description when registering it, with the machine that provides it, knowing the IP and the used port. When there is the need of a connection the device that want to use the service, automatically, by finding it with Zerconf, knows connection variables , resolved by the protocol.
+\subsubsection{Implementations}
+Zeroconf is paradigm and its component can be implemented in many ways and using different technologies, therefore there are many different names to indicate services which provide Zeroconf functionalities.
+\paragraph{Apple Bonjour} is one of the first implementations of the Zeroconf technology, it is an Apple trademark and its registered name is Rendezvous. Bonjour, also known as zero-configuration networking, enables automatic discovery of devices and services on a local network using industry standard IP protocols. Bonjour makes it easy to discover, publish, and resolve network services with a sophisticated, yet easy-to-use, programming interface that is accessible from Cocoa, Ruby, Python, and other languages \cite{apple2017bonjour}.
+
+\paragraph{jmDNS} is a Java implementation of multi-cast DNS and can be used for service registration and discovery in local area networks. JmDNS library is fully compatible with Apple's Bonjour.Java as a language is not appropriate for low-level network configuration, but it is very useful for service registration and discovery. JmDNS provides easy-to-use pure-Java mDNS implementation that runs on most JDK1.6 compatible VMs \cite{sourceforge2011jmdns}.
+
+\paragraph{Android NSD} implements the DNS-based Service Discovery (DNS-SD) mechanism, which allows your applications to request services by specifying a type of service and the name of a device instance that provides the desired type of service. DNS-SD is supported both on Android and on other mobile platforms.\\
+Adding NSD to your Android applications allows users to identify other devices on the local network that support the services the app requests. This is useful for a variety of peer-to-peer applications such as file sharing or multi-player gaming. Android's NSD APIs simplify the effort required for the implementation of such features \cite{devandroidnsd}.
+
+
 
 
 

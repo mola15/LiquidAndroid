@@ -2160,9 +2160,18 @@
     <bcf:citekey order="15">tanenbaum2010distributed</bcf:citekey>
     <bcf:citekey order="16">tanenbaum2010distributed</bcf:citekey>
     <bcf:citekey order="17">tanenbaum2010distributed</bcf:citekey>
-    <bcf:citekey order="18">cha2009trust</bcf:citekey>
-    <bcf:citekey order="19">bondi2000characteristics</bcf:citekey>
-    <bcf:citekey order="20">lamport1978time</bcf:citekey>
+    <bcf:citekey order="18">gosling2005the</bcf:citekey>
+    <bcf:citekey order="19">computer2002write</bcf:citekey>
+    <bcf:citekey order="20">calvert2011tcp</bcf:citekey>
+    <bcf:citekey order="21">cheshire2006zero</bcf:citekey>
+    <bcf:citekey order="22">cheshire2006zero</bcf:citekey>
+    <bcf:citekey order="23">marshall2011how</bcf:citekey>
+    <bcf:citekey order="24">apple2017bonjour</bcf:citekey>
+    <bcf:citekey order="25">sourceforge2011jmdns</bcf:citekey>
+    <bcf:citekey order="26">devandroidnsd</bcf:citekey>
+    <bcf:citekey order="27">cha2009trust</bcf:citekey>
+    <bcf:citekey order="28">bondi2000characteristics</bcf:citekey>
+    <bcf:citekey order="29">lamport1978time</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">

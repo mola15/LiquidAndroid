@@ -62,6 +62,68 @@
       \field{title}{Characteristics of scalability and their impact on performance}
       \field{year}{2000}
     \endentry
+    \entry{marshall2011how}{online}{}
+      \name{author}{2}{}{%
+        {{hash=7ff305be41b4cc544e1d6d71489bca41}{%
+           family={Brain},
+           familyi={B\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8023531d928228485657603c286b8ffb}{%
+           family={Crawford},
+           familyi={C\bibinitperiod},
+           given={Stephanie},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {howstuffworks}%
+      }
+      \strng{namehash}{78469c2148698e0e13434e94f9c1b822}
+      \strng{fullhash}{78469c2148698e0e13434e94f9c1b822}
+      \strng{authornamehash}{78469c2148698e0e13434e94f9c1b822}
+      \strng{authorfullhash}{78469c2148698e0e13434e94f9c1b822}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How Domain Name Servers Work}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://computer.howstuffworks.com/dns.htm
+      \endverb
+    \endentry
+    \entry{calvert2011tcp}{book}{}
+      \name{author}{2}{}{%
+        {{hash=d946a35d2a6541f928b5bbf1858e7244}{%
+           family={Calvert},
+           familyi={C\bibinitperiod},
+           given={K.L.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=819deb0f82b37dff24d88f055fcb8ff4}{%
+           family={Donahoo},
+           familyi={D\bibinitperiod},
+           given={M.J.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Science}%
+      }
+      \strng{namehash}{9e2e03557295b543fd382dca4bc0ac4b}
+      \strng{fullhash}{9e2e03557295b543fd382dca4bc0ac4b}
+      \strng{authornamehash}{9e2e03557295b543fd382dca4bc0ac4b}
+      \strng{authorfullhash}{9e2e03557295b543fd382dca4bc0ac4b}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780080568782}
+      \field{series}{The Practical Guides}
+      \field{title}{TCP/IP Sockets in Java: Practical Guide for Programmers}
+      \field{year}{2011}
+      \verb{url}
+      \verb https://books.google.it/books?id=lfHo7uMk7r4C
+      \endverb
+    \endentry
     \entry{cha2009trust}{article}{}
       \name{author}{5}{}{%
         {{hash=d1b8c58cb2b35437abf3fe1b94b18535}{%
@@ -108,6 +170,38 @@
       \field{year}{2009}
       \field{pages}{69\bibrangedash 75}
       \range{pages}{7}
+    \endentry
+    \entry{cheshire2006zero}{book}{}
+      \name{author}{2}{}{%
+        {{hash=eaaf521f775a97a919694a4f3e5e95af}{%
+           family={Cheshire},
+           familyi={C\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=56574f53a83f932790bfe455dfa957df}{%
+           family={Steinberg},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{94483cf8ae9ee2b5e647699516aa1b2d}
+      \strng{fullhash}{94483cf8ae9ee2b5e647699516aa1b2d}
+      \strng{authornamehash}{94483cf8ae9ee2b5e647699516aa1b2d}
+      \strng{authorfullhash}{94483cf8ae9ee2b5e647699516aa1b2d}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780596101008}
+      \field{series}{Definitive Guide Series}
+      \field{title}{Zero Configuration Networking: The Definitive Guide}
+      \field{year}{2006}
+      \verb{url}
+      \verb https://books.google.it/books?id=--R3jxPwQhUC
+      \endverb
     \endentry
     \entry{devandroifundamentals}{online}{}
       \name{author}{1}{}{%
@@ -195,6 +289,50 @@
       \field{year}{2017}
       \verb{url}
       \verb https://developer.android.com/about/dashboards/index.html#Screens
+      \endverb
+    \endentry
+    \entry{devandroidnsd}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b07be1e88df1499bf2220d10639a3357}{%
+           family={developer},
+           familyi={d\bibinitperiod},
+           given={Android},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{fullhash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authornamehash}{b07be1e88df1499bf2220d10639a3357}
+      \strng{authorfullhash}{b07be1e88df1499bf2220d10639a3357}
+      \field{sortinit}{d}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Using Network Service Discovery}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://developer.android.com/training/connect-devices-wirelessly/nsd.html#teardown
+      \endverb
+    \endentry
+    \entry{apple2017bonjour}{online}{}
+      \name{author}{1}{}{%
+        {{hash=95acf53412dc48ec5d7eaa7bfad0f8aa}{%
+           family={developer},
+           familyi={d\bibinitperiod},
+           given={Apple},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{95acf53412dc48ec5d7eaa7bfad0f8aa}
+      \strng{fullhash}{95acf53412dc48ec5d7eaa7bfad0f8aa}
+      \strng{authornamehash}{95acf53412dc48ec5d7eaa7bfad0f8aa}
+      \strng{authorfullhash}{95acf53412dc48ec5d7eaa7bfad0f8aa}
+      \field{sortinit}{d}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bonjour for Developers}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://developer.apple.com/bonjour/
       \endverb
     \endentry
     \entry{elenkov2014android}{book}{}
@@ -292,6 +430,26 @@
       \field{title}{Time, Clocks, and the Ordering of Events in a Distributed System}
       \field{year}{1978}
     \endentry
+    \entry{sourceforge2011jmdns}{online}{}
+      \name{author}{1}{}{%
+        {{hash=bfafdc26b8a828ce09a1d4b844644c3d}{%
+           family={sourceforge},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{bfafdc26b8a828ce09a1d4b844644c3d}
+      \strng{fullhash}{bfafdc26b8a828ce09a1d4b844644c3d}
+      \strng{authornamehash}{bfafdc26b8a828ce09a1d4b844644c3d}
+      \strng{authorfullhash}{bfafdc26b8a828ce09a1d4b844644c3d}
+      \field{sortinit}{s}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{jmDNS}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://jmdns.sourceforge.net/
+      \endverb
+    \endentry
     \entry{verge2011android}{online}{}
       \name{author}{1}{}{%
         {{hash=315d97ef9abc271158b72ec6d671c78d}{%
@@ -345,6 +503,18 @@
       \verb https://books.google.it/books?id=Fs4YrgEACAAJ
       \endverb
     \endentry
+    \entry{gosling2005the}{book}{}
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \field{sortinit}{T}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0321246780}
+      \field{title}{The Java® Language Specification}
+      \field{year}{2005}
+      \warn{\item Name "Gosling, James; Joy, Bill; Steele, Guy L., Jr.; Bracha, Gilad" has too many commas: skipping name}
+    \endentry
     \entry{vogel2016android}{online}{}
       \name{author}{1}{}{%
         {{hash=f4613620d7a837540a63918891f1b7e3}{%
@@ -369,6 +539,28 @@
       \field{urldateera}{ce}
       \verb{url}
       \verb http://www.vogella.com/tutorials/Android/article.html
+      \endverb
+    \endentry
+    \entry{computer2002write}{online}{}
+      \name{author}{1}{}{%
+        {{hash=2c666cc2e067904bdc4ce22706ac5da8}{%
+           family={Weekly},
+           familyi={W\bibinitperiod},
+           given={Computer},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{2c666cc2e067904bdc4ce22706ac5da8}
+      \strng{fullhash}{2c666cc2e067904bdc4ce22706ac5da8}
+      \strng{authornamehash}{2c666cc2e067904bdc4ce22706ac5da8}
+      \strng{authorfullhash}{2c666cc2e067904bdc4ce22706ac5da8}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Write once, run anywhere?}
+      \field{year}{2002}
+      \verb{url}
+      \verb http://www.computerweekly.com/feature/Write-once-run-anywhere
       \endverb
     \endentry
   \endsortlist

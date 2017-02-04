@@ -39,6 +39,26 @@
       \verb https://source.android.com/security/selinux/
       \endverb
     \endentry
+    \entry{boinc2017open}{online}{}
+      \name{author}{1}{}{%
+        {{hash=fb3db62b519784f57f21320eed15615a}{%
+           family={BOINC},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{fb3db62b519784f57f21320eed15615a}
+      \strng{fullhash}{fb3db62b519784f57f21320eed15615a}
+      \strng{authornamehash}{fb3db62b519784f57f21320eed15615a}
+      \strng{authorfullhash}{fb3db62b519784f57f21320eed15615a}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Open-source software for volunteer computing}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://boinc.berkeley.edu/
+      \endverb
+    \endentry
     \entry{bondi2000characteristics}{book}{}
       \name{author}{1}{}{%
         {{hash=7050168bf92df675e289983578c51928}{%
@@ -359,6 +379,26 @@
       \field{year}{2014}
       \verb{url}
       \verb https://books.google.it/books?id=y11NBQAAQBAJ
+      \endverb
+    \endentry
+    \entry{htc2017power}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ff19d093d1e27a131db9ac3154273e14}{%
+           family={HTC},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff19d093d1e27a131db9ac3154273e14}
+      \strng{fullhash}{ff19d093d1e27a131db9ac3154273e14}
+      \strng{authornamehash}{ff19d093d1e27a131db9ac3154273e14}
+      \strng{authorfullhash}{ff19d093d1e27a131db9ac3154273e14}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{PLUG IN. BE A PART OF THE FUTURE.}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://www.htc.com/us/go/power-to-give/
       \endverb
     \endentry
     \entry{Jerome2009Principles}{book}{}

@@ -2172,6 +2172,8 @@
     <bcf:citekey order="27">cha2009trust</bcf:citekey>
     <bcf:citekey order="28">bondi2000characteristics</bcf:citekey>
     <bcf:citekey order="29">lamport1978time</bcf:citekey>
+    <bcf:citekey order="30">boinc2017open</bcf:citekey>
+    <bcf:citekey order="31">htc2017power</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">

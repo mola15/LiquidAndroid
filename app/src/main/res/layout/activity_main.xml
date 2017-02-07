@@ -8,30 +8,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="it.polimi.molinaroli.liquidandroid.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
+    tools:context="it.polimi.molinaroli.liquidandroid.MainActivity"
+    android:orientation="vertical">
 
     <Button
-    android:text="register"
+    android:text="display"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="62dp"
-    android:id="@+id/register"
-    android:layout_below="@+id/textView"
-    android:layout_centerHorizontal="true" />
+    android:id="@+id/display" />
     <Button
         android:text="discover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
-        android:id="@+id/discover"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/discover" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/servicelist">
+    </ListView>
 
 
 

@@ -21,6 +21,8 @@ import android.net.nsd.NsdServiceInfo;
 import android.net.nsd.NsdManager;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class NsdHelper {
     Context mContext;
     NsdManager mNsdManager;
@@ -32,9 +34,11 @@ public class NsdHelper {
     public String mServiceName = "Liquid";
     NsdServiceInfo mService;
     String registeredName;
+    private ArrayList<NsdServiceInfo> services;
     public NsdHelper(Context context) {
         mContext = context;
         mNsdManager = (NsdManager) context.getSystemService(Context.NSD_SERVICE);
+        services = new ArrayList<>();
     }
     public void initializeNsd() {
         initializeResolveListener();
@@ -86,12 +90,25 @@ public class NsdHelper {
             }
             @Override
             public void onServiceResolved(NsdServiceInfo serviceInfo) {
+                boolean present = false;
                 Log.e(TAG, "Resolve Succeeded. " + serviceInfo);
-                if (serviceInfo.getServiceName().equals(mServiceName)) {
+                if (serviceInfo.getServiceName().equals(registeredName)) {
                     Log.d(TAG, "Same IP.");
                     return;
                 }
                 mService = serviceInfo;
+                //quando ne trovo uno lo aggiungo all array
+                present = false;
+                for(NsdServiceInfo s : services){
+                    if(s.getServiceName().equals(serviceInfo.getServiceName())){
+                        present = true;
+                        break;
+                    }
+                }
+                if (!present) {
+                getServices().add(serviceInfo);}
+                //qui ho risolto i servizi devo fare il display
+                //setto l'adapter
             }
         };
     }
@@ -152,5 +169,13 @@ public class NsdHelper {
             }
             mRegistrationListener = null;
         }
+    }
+
+    public ArrayList<NsdServiceInfo> getServices() {
+        return services;
+    }
+
+    public void setServices(ArrayList<NsdServiceInfo> services) {
+        this.services = services;
     }
 }

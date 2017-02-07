@@ -127,6 +127,7 @@ public class Server {
                     //esegue quello che deve eseguire
                     //possibile caso di uscita
                     //metodo per scrivere sul buffer in uscita (scrive sul client)
+                    Log.i("server client mess:", str);
                     out.println(str);
                 }
                //cose da farlgi fare in uscita

@@ -1,9 +1,14 @@
 package it.polimi.molinaroli.liquidandroid;
 
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.net.nsd.NsdServiceInfo;
 import android.os.AsyncTask;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,22 +32,45 @@ import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
-    Server server;
     Client client;
     Context c;
     Button discover;
     Button display;
+    Button start;
     NsdHelper helper;
     ListView serviceList;
+    BroadcastReceiver receiver;
+
+    LiquidAndroidService mService;
+    boolean mBound = false;
+
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            LiquidAndroidService.LocalBinder binder = (LiquidAndroidService.LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Intent myIntent = new Intent(this, LiquidAndroidService.class);
-        //startService(myIntent);
-        c = this;
+
+        /*
+
         server = new Server(c);
         new Thread(new Runnable() {
             public void run() {
@@ -51,50 +79,124 @@ public class MainActivity extends AppCompatActivity {
                 server.startServer();
             }
         }).start();
-
-        helper = new NsdHelper(c);
-        helper.initializeNsd();
-        helper.registerService(server.getmLocalPort());
-        Log.d("local port"," " + server.getmLocalPort());
-        Log.d("activity","executed");
-        serviceList = (ListView) findViewById(R.id.servicelist);
-        discover = (Button) findViewById(R.id.discover);
-        discover.setOnClickListener(new View.OnClickListener() {
+*/
+        /*
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("PORT");
+        receiver = new BroadcastReceiver() {
             @Override
-            public void onClick(View v) {
-                helper.discoverServices();
-                // faccio il display anche se non so se li ho risolti
+            public void onReceive(Context context, Intent intent) {
+                //do something based on the intent's action
+                //QUANDO RICEVO LA PORTA REGISTRO TUTTO E CONTINUO
+                helper = new NsdHelper(c);
+                helper.initializeNsd();
+                Log.d("local port"," " + intent.getIntExtra("port",0));
+                helper.registerService(intent.getIntExtra("port",0));
+                Log.d("activity","executed");
 
-            }
-        });
-
-        display = (Button) findViewById(R.id.display);
-        display.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                helper.stopDiscovery();
-                // faccio il display anche se non so se li ho risolti
-                final CustomAdapter adapter = new CustomAdapter(c, R.layout.serviceitem, helper.getServices());
-                serviceList.setAdapter(adapter);
-                serviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                serviceList = (ListView) findViewById(R.id.servicelist);
+                discover = (Button) findViewById(R.id.discover);
+                discover.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        final NsdServiceInfo s = (NsdServiceInfo) adapter.getItem(position);
-                        // quando ci clicco su lancio il client per parlare col server
-
-                        new Thread(new Runnable() {
-                            public void run() {
-
-                                Log.d("Activiry","starting client");
-                                Client c = new Client(s.getHost(),s.getPort());
-                            }
-                        }).start();
+                    public void onClick(View v) {
+                        helper.discoverServices();
+                        // faccio il display anche se non so se li ho risolti
 
                     }
                 });
-                Log.d("Activity","" + helper.getServices().size());
+                display = (Button) findViewById(R.id.display);
+                display.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        helper.stopDiscovery();
+                        // faccio il display anche se non so se li ho risolti
+                        final CustomAdapter adapter = new CustomAdapter(c, R.layout.serviceitem, helper.getServices());
+                        serviceList.setAdapter(adapter);
+                        serviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                final NsdServiceInfo s = (NsdServiceInfo) adapter.getItem(position);
+                                // quando ci clicco su lancio il client per parlare col server
+
+                                new Thread(new Runnable() {
+                                    public void run() {
+
+                                        Log.d("Activiry","starting client");
+                                        Client c = new Client(s.getHost(),s.getPort());
+                                    }
+                                }).start();
+
+                            }
+                        });
+                        Log.d("Activity","" + helper.getServices().size());
+                    }
+                });
+            }
+        };
+        registerReceiver(receiver, filter);
+        */
+    }
+
+    @Override
+    protected void onStart() {
+        Intent intent = new Intent(this, LiquidAndroidService.class);
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+        Log.d("bound","" + mBound);
+        c = this;
+        start = (Button) findViewById(R.id.startservice) ;
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getApplicationContext(), LiquidAndroidService.class);
+                startService(myIntent);
             }
         });
+
+            serviceList = (ListView) findViewById(R.id.servicelist);
+            discover = (Button) findViewById(R.id.discover);
+            discover.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mBound) {
+                        helper = mService.getHelper();
+                        helper.discoverServices();
+                        // faccio il display anche se non so se li ho risolti
+                    }
+                }
+            });
+            display = (Button) findViewById(R.id.display);
+            display.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mBound){
+                    helper = mService.getHelper();
+                    helper.stopDiscovery();
+                    // faccio il display anche se non so se li ho risolti
+                    final CustomAdapter adapter = new CustomAdapter(c, R.layout.serviceitem, helper.getServices());
+                    serviceList.setAdapter(adapter);
+                    serviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            final NsdServiceInfo s = (NsdServiceInfo) adapter.getItem(position);
+                            // quando ci clicco su lancio il client per parlare col server
+
+                            new Thread(new Runnable() {
+                                public void run() {
+
+                                    Log.d("Activity", "starting client");
+                                    Client c = new Client(s.getHost(), s.getPort());
+                                }
+                            }).start();
+
+                        }
+                    });
+                    Log.d("Activity", "" + helper.getServices().size());
+                }}
+
+            });
+
+        super.onStart();
+
     }
 
     //innerclass adapter
@@ -118,9 +220,30 @@ public class MainActivity extends AppCompatActivity {
             nome.setText(c.getServiceName());
             port.setText("" + c.getPort());
             ip.setText(c.getHost().toString());
-
             return convertView;
         }
 
     }
+
+    @Override
+    protected void onDestroy() {
+        /*
+        if (receiver != null) {
+            unregisterReceiver(receiver);
+            receiver = null;
+        }
+        */
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Unbind from the service
+        if (mBound) {
+            unbindService(mConnection);
+            mBound = false;
+        }
+    }
+
 }

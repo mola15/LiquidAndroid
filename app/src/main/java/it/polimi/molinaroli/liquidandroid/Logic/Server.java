@@ -22,11 +22,9 @@ public class Server {
     private int mLocalPort;
     private ArrayList<Socket> clients;
     private NsdHelper helper;
-    private Context c;
 
 
-    public Server(Context c){
-        this.c = c;
+    public Server(){
         try {
             initializeServerSocket();
         } catch (IOException e) {

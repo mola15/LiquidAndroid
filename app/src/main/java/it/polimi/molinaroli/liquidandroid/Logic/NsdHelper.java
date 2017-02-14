@@ -24,6 +24,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class NsdHelper {
+    private int init;
     Context mContext;
     NsdManager mNsdManager;
     NsdManager.ResolveListener mResolveListener;
@@ -39,10 +40,12 @@ public class NsdHelper {
         mContext = context;
         mNsdManager = (NsdManager) context.getSystemService(Context.NSD_SERVICE);
         services = new ArrayList<>();
+        setInit(2);
     }
     public void initializeNsd() {
         initializeResolveListener();
         //mNsdManager.init(mContext.getMainLooper(), this);
+        setInit(2);
     }
     public void initializeDiscoveryListener() {
         mDiscoveryListener = new NsdManager.DiscoveryListener() {
@@ -177,5 +180,13 @@ public class NsdHelper {
 
     public void setServices(ArrayList<NsdServiceInfo> services) {
         this.services = services;
+    }
+
+    public int getInit() {
+        return init;
+    }
+
+    public void setInit(int init) {
+        this.init = init;
     }
 }

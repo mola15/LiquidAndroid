@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     Button start;
     NsdHelper helper;
     ListView serviceList;
-    BroadcastReceiver receiver;
 
     LiquidAndroidService mService;
     boolean mBound = false;
@@ -53,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
             // We've bound to LocalService, cast the IBinder and get LocalService instance
             LiquidAndroidService.LocalBinder binder = (LiquidAndroidService.LocalBinder) service;
             mService = binder.getService();
+            Log.d("Activity","service connected");
             mBound = true;
         }
 
         @Override
         public void onServiceDisconnected(ComponentName arg0) {
+            Log.d("Activity","service disconnected");
             mBound = false;
         }
     };
@@ -65,90 +66,40 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if(getIntent().getAction().equals("OPEN")){
+            //qui è stato avviato dalla notifica e quindi sicuramente il service sta andando
+            final Intent intent = new Intent(this, LiquidAndroidService.class);
+            bindService(intent, mConnection, 0);
+            Log.d("bound", "" + mBound);
+            Log.d("helperinit",""+mService.getHelper().getInit());
+        } else{
+            Intent stop = new Intent(this,LiquidAndroidService.class);
+            stopService(stop);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        /*
-
-        server = new Server(c);
-        new Thread(new Runnable() {
-            public void run() {
-
-                Log.d("service","starting server");
-                server.startServer();
-            }
-        }).start();
-*/
-        /*
-        IntentFilter filter = new IntentFilter();
-        filter.addAction("PORT");
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                //do something based on the intent's action
-                //QUANDO RICEVO LA PORTA REGISTRO TUTTO E CONTINUO
-                helper = new NsdHelper(c);
-                helper.initializeNsd();
-                Log.d("local port"," " + intent.getIntExtra("port",0));
-                helper.registerService(intent.getIntExtra("port",0));
-                Log.d("activity","executed");
-
-                serviceList = (ListView) findViewById(R.id.servicelist);
-                discover = (Button) findViewById(R.id.discover);
-                discover.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        helper.discoverServices();
-                        // faccio il display anche se non so se li ho risolti
-
-                    }
-                });
-                display = (Button) findViewById(R.id.display);
-                display.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        helper.stopDiscovery();
-                        // faccio il display anche se non so se li ho risolti
-                        final CustomAdapter adapter = new CustomAdapter(c, R.layout.serviceitem, helper.getServices());
-                        serviceList.setAdapter(adapter);
-                        serviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                final NsdServiceInfo s = (NsdServiceInfo) adapter.getItem(position);
-                                // quando ci clicco su lancio il client per parlare col server
-
-                                new Thread(new Runnable() {
-                                    public void run() {
-
-                                        Log.d("Activiry","starting client");
-                                        Client c = new Client(s.getHost(),s.getPort());
-                                    }
-                                }).start();
-
-                            }
-                        });
-                        Log.d("Activity","" + helper.getServices().size());
-                    }
-                });
-            }
-        };
-        registerReceiver(receiver, filter);
-        */
     }
 
     @Override
     protected void onStart() {
-        Intent intent = new Intent(this, LiquidAndroidService.class);
-        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-        Log.d("bound","" + mBound);
+
+
+        final Intent intent = new Intent(this, LiquidAndroidService.class);
+
+
         c = this;
         start = (Button) findViewById(R.id.startservice) ;
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(getApplicationContext(), LiquidAndroidService.class);
-                startService(myIntent);
+                Log.d("bindstate",""+ mBound);
+                if(!mBound) {
+                    Intent myIntent = new Intent(getApplicationContext(), LiquidAndroidService.class);
+                    startService(myIntent);
+                    bindService(intent, mConnection, 0);
+                    Log.d("bound", "" + mBound);
+                }
             }
         });
 
@@ -157,8 +108,11 @@ public class MainActivity extends AppCompatActivity {
             discover.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.d("bindstate",""+ mBound);
                     if(mBound) {
                         helper = mService.getHelper();
+                        //reinizializzo il vettore di servizi
+                        helper.setServices(new ArrayList<NsdServiceInfo>());
                         helper.discoverServices();
                         // faccio il display anche se non so se li ho risolti
                     }
@@ -168,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
             display.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.d("bindstate",""+ mBound);
                     if(mBound){
                     helper = mService.getHelper();
                     helper.stopDiscovery();
@@ -184,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void run() {
 
                                     Log.d("Activity", "starting client");
-                                    Client c = new Client(s.getHost(), s.getPort());
+                                    Client client = new Client(s.getHost(), s.getPort(),c,0);
                                 }
                             }).start();
 
@@ -238,12 +193,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        super.onStop();
         // Unbind from the service
         if (mBound) {
             unbindService(mConnection);
             mBound = false;
         }
+        super.onStop();
     }
 
 }

@@ -1,6 +1,8 @@
 package it.polimi.molinaroli.liquidandroid.Logic;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -13,6 +15,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import it.polimi.molinaroli.liquidandroid.ResultActivity;
+
 /**
  * The server creates the sockets and waits for messages form the clients,
  * handles the request and responds.
@@ -21,10 +25,10 @@ public class Server {
     private ServerSocket mServerSocket;
     private int mLocalPort;
     private ArrayList<Socket> clients;
-    private NsdHelper helper;
+    private Context context;
 
-
-    public Server(){
+    public Server(Context c){
+        this.context = c;
         try {
             initializeServerSocket();
         } catch (IOException e) {
@@ -117,17 +121,42 @@ public class Server {
             Log.d("Server","ServerThread started" + s.toString());
         }
         public void run() {
+            Context c = context;
             try {
                 while (true) {
                     //legge dal buffer in ingresso (legge dal client)
                     String str = in.readLine();
+                    Log.d("Server",str);
                     if (str.equals("END")) break;
                     //esegue quello che deve eseguire
                     //possibile caso di uscita
                     //metodo per scrivere sul buffer in uscita (scrive sul client)
                     Log.i("server client mess:", str);
+                    Log.d("Server","building intent");
+
+                    // Create the text message with a string
+                    /* PROVA APERTURA BROWSER
+                    Intent viewIntent = new Intent();
+                    viewIntent.setAction(Intent.ACTION_VIEW);
+                    viewIntent.setData(Uri.parse(str));
+                    viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    // Verify that the intent will resolve to an activity
+                    if (viewIntent.resolveActivity(c.getPackageManager()) != null) {
+                        c.startActivity(viewIntent);
+                    } else{
+                        Log.d("server","ramo else");
+                    }
                     out.println(str);
+                     END PROVA APERTURA BROWSER */
+                    Intent cIntent = new Intent(c, ResultActivity.class);
+                    cIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    cIntent.putExtra("INDIRIZZO",socket.getInetAddress().toString());
+                    cIntent.putExtra("PORTA",socket.getPort());
+                    c.startActivity(cIntent);
+                    out.println("presa in carico");
+
                 }
+
                //cose da farlgi fare in uscita
                 Log.d("Server","ServerThread closing...");
             } catch (IOException e) {}
@@ -136,4 +165,12 @@ public class Server {
             } catch(IOException e) {}
         }
     } // ServerThread
+
+    public void stopServer(){
+        try {
+            mServerSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

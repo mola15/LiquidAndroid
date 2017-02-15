@@ -46,7 +46,6 @@ public class Client {
         } catch (IOException e) {
             Log.d("Client","socket non creata");
         }
-        Log.e("Client","socket non creata");
         // Se la creazione della socket fallisce non è necessario fare nulla
         try {
             //entro qui quando è connesso alla socket

@@ -31,7 +31,7 @@ import it.polimi.molinaroli.liquidandroid.Logic.Server;
 import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
-
+    int myServerPort;
     Client client;
     Context c;
     Button discover;
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             mService = binder.getService();
             Log.d("Activity","service connected");
             mBound = true;
+            myServerPort = mService.getPort();
         }
 
         @Override
@@ -139,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void run() {
 
                                     Log.d("Activity", "starting client");
-                                    Client client = new Client(s.getHost(), s.getPort(),c,0);
+                                    Client client = new Client(s.getHost(), s.getPort(),c,myServerPort);
                                 }
                             }).start();
 

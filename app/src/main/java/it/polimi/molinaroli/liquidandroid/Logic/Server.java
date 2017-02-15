@@ -7,7 +7,9 @@ import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -127,14 +129,35 @@ public class Server {
                     //legge dal buffer in ingresso (legge dal client)
                     String str = in.readLine();
                     Log.d("Server",str);
-                    if (str.equals("END")) break;
-                    //esegue quello che deve eseguire
-                    //possibile caso di uscita
-                    //metodo per scrivere sul buffer in uscita (scrive sul client)
-                    Log.i("server client mess:", str);
-                    Log.d("Server","building intent");
+                    if (str.equals("END")) break; //esce dal while
+                    else if (str.equals("IMAGE")){
+                        //caso che gestisce l'arrivo di una immagine
+                        //devo leggere tutta la immagine
+                        InputStream in = socket.getInputStream();
+                        DataInputStream input = new DataInputStream(in);
+                        byte[] data;//String read = input.readLine();
+                        int len= input.readInt();
+                        data = new byte[len];
+                        if (len > 0) {
+                            input.readFully(data, 0, data.length);
+                        }
+                        //a questo punto dentro data dovrebbe esserci la bitmap
+                        //dopo dovrebbe esserci end e finisce chiude entrambi i thread
+                        //ora dovrei mandarla alla activity posso startarla da qui ??
+                        Intent i = new Intent(context,ResultActivity.class);
+                        i.putExtra("IMAGE",data);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(i);
+                    }else {
+                        int rport = Integer.valueOf(str); // leggo la porta bisogna vedere se è giusto
+                        //per ora gestisce tutto il resto
+                        //esegue quello che deve eseguire
+                        //possibile caso di uscita
+                        //metodo per scrivere sul buffer in uscita (scrive sul client)
+                        Log.i("server client mess:", str);
+                        Log.d("Server", "building intent");
 
-                    // Create the text message with a string
+                        // Create the text message with a string
                     /* PROVA APERTURA BROWSER
                     Intent viewIntent = new Intent();
                     viewIntent.setAction(Intent.ACTION_VIEW);
@@ -148,12 +171,14 @@ public class Server {
                     }
                     out.println(str);
                      END PROVA APERTURA BROWSER */
-                    Intent cIntent = new Intent(c, ResultActivity.class);
-                    cIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    cIntent.putExtra("INDIRIZZO",socket.getInetAddress().toString());
-                    cIntent.putExtra("PORTA",socket.getPort());
-                    c.startActivity(cIntent);
-                    out.println("presa in carico");
+                        Intent cIntent = new Intent(c, ResultActivity.class);
+                        cIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        cIntent.putExtra("INDIRIZZO", socket.getInetAddress().toString());
+                        cIntent.putExtra("PORTA", rport);
+                        Log.d("server",socket.getInetAddress().toString());
+                        c.startActivity(cIntent);
+                        out.println("presa in carico");
+                    }
 
                 }
 

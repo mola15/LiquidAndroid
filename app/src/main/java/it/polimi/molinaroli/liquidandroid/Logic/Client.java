@@ -5,12 +5,16 @@ import android.graphics.Bitmap;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -34,7 +38,6 @@ public class Client {
     private PrintWriter out;
     private Context context;
     private int flag; //serve a lanciare il tipo giusto di client 0 CLIENT NORMALE, 1 CLIENT CHE RIPORTA INDIETRO UN DATO A CHI L'HA RICHIESTO
-
 
 
     public Client(InetAddress addr, int port, Context c, int serverPort) {
@@ -74,7 +77,7 @@ public class Client {
         }
     }
 
-    public Client(InetAddress addr, int port, Context c, Bitmap b) {
+    public Client(InetAddress addr, int port, Context c, String f) {
         this.context = c;
         try {
             Log.d("returnClient",addr.getHostAddress());
@@ -95,7 +98,7 @@ public class Client {
             out = new PrintWriter(new BufferedWriter(osw), true);
 
 
-            startReturnClient(b);
+            startReturnClient(f);
 
         } catch (IOException e1) {
             // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
@@ -136,19 +139,35 @@ public class Client {
         } catch (IOException e) {
         }
     }
-
-    public void startReturnClient(Bitmap bmp) {
+/*prima c'era bitmap come parametro*/
+    public void startReturnClient(String file) {
         try {
             out.println("IMAGE");
+            //Mando indietro al server che l'ha richesto il file con l'immagine
             Log.d("returnClient","scrittaimmagine");
+            /*metodo funzionante con la bitmap
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+            bmp.compress(Bitmap.CompressFormat.PNG, 0, bos);
             byte[] array = bos.toByteArray();
 
             OutputStream o = socket.getOutputStream();
             DataOutputStream dos = new DataOutputStream(o);
             dos.writeInt(array.length);
             dos.write(array, 0, array.length);
+            FINE METODO FUNZIONANTE PER LA BITMAP*/
+            File f = new File(file);
+            byte[] bytes = new byte[(int) f.length()];
+            Log.d("filel", ""+ file.length());
+            BufferedInputStream bis;
+
+                bis = new BufferedInputStream(new FileInputStream(file));
+                bis.read(bytes, 0, bytes.length);
+
+                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                oos.writeObject(bytes);
+                oos.flush();
+
+
             // mando indietro la foto e poi chiudo la connessione
             //String str = in.readLine();
             out.println("END");

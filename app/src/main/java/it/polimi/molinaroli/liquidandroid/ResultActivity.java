@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +26,7 @@ import java.util.Date;
 
 import it.polimi.molinaroli.liquidandroid.Logic.Client;
 import it.polimi.molinaroli.liquidandroid.Logic.LiquidAndroidService;
+import xdroid.toaster.Toaster;
 
 /**
  * activity che viene lanciata solo per poter lanciare lo
@@ -72,8 +74,15 @@ public class ResultActivity extends AppCompatActivity {
             }
         }else{
             //qui apro la bitmap
+            /* FUNZIONANTE CON LA BITMAP
             byte[] byteArray = getIntent().getByteArrayExtra("IMAGE");
             Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray , 0, byteArray .length);
+            iv = (ImageView) findViewById(R.id.image);
+            iv.setImageBitmap(bitmap);
+            */
+            //BISOGNEREBBE APRIRE IL FILE DI IMMAGINE IN REALTà MANDO SOLO UN TOAST
+            Toaster.toast("image received");
+            Bitmap bitmap = BitmapFactory.decodeFile(getIntent().getStringExtra("IMAGE"));
             iv = (ImageView) findViewById(R.id.image);
             iv.setImageBitmap(bitmap);
         }
@@ -94,7 +103,7 @@ public class ResultActivity extends AppCompatActivity {
                     public void run() {
                         try {
                         Log.d("Activity", "starting client");
-                        Client client = new Client(InetAddress.getByName(address.replaceAll("/","")),port,context,imageBitmap);
+                        Client client = new Client(InetAddress.getByName(address.replaceAll("/","")),port,context,mCurrentPhotoPath);
                         } catch (UnknownHostException e) {
                             e.printStackTrace();
                         }

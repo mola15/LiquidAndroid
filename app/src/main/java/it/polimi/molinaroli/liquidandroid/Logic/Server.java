@@ -144,9 +144,11 @@ public class Server {
                         //a questo punto dentro data dovrebbe esserci la bitmap
                         //dopo dovrebbe esserci end e finisce chiude entrambi i thread
                         //ora dovrei mandarla alla activity posso startarla da qui ??
+                        Log.d("server","lettura immagine in corso");
                         Intent i = new Intent(context,ResultActivity.class);
                         i.putExtra("IMAGE",data);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        Log.d("server","intento apertura immagine");
                         context.startActivity(i);
                     }else {
                         int rport = Integer.valueOf(str); // leggo la porta bisogna vedere se è giusto

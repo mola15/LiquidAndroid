@@ -152,6 +152,8 @@ public class Client {
             // mando indietro la foto e poi chiudo la connessione
             //String str = in.readLine();
             out.println("END");
+            Log.d("returnClient","scrittaend");
+
         } catch (IOException e) {
             Log.d("Client","errore di rete");
         }

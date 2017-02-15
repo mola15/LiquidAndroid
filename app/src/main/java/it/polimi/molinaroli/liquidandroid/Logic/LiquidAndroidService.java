@@ -76,54 +76,56 @@ public class LiquidAndroidService extends Service {
 
         NotificationManager manager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        try {
+            if (ACTION_STOP_SERVICE.equals(intent.getAction())) {
+                Log.d(TAG, "called to cancel service");
+                helper.tearDown();
+                stopForeground(true);
+                stopSelf();
 
-           if (ACTION_STOP_SERVICE.equals(intent.getAction())) {
-               Log.d(TAG, "called to cancel service");
-               helper.tearDown();
-               stopForeground(true);
-               stopSelf();
+            } else {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+                builder.setContentTitle("LiquidAndroid");
+                builder.setContentText("Service running...Press below button to stop.");
+                builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+                builder.setSmallIcon(R.mipmap.ic_launcher);
 
-           } else {
-               NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-               builder.setContentTitle("LiquidAndroid");
-               builder.setContentText("Service running...Press below button to stop.");
-               builder.setPriority(NotificationCompat.PRIORITY_HIGH);
-               builder.setSmallIcon(R.mipmap.ic_launcher);
-
-               Intent openIntent = new Intent(this, MainActivity.class);
-               openIntent.setAction(ACTION_OPEN_ACTIVITY);
-               PendingIntent piOpen = PendingIntent.getActivity(this, 0, openIntent, 0);
-               builder.addAction(R.mipmap.ic_launcher, "OPEN", piOpen);
-               Intent stopSelf = new Intent(this, LiquidAndroidService.class);
-               stopSelf.setAction(this.ACTION_STOP_SERVICE);
-               PendingIntent pStopSelf = PendingIntent.getService(this, 0, stopSelf, PendingIntent.FLAG_CANCEL_CURRENT);
-               builder.addAction(R.mipmap.ic_launcher, "STOP", pStopSelf);
-               //manager.notify(NOTIFCATION_ID, builder.build());
-
-
-               startForeground(NOTIFCATION_ID, builder.build());
-               c = this;
-               server = new Server(c);
-               setPort(server.getmLocalPort());
-               setHelper(new NsdHelper(c));
-               getHelper().initializeNsd();
-               getHelper().registerService(server.getmLocalPort());
-               Log.d("activity", "executed");
-
-               new Thread(new Runnable() {
-                   public void run() {
-
-                       Log.d("service", "starting server");
-                       server.startServer();
-
-                   }
-               }).start();
-
-               Log.d("local port", " " + server.getmLocalPort());
-               Log.d("activity", "executed");
-           }//end else
+                Intent openIntent = new Intent(this, MainActivity.class);
+                openIntent.setAction(ACTION_OPEN_ACTIVITY);
+                PendingIntent piOpen = PendingIntent.getActivity(this, 0, openIntent, 0);
+                builder.addAction(R.mipmap.ic_launcher, "OPEN", piOpen);
+                Intent stopSelf = new Intent(this, LiquidAndroidService.class);
+                stopSelf.setAction(this.ACTION_STOP_SERVICE);
+                PendingIntent pStopSelf = PendingIntent.getService(this, 0, stopSelf, PendingIntent.FLAG_CANCEL_CURRENT);
+                builder.addAction(R.mipmap.ic_launcher, "STOP", pStopSelf);
+                //manager.notify(NOTIFCATION_ID, builder.build());
 
 
+                startForeground(NOTIFCATION_ID, builder.build());
+                c = this;
+                server = new Server(c);
+                setPort(server.getmLocalPort());
+                setHelper(new NsdHelper(c));
+                getHelper().initializeNsd();
+                getHelper().registerService(server.getmLocalPort());
+                Log.d("activity", "executed");
+
+                new Thread(new Runnable() {
+                    public void run() {
+
+                        Log.d("service", "starting server");
+                        server.startServer();
+
+                    }
+                }).start();
+
+                Log.d("local port", " " + server.getmLocalPort());
+                Log.d("activity", "executed");
+            }//end else
+
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 

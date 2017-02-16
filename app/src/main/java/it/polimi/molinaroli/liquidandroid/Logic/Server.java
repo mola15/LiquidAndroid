@@ -176,7 +176,6 @@ public class Server {
                                 context.startActivity(i);
 
                             } catch (ClassNotFoundException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                                 Log.d("server","errore col file");
 

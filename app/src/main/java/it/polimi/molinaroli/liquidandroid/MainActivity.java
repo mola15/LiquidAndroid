@@ -31,6 +31,7 @@ import it.polimi.molinaroli.liquidandroid.Logic.Server;
 import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
+
     int myServerPort;
     Client client;
     Context c;
@@ -39,10 +40,9 @@ public class MainActivity extends AppCompatActivity {
     Button start;
     NsdHelper helper;
     ListView serviceList;
-
     LiquidAndroidService mService;
     boolean mBound = false;
-
+    Intent arrivalIntent;
 
     private ServiceConnection mConnection = new ServiceConnection() {
 
@@ -67,19 +67,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        arrivalIntent = getIntent();
         if(getIntent().getAction().equals("OPEN")){
             //qui è stato avviato dalla notifica e quindi sicuramente il service sta andando
             final Intent intent = new Intent(this, LiquidAndroidService.class);
             bindService(intent, mConnection, 0);
             Log.d("bound", "" + mBound);
             Log.d("helperinit",""+mService.getHelper().getInit());
-        } else{
+        } else if ((arrivalIntent.getAction().equals("android.media.action.IMAGE_CAPTURE")) || (arrivalIntent.getAction().equals(Intent.ACTION_VIEW)) || (arrivalIntent.getAction().equals(Intent.ACTION_SEND))){/*
             Intent stop = new Intent(this,LiquidAndroidService.class);
             stopService(stop);
+            per ore non gli faccio fare niente dovrebbe funzionare cmq
+            */
+            //voglio che sia partito il servizio e quindi dico che mbound è true;
+            final Intent intent = new Intent(this, LiquidAndroidService.class);
+            bindService(intent, mConnection, 0);
+            Log.d("bound", "" + mBound);
         }
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -135,15 +141,30 @@ public class MainActivity extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             final NsdServiceInfo s = (NsdServiceInfo) adapter.getItem(position);
                             // quando ci clicco su lancio il client per parlare col server
+                            // posso scegliere qui o dal client passando l'intento da decidere cosa è meglio
+                            //penso di farlo di la mandare l'intento e poi gestire tutti i parametri
+                            //per ora lo faccio qui perche ho solo pochi esempi
+                            //qui leggo l'intento e in base al tipo lancio il client giusto
+                            String action;
+                            action = arrivalIntent.getAction();
+                            Log.d("arrival intent",action);
+                            switch (action) {
+                                case "android.media.action.IMAGE_CAPTURE":  new Thread(new Runnable() {
+                                        public void run() {
 
-                            new Thread(new Runnable() {
-                                public void run() {
-
-                                    Log.d("Activity", "starting client");
-                                    Client client = new Client(s.getHost(), s.getPort(),c,myServerPort);
-                                }
-                            }).start();
-
+                                            Log.d("Activity", "starting client");
+                                            Client client = new Client(s.getHost(), s.getPort(), c, myServerPort);
+                                        }
+                                    }).start();
+                                    break;
+                                case Intent.ACTION_SEND : //da implementare
+                                    Log.d("Activity", "intent not yet coded");
+                                    break;
+                                case Intent.ACTION_VIEW:  // da implementare
+                                    Log.d("Activity", "intent not yet coded");
+                                    break;
+                                default: Log.d("Activity", "intent not yet coded"); break;
+                            }
                         }
                     });
                     Log.d("Activity", "" + helper.getServices().size());

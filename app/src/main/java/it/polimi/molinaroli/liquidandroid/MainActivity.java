@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import it.polimi.molinaroli.liquidandroid.Logic.Client;
@@ -85,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
         //DA RIMUOVERE PROVE PER L'INTENT CONVERTER
         Intent in = new Intent(Intent.ACTION_SEND);
+        Uri i;
+
         in.putExtra("nome","marco");
         int[] num = {1,2,3};
         in.putExtra("integers",num);
@@ -92,8 +96,17 @@ public class MainActivity extends AppCompatActivity {
         in.putExtra("doubles",num2);
         byte b = -10;
         in.putExtra("byte",b);
+        in.setData(Uri.parse("geo:37.7749,-122.4194"));
+        Log.e("intent originale", in.toUri(0));
+        Log.e("intent originale", "" + in.getDoubleArrayExtra("doubles")[0]);
+
+        JSONObject job = IntentConverter.intentToJSON(in);
+        Log.e("Json",job.toString());
+        Intent i2 = IntentConverter.JSONToIntent(job);
+        Log.e("intent rigenerato", i2.toUri(0));
+        Log.e("intent rigenerato", "" + i2.getDoubleArrayExtra("doubles")[0]);
+
         //FINE DA RIMUOVERE
-        Log.e("Json",IntentConverter.intentToJSON(in).toString());
 
 
         super.onCreate(savedInstanceState);
@@ -178,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
                                 }).start();
                                     break;
                                 default: Log.d("Activity", "intent not yet coded");
+                                    //caso generale che impacchetta l'intento e lo spedisce
+                                    Client client = new Client(s.getHost(), s.getPort(), c,arrivalIntent);
                                     break;
                             }
                         }

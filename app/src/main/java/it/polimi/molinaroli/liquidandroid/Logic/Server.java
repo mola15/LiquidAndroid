@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -210,8 +213,18 @@ public class Server {
                         }
 
                     }else if (str.equals("INTENT")){
-                        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
-                        // da implementare
+                        String json = in.readLine();
+                        try {
+                            JSONObject job = new JSONObject(json);
+                            Intent i = IntentConverter.JSONToIntent(job);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            out.println("intento rigenerato");
+                            context.startActivity(i);
+
+                        } catch (JSONException e) {
+                            Log.e("server","impossibile costruire il json");
+                            e.printStackTrace();
+                        }
                     } else {
                         int rport = Integer.valueOf(str); // leggo la porta bisogna vedere se è giusto
                         //per ora gestisce tutto il resto

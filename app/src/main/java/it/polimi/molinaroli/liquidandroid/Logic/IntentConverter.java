@@ -1,6 +1,7 @@
 package it.polimi.molinaroli.liquidandroid.Logic;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.FloatProperty;
 import android.util.Log;
@@ -62,6 +63,7 @@ public class IntentConverter {
         try {
 
             obj.put(ACTION,i.getAction());
+            obj.put(DATA,i.getDataString());
             JSONArray extr = new JSONArray();
             Bundle b = i.getExtras();
             Set<String> keys = b.keySet();
@@ -292,6 +294,7 @@ public class IntentConverter {
         Intent intent = new Intent();
         try {
             intent.setAction(j.getString(ACTION)); //parsing action
+            intent.setData(Uri.parse(j.getString(DATA)));
             JSONArray extras = j.getJSONArray(EXTRAS);
             for(int k = 0;k<extras.length();k++){
                 JSONObject job = extras.getJSONObject(k);
@@ -335,21 +338,105 @@ public class IntentConverter {
                         intent.putExtra(job.getString(KEY),st);
                         break;
                     //VETTORI
-                    case ABOOLEAN: break;
-                    case ABYTE: break;
-                    case ACHARSEQUENCE: break;
-                    case ADOUBLE: break;
-                    case AFLOAT: break;
-                    case AINTEGER: break;
-                    case ALONG: break;
-                    case ASHORT: break;
-                    case ASTRING: break;
+                    case ABOOLEAN:
+                        JSONArray dar = job.getJSONArray(DATA);
+                        boolean[] bv = new boolean[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            bv[q] = dar.getJSONObject(q).getBoolean(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),bv);
+                        break;
+                    case ABYTE:
+                        dar = job.getJSONArray(DATA);
+                        byte[] bve = new byte[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            bve[q] = (byte) dar.getJSONObject(q).get(DATA); //bisogna controllare tutti i cast
+                        }
+                        intent.putExtra(job.getString(KEY),bve);
+                        break;
+                    case ACHARSEQUENCE:
+                        dar = job.getJSONArray(DATA);
+                        CharSequence[] csv = new CharSequence[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            csv[q] = (CharSequence) dar.getJSONObject(q).get(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),csv);
+                        break;
+                    case ADOUBLE:
+                        dar = job.getJSONArray(DATA);
+                        double[] dv = new double[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            dv[q] = dar.getJSONObject(q).getDouble(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),dv);
+                        break;
+                    case AFLOAT:
+                        dar = job.getJSONArray(DATA);
+                        float[] fv = new float[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            fv[q] = (float) dar.getJSONObject(q).get(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),fv);
+                        break;
+                    case AINTEGER:
+                        dar = job.getJSONArray(DATA);
+                        int[] inv = new int[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            inv[q] =  dar.getJSONObject(q).getInt(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),inv);
+                        break;
+                    case ALONG:
+                        dar = job.getJSONArray(DATA);
+                        long[] lv = new long[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            lv[q] = dar.getJSONObject(q).getLong(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),lv);
+                        break;
+                    case ASHORT: dar = job.getJSONArray(DATA);
+                        short[] shv = new short[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            shv[q] = (short) dar.getJSONObject(q).get(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),shv);
+                        break;
+                    case ASTRING:
+                        dar = job.getJSONArray(DATA);
+                        String[] stv = new String[dar.length()];
+                        for(int q =0;q<dar.length();q++){
+                            stv[q] = dar.getJSONObject(q).getString(DATA);
+                        }
+                        intent.putExtra(job.getString(KEY),stv);
+                        break;
                     //ARRAYLIST
-                    case ALINTEGER: break;
-                    case ALSTRING: break;
-                    case ALCHARSEQUENCE: break;
+                    case ALINTEGER:
+                        dar = job.getJSONArray(DATA);
+                        ArrayList<Integer> ali = new ArrayList<>();
+                        for(int q =0;q<dar.length();q++){
+                            ali.add(dar.getJSONObject(q).getInt(DATA));
+                        }
+                        intent.putExtra(job.getString(KEY),ali);
+                        break;
+                    case ALSTRING:
+                        dar = job.getJSONArray(DATA);
+                        ArrayList<String> als = new ArrayList<>();
+                        for(int q =0;q<dar.length();q++){
+                            als.add(dar.getJSONObject(q).getString(DATA));
+                        }
+                        intent.putExtra(job.getString(KEY),als);
+                        break;
+                    case ALCHARSEQUENCE:
+                        dar = job.getJSONArray(DATA);
+                        ArrayList<CharSequence> alc = new ArrayList<>();
+                        for(int q =0;q<dar.length();q++){
+                            alc.add((CharSequence) dar.getJSONObject(q).get(DATA));
+                        }
+                        intent.putExtra(job.getString(KEY),alc);
+                        break;
                 }
             }
+            // a questo punto dovrei aver messo tutti gli extra e aver ricreato l'intento
         } catch (JSONException e) {
             e.printStackTrace();
             Log.e("Converter","conversion failed");

@@ -195,7 +195,24 @@ public class Server {
                         Log.d("server","intento apertura immagine");
                         context.startActivity(i);
                         */
-                    }else {
+                    }else if (str.equals("URL")){
+                        String url = in.readLine();
+                        out.println("url letta");
+                        Intent viewIntent = new Intent();
+                        viewIntent.setAction(Intent.ACTION_VIEW);
+                        viewIntent.setData(Uri.parse(url));
+                        viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        // Verify that the intent will resolve to an activity
+                        if (viewIntent.resolveActivity(c.getPackageManager()) != null) {
+                            c.startActivity(viewIntent);
+                        } else{
+                            Log.d("server","errore nell apertura del browser");
+                        }
+
+                    }else if (str.equals("INTENT")){
+                        ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream());
+                        // da implementare
+                    } else {
                         int rport = Integer.valueOf(str); // leggo la porta bisogna vedere se è giusto
                         //per ora gestisce tutto il resto
                         //esegue quello che deve eseguire

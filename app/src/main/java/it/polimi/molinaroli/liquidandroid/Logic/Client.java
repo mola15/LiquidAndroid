@@ -38,7 +38,48 @@ public class Client {
     private PrintWriter out;
     private Context context;
     private int flag; //serve a lanciare il tipo giusto di client 0 CLIENT NORMALE, 1 CLIENT CHE RIPORTA INDIETRO UN DATO A CHI L'HA RICHIESTO
+    private String data;
+    private int code;
 
+
+
+    public Client(InetAddress addr, int port, Context c, String data, int code) {
+        this.data = data;
+        this.code = code;
+        this.context = c;
+        try {
+            socket = new Socket(addr, port);
+            Log.d("Client", "Client started Client Socket:" + socket.toString());
+        } catch (IOException e) {
+            Log.d("Client","socket non creata");
+        }
+        // Se la creazione della socket fallisce non è necessario fare nulla
+        try {
+            //entro qui quando è connesso alla socket
+            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
+            in = new BufferedReader(isr);
+            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+            out = new PrintWriter(new BufferedWriter(osw), true);
+
+
+            startClient(data);
+
+        } catch (IOException e1) {
+            // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
+            // verrà chiusa dal metodo run() del thread
+            try {
+                socket.close();
+            } catch (IOException e2) {
+            }
+        } catch (NullPointerException e3){
+            //non c'è la serversocket
+
+            CharSequence text = "Server non più disponibile";
+            toast(text);
+
+
+        }
+    }
 
     public Client(InetAddress addr, int port, Context c, int serverPort) {
         this.serverPort = serverPort;
@@ -139,6 +180,25 @@ public class Client {
         } catch (IOException e) {
         }
     }
+
+    public void startClient(String data) {
+        try {
+            out.println("URL");
+            out.println(data);
+            in.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        out.println("END");
+
+        try {
+            System.out.println("Client closing...");
+            socket.close();
+        } catch (IOException e) {
+        }
+    }
+
+
 /*prima c'era bitmap come parametro*/
     public void startReturnClient(String file) {
         try {

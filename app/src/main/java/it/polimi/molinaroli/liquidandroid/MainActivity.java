@@ -1,13 +1,11 @@
 package it.polimi.molinaroli.liquidandroid;
 
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.net.Uri;
 import android.net.nsd.NsdServiceInfo;
-import android.os.AsyncTask;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,11 +22,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import it.polimi.molinaroli.liquidandroid.Logic.Client;
+import it.polimi.molinaroli.liquidandroid.Logic.IntentConverter;
 import it.polimi.molinaroli.liquidandroid.Logic.LiquidAndroidService;
 import it.polimi.molinaroli.liquidandroid.Logic.NsdHelper;
-import it.polimi.molinaroli.liquidandroid.Logic.Server;
-
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,6 +81,21 @@ public class MainActivity extends AppCompatActivity {
             Log.d("bound", "" + mBound);
         }
         setContentView(R.layout.activity_main);
+
+
+        //DA RIMUOVERE PROVE PER L'INTENT CONVERTER
+        Intent in = new Intent(Intent.ACTION_SEND);
+        in.putExtra("nome","marco");
+        int[] num = {1,2,3};
+        in.putExtra("integers",num);
+        double[] num2 = {1.2,2.2,3.3};
+        in.putExtra("doubles",num2);
+        byte b = -10;
+        in.putExtra("byte",b);
+        //FINE DA RIMUOVERE
+        Log.e("Json",IntentConverter.intentToJSON(in).toString());
+
+
         super.onCreate(savedInstanceState);
     }
 
@@ -157,13 +168,17 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }).start();
                                     break;
-                                case Intent.ACTION_SEND : //da implementare
-                                    Log.d("Activity", "intent not yet coded");
+                                case Intent.ACTION_SEND: Log.d("Activity", "intent not yet coded"); break;
+                                case Intent.ACTION_VIEW: new Thread(new Runnable() {
+                                    public void run() {
+
+                                        Log.d("Activity", "starting client");
+                                        Client client = new Client(s.getHost(), s.getPort(), c,arrivalIntent.getData().toString(),0);
+                                    }
+                                }).start();
                                     break;
-                                case Intent.ACTION_VIEW:  // da implementare
-                                    Log.d("Activity", "intent not yet coded");
+                                default: Log.d("Activity", "intent not yet coded");
                                     break;
-                                default: Log.d("Activity", "intent not yet coded"); break;
                             }
                         }
                     });

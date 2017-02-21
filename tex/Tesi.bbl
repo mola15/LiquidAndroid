@@ -555,6 +555,28 @@
       \field{year}{2005}
       \warn{\item Name "Gosling, James; Joy, Bill; Steele, Guy L., Jr.; Bracha, Gilad" has too many commas: skipping name}
     \endentry
+    \entry{james2017percent}{online}{}
+      \name{author}{1}{}{%
+        {{hash=17bf5a94f6fc74ff4244b9731d91b94d}{%
+           family={Vincent},
+           familyi={V\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{17bf5a94f6fc74ff4244b9731d91b94d}
+      \strng{fullhash}{17bf5a94f6fc74ff4244b9731d91b94d}
+      \strng{authornamehash}{17bf5a94f6fc74ff4244b9731d91b94d}
+      \strng{authorfullhash}{17bf5a94f6fc74ff4244b9731d91b94d}
+      \field{sortinit}{V}
+      \field{sortinithash}{555737dafdcf1396ebfeae5822e5bde2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{99.6 percent of new smartphones run Android or iOS}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://www.theverge.com/2017/2/16/14634656/android-ios-market-share-blackberry-2016
+      \endverb
+    \endentry
     \entry{vogel2016android}{online}{}
       \name{author}{1}{}{%
         {{hash=f4613620d7a837540a63918891f1b7e3}{%

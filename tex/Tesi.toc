@@ -6,67 +6,67 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Outline}{2}{section.1.2}
-\contentsline {chapter}{\numberline {2}State of the Art}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Android OS}{3}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Brief History}{3}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Structure}{5}{subsection.2.1.2}
-\contentsline {paragraph}{Linux Kernel}{6}{section*.20}
-\contentsline {paragraph}{Runtime and Libraries}{6}{section*.21}
-\contentsline {paragraph}{Application Framework}{6}{section*.22}
-\contentsline {paragraph}{Applications}{6}{section*.23}
-\contentsline {subsection}{\numberline {2.1.3}Application Framework}{6}{subsection.2.1.3}
-\contentsline {paragraph}{Intents}{6}{section*.24}
-\contentsline {paragraph}{Activities}{8}{section*.26}
-\contentsline {paragraph}{Services}{8}{section*.27}
-\contentsline {paragraph}{Broadcast Receivers}{8}{section*.28}
-\contentsline {subsection}{\numberline {2.1.4}Security}{8}{subsection.2.1.4}
-\contentsline {paragraph}{Application Sandboxing}{8}{section*.29}
-\contentsline {paragraph}{Permissions}{9}{section*.30}
-\contentsline {paragraph}{SeLinux}{9}{section*.32}
-\contentsline {subsection}{\numberline {2.1.5}Connectivity}{9}{subsection.2.1.5}
-\contentsline {section}{\numberline {2.2}Distributed System}{10}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Definition}{10}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Challenges}{11}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Comunication Model}{12}{subsection.2.2.3}
-\contentsline {paragraph}{Remote procedure call (RPC)}{13}{section*.36}
-\contentsline {paragraph}{Remote method invocation (RMI)}{13}{section*.38}
-\contentsline {paragraph}{Message oriented}{14}{section*.40}
-\contentsline {subsection}{\numberline {2.2.4}Architectures}{14}{subsection.2.2.4}
-\contentsline {paragraph}{Client-Server}{14}{section*.42}
-\contentsline {paragraph}{Peer-to-Peer (P2P)}{15}{section*.44}
-\contentsline {paragraph}{REST style}{15}{section*.46}
-\contentsline {paragraph}{Event based}{16}{section*.47}
-\contentsline {subsection}{\numberline {2.2.5}Naming}{16}{subsection.2.2.5}
-\contentsline {section}{\numberline {2.3}Technical Background}{17}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Liquid Computing}{17}{subsection.2.3.1}
-\contentsline {subsubsection}{Examples}{18}{section*.49}
-\contentsline {subsection}{\numberline {2.3.2}Java network programming}{18}{subsection.2.3.2}
-\contentsline {paragraph}{Sockets}{18}{section*.50}
-\contentsline {paragraph}{Java RMI}{21}{section*.52}
-\contentsline {subsection}{\numberline {2.3.3}Zeroconf}{21}{subsection.2.3.3}
-\contentsline {subsubsection}{Service Discovery and Name Resolution}{22}{section*.54}
-\contentsline {subsubsection}{Implementations}{22}{section*.55}
-\contentsline {paragraph}{Apple Bonjour}{22}{section*.56}
-\contentsline {paragraph}{jmDNS}{22}{section*.57}
-\contentsline {paragraph}{Android NSD}{23}{section*.58}
-\contentsline {chapter}{\numberline {3}Problem Analysis}{25}{chapter.3}
-\contentsline {section}{\numberline {3.1}Contextualization}{25}{section.3.1}
-\contentsline {section}{\numberline {3.2}Considered Devices}{26}{section.3.2}
-\contentsline {section}{\numberline {3.3}Definition}{26}{section.3.3}
-\contentsline {section}{\numberline {3.4}Probelm scenarios}{28}{section.3.4}
-\contentsline {paragraph}{Background working middleware}{28}{section*.60}
-\contentsline {paragraph}{Development API}{29}{section*.63}
-\contentsline {paragraph}{Data management}{30}{section*.65}
-\contentsline {section}{\numberline {3.5}Constraints}{31}{section.3.5}
-\contentsline {chapter}{\numberline {4}Proposed Solution}{35}{chapter.4}
-\contentsline {section}{\numberline {4.1}Existing Solutions }{35}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Boincoid and HTC Power to Give}{35}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Plex for Android}{36}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Goolgle Home and Cast API}{37}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}DroidMote and Remote control systems }{37}{subsection.4.1.4}
-\contentsline {section}{\numberline {4.2}General Idea}{37}{section.4.2}
-\contentsline {section}{\numberline {4.3}Network Architecture}{37}{section.4.3}
-\contentsline {chapter}{\numberline {5}Proof of Concept}{39}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{41}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{43}{chapter*.68}
-\contentsline {chapter}{Bibliography}{45}{section*.71}
+\contentsline {chapter}{\numberline {2}State of the Art}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Android OS}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Brief History}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Structure}{7}{subsection.2.1.2}
+\contentsline {paragraph}{Linux Kernel}{8}{section*.20}
+\contentsline {paragraph}{Runtime and Libraries}{8}{section*.21}
+\contentsline {paragraph}{Application Framework}{8}{section*.22}
+\contentsline {paragraph}{Applications}{8}{section*.23}
+\contentsline {subsection}{\numberline {2.1.3}Application Framework}{8}{subsection.2.1.3}
+\contentsline {paragraph}{Intents}{8}{section*.24}
+\contentsline {paragraph}{Activities}{10}{section*.26}
+\contentsline {paragraph}{Services}{10}{section*.27}
+\contentsline {paragraph}{Broadcast Receivers}{10}{section*.28}
+\contentsline {subsection}{\numberline {2.1.4}Security}{10}{subsection.2.1.4}
+\contentsline {paragraph}{Application Sandboxing}{10}{section*.29}
+\contentsline {paragraph}{Permissions}{11}{section*.30}
+\contentsline {paragraph}{SeLinux}{11}{section*.32}
+\contentsline {subsection}{\numberline {2.1.5}Connectivity}{11}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Distributed System}{12}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Definition}{12}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Challenges}{13}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Comunication Model}{14}{subsection.2.2.3}
+\contentsline {paragraph}{Remote procedure call (RPC)}{15}{section*.36}
+\contentsline {paragraph}{Remote method invocation (RMI)}{15}{section*.38}
+\contentsline {paragraph}{Message oriented}{16}{section*.40}
+\contentsline {subsection}{\numberline {2.2.4}Architectures}{16}{subsection.2.2.4}
+\contentsline {paragraph}{Client-Server}{16}{section*.42}
+\contentsline {paragraph}{Peer-to-Peer (P2P)}{17}{section*.44}
+\contentsline {paragraph}{REST style}{17}{section*.46}
+\contentsline {paragraph}{Event based}{18}{section*.47}
+\contentsline {subsection}{\numberline {2.2.5}Naming}{18}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Technical Background}{19}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Liquid Computing}{19}{subsection.2.3.1}
+\contentsline {subsubsection}{Examples}{20}{section*.49}
+\contentsline {subsection}{\numberline {2.3.2}Java network programming}{20}{subsection.2.3.2}
+\contentsline {paragraph}{Sockets}{20}{section*.50}
+\contentsline {paragraph}{Java RMI}{23}{section*.52}
+\contentsline {subsection}{\numberline {2.3.3}Zeroconf}{23}{subsection.2.3.3}
+\contentsline {subsubsection}{Service Discovery and Name Resolution}{24}{section*.54}
+\contentsline {subsubsection}{Implementations}{24}{section*.55}
+\contentsline {paragraph}{Apple Bonjour}{24}{section*.56}
+\contentsline {paragraph}{jmDNS}{24}{section*.57}
+\contentsline {paragraph}{Android NSD}{25}{section*.58}
+\contentsline {chapter}{\numberline {3}Problem Analysis}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Contextualization}{27}{section.3.1}
+\contentsline {section}{\numberline {3.2}Considered Devices}{28}{section.3.2}
+\contentsline {section}{\numberline {3.3}Definition}{28}{section.3.3}
+\contentsline {section}{\numberline {3.4}Probelm scenarios}{30}{section.3.4}
+\contentsline {subsubsection}{Background working middleware}{30}{section*.60}
+\contentsline {subsubsection}{Development API}{32}{section*.63}
+\contentsline {subsubsection}{Data management}{32}{section*.65}
+\contentsline {section}{\numberline {3.5}Constraints}{33}{section.3.5}
+\contentsline {chapter}{\numberline {4}Proposed Solution}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}Existing Solutions }{37}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Boincoid and HTC Power to Give}{37}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Plex for Android}{38}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Goolgle Home and Cast API}{39}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}DroidMote and Remote control systems }{39}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}General Idea}{39}{section.4.2}
+\contentsline {section}{\numberline {4.3}Network Architecture}{39}{section.4.3}
+\contentsline {chapter}{\numberline {5}Proof of Concept}{41}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{43}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{45}{chapter*.68}
+\contentsline {chapter}{Bibliography}{47}{section*.71}

@@ -65,8 +65,8 @@
 \contentsline {subsection}{\numberline {4.1.3}Goolgle Home and Cast API}{39}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}DroidMote and Remote control systems }{39}{subsection.4.1.4}
 \contentsline {section}{\numberline {4.2}General Idea}{39}{section.4.2}
-\contentsline {section}{\numberline {4.3}Network Architecture}{39}{section.4.3}
-\contentsline {chapter}{\numberline {5}Proof of Concept}{41}{chapter.5}
+\contentsline {section}{\numberline {4.3}Liquid Android Framework}{40}{section.4.3}
+\contentsline {chapter}{\numberline {5}Case Study}{41}{chapter.5}
 \contentsline {chapter}{\numberline {6}Conclusions and Future Works}{43}{chapter.6}
 \contentsline {chapter}{Figures Copyright}{45}{chapter*.68}
 \contentsline {chapter}{Bibliography}{47}{section*.71}

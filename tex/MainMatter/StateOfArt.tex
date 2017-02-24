@@ -135,22 +135,26 @@ Android is an operating system based on the Linux kernel. The project responsibl
 
 The OS can be divided into the four layers as depicted the \figurename~\ref{fig:2.3}. An Android application developer typically works with the two layers on top to create new Android applications \cite{vogel2016android}.
 
-\paragraph{Linux Kernel} is the most flexible operating system that has ever been created. It can be tuned for a wide range of different systems, running on everything from a radio-controlled model helicopter, to a cell phone, to the majority of the largest supercomputers in the world \cite{hartman2006linux}. This is in practice the communication layer for the underlying hardware.
-\paragraph{Runtime and Libraries} \par Runtime is the term used in computer science to designate the software that provides the services necessary for the execution of a program.There are two different \textit{"runtime systems"} which can work with the Android OS:
+\subsubsection{Linux Kernel} 
+The Linux Kernel is the most flexible operating system that has ever been created. It can be tuned for a wide range of different systems, running on everything from a radio-controlled model helicopter, to a cell phone, to the majority of the largest supercomputers in the world \cite{hartman2006linux}. This is in practice the communication layer for the underlying hardware.
+\subsubsection{Runtime and Libraries}
+Runtime is the term used in computer science to designate the software that provides the services necessary for the execution of a program.There are two different \textit{"runtime systems"} which can work with the Android OS:
 \begin{itemize}
 	\item \textit{Dalvik VM} is an optimized version for low memory devices of the \textit{Java Virtual Machine (JVM)} used in Android 4.4 and earlier version. It is stack based and it works by converting using a \textit{just-in-time (JIT)}, each time an application is executed, Android's \textit{bytecode} into machine code.
 	\item \textit{ART (Android Runtime)} introduced with Android 4.4 KitKat. This runtime uses an \textit{AOT (Ahead-of-Time)} approach, with which code is compiled during the installation of an application and then is ready to be executed.
 \end{itemize}
 \par Standard Android libraries are for many common framework functions, like, graphic rendering, data storage, web browsing. \cite{vogel2016android}. This layer contains also standard \textit{java libraries}.
-\paragraph{Application Framework}\label{appframework} is the layer that contains the Android components for the application such as activities, fragments, services and so on. 
-\paragraph{Applications} are pieces of software written in \textit{java code} running on top the other layers.
+\subsubsection{Application Framework}\label{appframework}
+The application framework is the layer that contains the Android components for the application such as activities, fragments, services and so on. 
+\subsubsection{Applications}
+Applications are pieces of software written in \textit{java code} running on top the other layers.
 
 \subsection{Application Framework}
 In this section I want to give some details of the application composition and work flow to better understand the subsequent sections in which I will describe the given problem and the proposed solution.\\
 As briefly described in \ref{appframework} the Android application framework \textit{("AppFramework")} is the core of the Android \textit{development API}. It contains useful and needed components to build native apps.\\
 The main components with which each application is composed are:
 
-\paragraph{Intents} are objects that initiate actions from other app components, either within the same program \textit{(explicit intents)} or through another piece of software on the device \textit{(implicit intents)}.
+\subsubsection{Intents} Intents are objects that initiate actions from other app components, either within the same program \textit{(explicit intents)} or through another piece of software on the device \textit{(implicit intents)}.
 Acconrding to the official Google's Android for developer documentation, an Intent is a sort of messaging object which can be used to request an action from another application component (eg. activities). There are three fundamental use cases:
 \begin{itemize}
 	\item Starting an activity: we will see that activities represents a single screen in Android applications, intents allow to start activities by describing them and carrying any necessary data.
@@ -173,11 +177,11 @@ As already mentioned there are mainly two categories of intents:
 
 The \figurename~\ref{fig:2.4} explains well how an intent is resolved by the OS whether it is implicit or explicit. When an implicit intent needs to be resolved, the OS searches applications which can handle it by means of \textit{intent filters}.A Intent filter specifies the types of intents that an activity, service, or broadcast receiver can respond to. The Android System searches all apps for an intent filter that matches the intent to be resolved. When a match is found, the system starts the matching component, or, if there are more than one, let the user select the preferred action to be performed.
 
-\paragraph{Activities} are one of the fundamental building blocks of apps on the Android platform. They serve as the entry point for a user's interaction with an app, and are also central to how a user navigates within an app. \cite{devandroidactivity}. An activity is the entry point for interacting with the user. It represents a single screen with a user interface \textit{GUI}: in this way activities are containers for other Android's GUI elements (eg. buttons, textviews,...).
+\subsubsection{Activities} Activities are one of the fundamental building blocks of apps on the Android platform. They serve as the entry point for a user's interaction with an app, and are also central to how a user navigates within an app. \cite{devandroidactivity}. An activity is the entry point for interacting with the user. It represents a single screen with a user interface \textit{GUI}: in this way activities are containers for other Android's GUI elements (eg. buttons, textviews,...).
 
-\paragraph{Services} is a general-purpose entry point for keeping an app running in the background for all kinds of reasons. It is a component that runs in the background to perform long-running operations or to perform work for remote processes. A service does not provide a user interface \cite{devandroifundamentals}. 
+\subsubsection{Services} A service is a general-purpose entry point for keeping an app running in the background for all kinds of reasons. It is a component that runs in the background to perform long-running operations or to perform work for remote processes. A service does not provide a user interface \cite{devandroifundamentals}. 
 
-\paragraph{Broadcast Receivers} are components that enable the system to deliver events to the app outside of a regular user flow, allowing the app to respond to system-wide broadcast announcements. Because broadcast receivers are another well-defined entry into the app, the system can deliver broadcasts even to applications that aren't currently running \cite{devandroifundamentals}.
+\subsubsection{Broadcast Receivers} Broadcast Receivers are components that enable the system to deliver events to the app outside of a regular user flow, allowing the app to respond to system-wide broadcast announcements. Because broadcast receivers are another well-defined entry into the app, the system can deliver broadcasts even to applications that aren't currently running \cite{devandroifundamentals}.
 
 \subsection{Security}\label{androidsecurity}
 \par
@@ -185,9 +189,9 @@ As described in \ref{briefhist} Android was born to be a good mobile OS and it i
 Like the rest of the system, Android's security model also takes advantages of the security features offered by the Linux kernel. Linux is a \textit{multiuser OS} and its kernel can isolate user data from one another: one user can not access another user's file unless explicitly granted permission. Android takes advantages of this user isolation, considering each application a different user provided with a dedicated \textit{UID (User ID)} \cite{elenkov2014android} Android in fact, is designed for smartphones that are personal devices and do not need, usually, a multi physical user support.
 The most important security techniques adopted by Android are:
 
-	\paragraph{Application Sandboxing} Android automatically assigns a unique \textit{AppID} (Linux UID) when an application is installed and then executed that specific app in a dedicated process as that UID. This technique isolate all the applications at process level and additionally each app has permissions to read/write a specific and dedicated directory.
+	\subsubsection{Application Sandboxing} Android automatically assigns a unique \textit{AppID} (Linux UID) when an application is installed and then executed that specific app in a dedicated process as that UID. This technique isolate all the applications at process level and additionally each app has permissions to read/write a specific and dedicated directory.
 	
-	\paragraph{Permissions} Since application are sandboxed and do not have the rights to read/write date outside them, it is possible to grant additional rights to android applications by explicitly asking them. Those access rights are called \textit{permission}. Applications can request permissions by listing them in a configuration file called \textit{android manifest}. In Android 5.1 and earlier versions permission are inspected and granted at installation time, when the user is alerted with a dialog box in which are listed permissions the application to be installed needs to work properly and when granted cannot be revoked. Starting from android 6.0 permission are asked the first time that an application need them, and when are granted they can be revoked manually in the OS settings for that specific application.
+	\subsubsection{Permissions} Since application are sandboxed and do not have the rights to read/write date outside them, it is possible to grant additional rights to android applications by explicitly asking them. Those access rights are called \textit{permission}. Applications can request permissions by listing them in a configuration file called \textit{android manifest}. In Android 5.1 and earlier versions permission are inspected and granted at installation time, when the user is alerted with a dialog box in which are listed permissions the application to be installed needs to work properly and when granted cannot be revoked. Starting from android 6.0 permission are asked the first time that an application need them, and when are granted they can be revoked manually in the OS settings for that specific application.
 	
 		\begin{figure}[h]
 		\centering
@@ -205,7 +209,7 @@ The most important security techniques adopted by Android are:
 		\caption{Android permission Examples\label{fig:Andorid permission Examples}}
 	\end{figure}
 
-	\paragraph{SeLinux} Security Enhanced Linux, is a \textit{mandatory access control (MAC)} system for the Linux operating system. With a MAC the operating system constrains the ability of a subject or initiator to access or generally perform some sort of operation on an object or target. Starting in Android 4.3, SELinux provides a mandatory access control (MAC) umbrella over traditional discretionary \textit{access control (DAC)} environments. For instance, software must typically run as the root user account to write to raw block devices. In a traditional DAC-based Linux environment, if the root user becomes compromised that user can write to every raw block device. However, SELinux can be used to label these devices so the process assigned the root privilege can write to only those specified in the associated policy.
+	\subsubsection{SeLinux} Security Enhanced Linux, is a \textit{mandatory access control (MAC)} system for the Linux operating system. With a MAC the operating system constrains the ability of a subject or initiator to access or generally perform some sort of operation on an object or target. Starting in Android 4.3, SELinux provides a mandatory access control (MAC) umbrella over traditional discretionary \textit{access control (DAC)} environments. For instance, software must typically run as the root user account to write to raw block devices. In a traditional DAC-based Linux environment, if the root user becomes compromised that user can write to every raw block device. However, SELinux can be used to label these devices so the process assigned the root privilege can write to only those specified in the associated policy.
  	In this way, the process cannot overwrite data and system settings outside of the specific raw block device \cite{secure2017android}.
 
 \subsection{Connectivity}\label{connectivity}
@@ -295,7 +299,7 @@ There are many challenges in distributed systems field: distributed applications
 \par
 There are, in distributed system literature, some well known techniques to let communicate machines, programs and components. Each of the methods described later exploits the network protocols by acting as a middleware: they use and mask lower layer protocols to provide ready to use communication services.
 
-\paragraph{Remote procedure call (RPC)} is a paradigm in which a client process invokes a remotely located procedure (a server process), the remote procedure executes and sends the response back to the client \cite{Jerome2009Principles}.
+\subsubsection{Remote procedure call (RPC)} RPC is a paradigm in which a client process invokes a remotely located procedure (a server process), the remote procedure executes and sends the response back to the client \cite{Jerome2009Principles}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{rpc}
@@ -303,7 +307,7 @@ There are, in distributed system literature, some well known techniques to let c
 	\label{fig:2.10}
 \end{figure} 
 As described in \figurename~\ref{fig:2.10} RPC provides the localization of the code to be executed exploiting the network transport services, create a message which can be serialized and transferred over a standard network protocol and then provides methods to de-serialize the message and convert in into a standard local procedure call in the receiver machine. Very important in this mechanism is the concept of \textit{ILD} (Interface definition language) which raises the level of abstraction of the service by separating the interface from its implementation: in this way RPC can be language independent by generating automatic translations from IDL to target language.  
-\paragraph{Remote method invocation (RMI)} \label{RMI} exploits the same idea of RPC but with different programming constructs: it is designed to let communicate object oriented (OO) programming languages.
+\subsubsection{Remote method invocation (RMI)} \label{RMI} RMI exploits the same idea of RPC but with different programming constructs: it is designed to let communicate object oriented (OO) programming languages.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{rmi}
@@ -311,7 +315,7 @@ As described in \figurename~\ref{fig:2.10} RPC provides the localization of the 
 	\label{fig:2.11}
 \end{figure} 
 The \figurename~\ref{fig:2.11} shows in detail how RMI is supposed to work. Like RPC, RMI uses an IDL which is designed to support OO programming languages features such as inheritance and exception handling.
-\paragraph{Message oriented} communication is a style based and centered on the notion of simple messages and events.The most straightforward example of it is \textit{message passing}. Typically message passing is implemented directly on the network sublayers (eg. sockets). Message passing differs from conventional programming where a process, subroutine, or function is directly invoked by name. 
+\subsubsection{Message oriented} Message oriented communication is a style based and centered on the notion of simple messages and events.The most straightforward example of it is \textit{message passing}. Typically message passing is implemented directly on the network sublayers (eg. sockets). Message passing differs from conventional programming where a process, subroutine, or function is directly invoked by name. 
 \begin{table}[h]
 	%
 	\caption{Comparison between communication models}
@@ -357,21 +361,25 @@ In \tablename~\ref{tab:comp} are shown the most significant differences between 
 \subsection{Architectures}
 \par
 There are actually many different kinds of distributed systems which can be classified by means of their architecture composition.
-\paragraph{Client-Server} is the most common architecture in computer systems, there are many variants depending on the internal division of its components but it has a common separation of duties. Server side components are passive and wait for clients invocations.Client computers provide an interface to allow a computer user to request services of the server and to display the results it returns. Servers wait for requests to arrive from clients and then respond to them. Ideally, a server provides a standardized transparent interface to clients so that clients need not be aware of the specifics of the system (i.e., the hardware and software) that is providing the service. The communication adopted by these kind of systems is message oriented or through RPC.
+\subsubsection{Client-Server}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{clientserver}
 	\caption{Client server architecture}
 	\label{fig:2.12}
 \end{figure} 
-\paragraph{Peer-to-Peer (P2P)} is a fully distributed architecture which in contrast to client-server has not a centralized service provider. Peers are both clients and servers themselves, P2P promotes sharing of resources and services trough direct exchange between peers. Compared to a centralized client-server architecture a P2P net scales better and typically does not have a single point of failure. 
+ Client-Server is the most common architecture in computer systems, there are many variants depending on the internal division of its components but it has a common separation of duties. Server side components are passive and wait for clients invocations.Client computers provide an interface to allow a computer user to request services of the server and to display the results it returns. Servers wait for requests to arrive from clients and then respond to them. Ideally, a server provides a standardized transparent interface to clients so that clients need not be aware of the specifics of the system (i.e., the hardware and software) that is providing the service. The communication adopted by these kind of systems is message oriented or through RPC.
+
+
+\subsubsection{Peer-to-Peer (P2P)}\label{P2P}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{p2p}
 	\caption{P2P architecture}
 	\label{fig:2.13}
-\end{figure} 
-\paragraph{REST style} Representational State Transfer (REST) is a style of architecture based on a set of principles that describe how networked resources are defined and addressed.An application or architecture considered RESTful or REST-style is characterized by:
+\end{figure} P2P is a fully distributed architecture which in contrast to client-server has not a centralized service provider. Peers are both clients and servers themselves, P2P promotes sharing of resources and services trough direct exchange between peers. Compared to a centralized client-server architecture a P2P net scales better and typically does not have a single point of failure. 
+
+\subsubsection{REST style} Representational State Transfer (REST) is a style of architecture based on a set of principles that describe how networked resources are defined and addressed.An application or architecture considered RESTful or REST-style is characterized by:
 \begin{itemize}
 	\item state and functionality are divided into distributed resources,
 	\item every resource is uniquely addressable using a uniform and minimal set of commands (typically using HTTP commands of GET, POST, PUT, or DELETE over the Internet),
@@ -380,7 +388,7 @@ There are actually many different kinds of distributed systems which can be clas
 
 
 
-\paragraph{Event based} is an architecture in which components collaborate by exchanging information about occurring events. In particular components in the net can \textit{publish} notifications about the events they observe or \textins{subscribe} to events they are interested to be notified about. This architecture can be fully distributed with all the same nodes or can have some semi-centralized nodes which are specialized in computing events or routing messages. Communication is, in this case, purely message based asynchronous and multicast. 
+\subsubsection{Event based} Event based is an architecture in which components collaborate by exchanging information about occurring events. In particular components in the net can \textit{publish} notifications about the events they observe or \textins{subscribe} to events they are interested to be notified about. This architecture can be fully distributed with all the same nodes or can have some semi-centralized nodes which are specialized in computing events or routing messages. Communication is, in this case, purely message based asynchronous and multicast. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{publishsubscribe}
@@ -426,7 +434,7 @@ There are some implementation of this concept in mobile computer science, the mo
 Since the entire Android development API is written in Java, the whole implemented solution will be in Java code.\\ Java is a known general-purpose computer programming language that is concurrent, class-based, object-oriented \cite{gosling2005the}, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA) \cite{computer2002write}, meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.\\
 The \textit{Java Development Kit (JDK)} includes many utility libraries, useful to develop any kind of application, I want to focus attention on network programming libraries to be used when developing distributed system using Java code.
 There are, currently many different possibilities among which to choose to let Java software components communicate on the network, the most simple and common are \textit{Sockets} and \textit{Java RMI}.
-\paragraph{Sockets} are abstractions through which an application may send and receive data, in much the same way as an open file handle allows an application to read and write data to stable storage.
+\subsubsection{Sockets} Sockets are abstractions through which an application may send and receive data, in much the same way as an open file handle allows an application to read and write data to stable storage.
 A socket allows an application to plug in to the network and communicate with other applications that are plugged in to the same network. Information written to the socket by
 an application on one machine can be read by an application on a different machine and vice versa \cite{calvert2011tcp}.
 Different types of sockets correspond to different underlying protocol suites and different
@@ -444,7 +452,7 @@ Java provide a network library with which is very easy to implement a client/ser
 \lstinputlisting[language=Java , caption=DateClient example]{Codici/DateClient.java}
 Comments in the example gives the full explanation of how simple client/server Java application using TCP sockets works.
 
-\paragraph{Java RMI} it is an implementation of \textit{Remote Method Invocation} previously discussed in \ref{RMI}. It represent the best alternative to sockets when building network applications. Java RMI is a complete middleware itself, in fact, it raises the level of abstraction of the network communication environment.
+\subsubsection{Java RMI} Java RMI it is an implementation of \textit{Remote Method Invocation} previously discussed in \ref{RMI}. It represent the best alternative to sockets when building network applications. Java RMI is a complete middleware itself, in fact, it raises the level of abstraction of the network communication environment.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{JavaRMI}
@@ -453,7 +461,7 @@ Comments in the example gives the full explanation of how simple client/server J
 \end{figure}
 
 Remote method invocation allows applications to call object methods located remotely, sharing resources and processing load across systems. Unlike other systems for remote execution which require that only simple data types or defined structures be passed to and from methods, RMI allows any Java object type to be used - even if the client or server has never encountered it before. RMI allows both client and server to dynamically load new object types as required.
-\subsection{Zeroconf} Zero-configuration networking or \textit{Zerconf} is a set of technologies that automatically creates a usable computer network based on the TCP/IP Internet paradigm, when computers or network peripherals are interconnected. \\
+\subsection{Zeroconf}\label{zeroconf} Zero-configuration networking or \textit{Zerconf} is a set of technologies that automatically creates a usable computer network based on the TCP/IP Internet paradigm, when computers or network peripherals are interconnected. \\
 The aim of this technology is to let users easily connects to various local network services, without the need of configurations. The architecture of Zeroconf is built around simplicity. It should be as easy for an end users to connect a printer or locate streamed music as it is for him to turn on light bulb \cite{cheshire2006zero}.\\
 It is built on three core technologies: automatic assignment of numeric network addresses for networked devices, automatic distribution and resolution of computer hostnames, and automatic location of network services.\\
 

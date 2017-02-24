@@ -81,11 +81,35 @@ I would like now to list the goals that my work has to match, in order to be a v
 	\item The middleware should offer the user the possibility to access directly to other devices in the network without the need of configure anything. Users, once installed the middleware should use its functionalities of receiving/forwarding intents in a transparent way, in the same way they use other applications and with the same mechanism they learned by using the standard Android operating system.
 \end{itemize}
 The next sections contain all the steps necessary to have a full working system.
-Firstly I would solve the, let me call it \textit{general theoretical problem} by dividing it as discussed above and providing the solution for each of them, taking into account also the data management scenario. Then I would like present the structure of the development API, while the actual implementation of the working Liquid Android application is left for the next chapter with some working test and a deep analysis.
+Firstly I would solve the, let me call it \textit{general theoretical problem} by dividing it as discussed above and providing the solution for each of them, taking into account also the data management scenario. Then I would like to present the structure of the development API, while the actual implementation of the working Liquid Android application is left for the next chapter with some working tests and a deep component analysis.
 
 
 
-\section{Liquid Android Framework}
+\section{Theoretical solution, extending the Android OS}
+\par In this section i will perform an in depth analysis of the possible solution to the given problem: how I can extend the Android OS providing it distributed functionalities.
+\subsection{Network Architecture}
+The first step while creating a distributed system is to define the networking architecture, in particular I must define the kind of nodes involved in the system and the way in which they interact, what they can do, which operation they can perform and in which way. As mentioned earlier the network architecture of the system must fulfill the following requirements:
+\begin{itemize}
+ \item \textit{dynamicity}, it must allow any device to perform the dynamic connection, and also disconnection, to the distributed system at any time, since the nodes of the network are mainly mobile devices and they can be moved easily. Nodes can \textit{JOIN} and \textit{LEAVE} everytime, and the network must accommodate them automatically.
+  \item \textit{simplicity}, the network must be as simple as possible, it should not need any particular configuration on the nodes to \textit{JOIN}. Any node should perform other nodes \textit{DISCOVERY} in the network in a easy way without the need to know them a priori.
+ \item \textit{reliability and security}, are important non functional requirements in such a system. I want to make the network reliable and secure as much as possible by the adoption of standard software engineering techniques.
+\end{itemize}
+The network architecture that fits better all the requirements listed above is certainly a P2P network. As seen in \ref{P2P}, in peer-ro-peer networks there is not a clear distinction between clients and servers, in fact a peer-to-peer network is designed around the notion of equal peer nodes simultaneously functioning as both "clients" and "servers" to the other nodes on the network.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.9\textwidth]{P2Pnetwork}
+\caption{P2P Liquid Android network example}
+\label{fig:4.3}
+\end{figure}
+I think that an \textit{unstructured P2P architecture} is the best choice for my system due to the fact that it do not impose a particular structure on the overlay network by design and data is still exchanged directly over the underlying TCP/IP network, so at the application layer peers are able to communicate with each other directly, via the logical overlay links. In \figurename~\ref{fig:4.3} there is an example of my architecture in which different devices are in range under the same local network and they can communicate sending intents and data.\\
+To obtain this kind of structure, and let it change dynamically depending on the devices in range, I need to equip the devices with a \textit{network service}.
+ 
+ \subsection{Communication Model}
+ 
+ \subsection{Data management Model}
+
+ 
 
 
 

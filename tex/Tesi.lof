@@ -8,27 +8,28 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The T-Mobile G1 and the Android 1.0 men\IeC {\`u}\relax }}{5}{figure.caption.16}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Android OS fragmentation chart\relax }}{7}{table.caption.18}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Android OS 4 layers\relax }}{7}{figure.caption.19}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Intent resolution mechanism\relax }}{9}{figure.caption.25}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Intent resolution mechanism\relax }}{10}{figure.caption.25}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Android 5.1- permission example\relax }}{11}{figure.caption.31}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Android 6.0+ permission example\relax }}{11}{figure.caption.31}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Android permission Examples\relax }}{11}{figure.caption.31}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Distributed system structure\relax }}{13}{figure.caption.33}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Distributed system challenges\relax }}{13}{figure.caption.34}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Distributed system challenges\relax }}{14}{figure.caption.34}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces RPC in detail\relax }}{15}{figure.caption.37}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces RMI in detail\relax }}{15}{figure.caption.39}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces RMI in detail\relax }}{16}{figure.caption.39}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Client server architecture\relax }}{17}{figure.caption.43}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces P2P architecture\relax }}{17}{figure.caption.45}
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Publish-subscribe architecture\relax }}{18}{figure.caption.48}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces TCP/IP sockets\relax }}{21}{figure.caption.51}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Java RMI structure\relax }}{23}{figure.caption.53}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Java RMI structure\relax }}{24}{figure.caption.53}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Distributed intent resolution\relax }}{29}{figure.caption.59}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Liquid Android working as stand alone middleware APK\relax }}{31}{figure.caption.61}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Liquid Android API working example\relax }}{32}{figure.caption.63}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Liquid Android API data management example\relax }}{32}{figure.caption.65}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Liquid Android working as stand alone middleware APK\relax }}{31}{figure.caption.60}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Liquid Android API working example\relax }}{32}{figure.caption.61}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Liquid Android API data management example\relax }}{32}{figure.caption.62}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Plex Platform\relax }}{38}{figure.caption.66}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Liquid Android working example\relax }}{41}{figure.caption.67}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Plex Platform\relax }}{38}{figure.caption.63}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Liquid Android working example\relax }}{41}{figure.caption.64}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces P2P Liquid Android network example\relax }}{43}{figure.caption.65}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

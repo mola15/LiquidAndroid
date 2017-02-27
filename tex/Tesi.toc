@@ -67,9 +67,9 @@
 \contentsline {section}{\numberline {4.2}General Idea}{39}{section.4.2}
 \contentsline {section}{\numberline {4.3}Theoretical solution, extending the Android OS}{42}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Network Architecture}{43}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Communication Model}{44}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Data management Model}{44}{subsection.4.3.3}
-\contentsline {chapter}{\numberline {5}Case Study}{45}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{47}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{49}{chapter*.66}
-\contentsline {chapter}{Bibliography}{51}{section*.69}
+\contentsline {subsection}{\numberline {4.3.2}Communication Model}{46}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Data management Model}{46}{subsection.4.3.3}
+\contentsline {chapter}{\numberline {5}Case Study}{47}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{49}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{51}{chapter*.66}
+\contentsline {chapter}{Bibliography}{53}{section*.69}

@@ -115,7 +115,98 @@ To fulfill the above listed requirements of dynamicity and simplicity the right 
 Given the network structure security is obviously a non functional requirement in building my system, but since my entire middleware, once connected, will allow to send and execute any kind of task, in the form of implicit intents, to each device involved I need to make some considerations about the security of such a system. The security of my system is highly influenced by the underlying physical network, if the LAN access is secured and protected my system will be, indeed, enough secure. The network should be protected using a firewall and the service ports used by the device involved in the system should not be accessible from the outside of the LAN. Moreover the WiFi should be protected using a strong password and a secure and updated access protocol like the\textit{WPA2}. Furthermore, I want that users of my system are aware of the fact that it is running, so once the service is activated users will be alerted by a notification in the appropriate Android notification area.
  
  \subsection{Communication Model}
- 
+ Once the network is up the second step is let the device communicate to cooperate giving, to the final users, the feeling that they are working with a single big distributed operating system. To achieve this goal, as already explained several times, my system is supposed to intercept implicit intents, let the user select a target device, or a group of them, to perform the task, send it and once arrived perform it in the selected device or group devices. With TCP sockets it very easy to exchange messages between networked devices, so it is equally easy to understand why I have chosen a message oriented structure as the communication model, briefly presented in \ref{messageo}, for my system. Furthermore, as already stated with the \tablename~\ref{tab:comp} such a model gives me more freedom of choice regarding certain characteristics that the system must have, I want the communication is:
+ \begin{itemize}
+	\item \textit{concurrent}, in the original Android OS when an intent resolution mechanism is started by any other component of the system, for example an application activity, the OS stops its execution to perform, in foreground, the task the intent contains. I want to leave unchanged this kind of mechanism in my system, so when a, let me call it, \textit{distributed intent} arrives from the socket, the operating system must treat it exactly as if it were a \textit{local intent} and execute it in the same way it does with other intents. The arrival of a new distributed intent from another device is the event which triggers the standard OS resolution technique by suspending any other operation. I want the network listen and accepts messages with distributed intents to solve at any moment, in a fully concurrent way, so the last intent is triggered the first it is resolved and executed in a \textit{LIFO}, last in first out, way like in a stack structure.
+	\item \textit{asynchronous}, the standard intent resolution mechanism, like many other in the Android operating system, is mainly asynchronous. When an implicit intent is triggered it will be performed without knowing, a priori, what application will execute the task and how. To be more clear, for example when an application ask the OS to open a map of a place, the application which started the process do no need to know if the system completed the task and with which results. I want that my system do not need to change this behavior, if an operation need to be performed the intent is triggered and the OS reacts as usual without the need to send back acknowledgment messages \text{ACKs}. When it is necessary to synchronize the communication among the various components involved when an implicit intent is triggered Android provides a mechanism, using the system function \textit{startActivityForResult(intent)}, to send the result back to the caller. I intend to keep the same mechanism also when dealing with distributed intents, but I want to maintain an asynchronous approach also in this case, the caller could continue its execution without waiting for the results and then, once done, receive back the response, in the form of another distributed intent, from the called. I will give further details of this case when presenting the kind of messages can be sent using my system and the data model solution part.
+ \end{itemize}
+
+Now the difficult part is establish how intents can be sent through the sockets and which kind of messages my system can send and then handle to perform various kind of tasks.\\
+The next step, hence, is to find a way to send the intents from a device to another without loosing information and once they are arrived to be executed like they were local intents. To do this job it is necessary to analyze in dept what an intent is in Android and what it can contain.\\
+As showed in the chapter \ref{cap:statoarte} in \ref{intents} intents are the way in which standard Android framework's components communicate among each other, and they also represent the abstraction of actions to be performed by Android applications. In the Android developer framework an intent is implemented as a Java Class containing the information and data to perform the task. An intent is an abstract description of an operation to be performed. It can be used in various ways: with \textit{startActivity} to launch an Activity, with \textit{broadcastIntent} to send it to any interested \textit{BroadcastReceiver} components, and  with \textit{startService(Intent)} or \textit{bindService(Intent, ServiceConnection, int)} to communicate with a background Service. However its most significant use is in the launching of activities, where it can be thought of as the glue between activities. It is basically a passive data structure holding an abstract description of an action to be performed \cite{android2017intent}.\\
+Every implicit intent is characterized, mainly, by an \textit{ACTION}, \textit{DATA} and a bundle of \textit{EXTRAS}.
+\begin{table}[h]
+	%
+	\caption{Intent Structure}
+	%
+	\label{tab:intent}
+	%
+	\centering
+	\begin{center}
+	
+	%
+	\begin{tabular}{>{\centering\arraybackslash} m{0.15\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
+		%
+		
+		\toprule
+		%
+		\centering\textbf{Attribute} & \centering\textbf{Description}  &\begin{minipage}[t]{0.4\textwidth}
+			\centering
+		\textbf{Examples}
+		\end{minipage} \\
+		%
+		\midrule
+		%
+		\centering\textit{ACTION} & \begin{minipage}[t]{0.4\textwidth}
+			\centering
+		The general action to be\\ performed.
+		\end{minipage} & \begin{minipage}[t]{0.4\textwidth}
+		\centering
+		ACTION\_VIEW\\ACTION\_EDIT
+		\end{minipage}\\ %fine riga tabella
+		&&\\
+		\centering\textit{DATA} & \begin{minipage}[t]{0.4\textwidth}
+			\centering
+		The data to operate on,\\expressed as a Uri.
+		\end{minipage} &
+		\begin{minipage}[t]{0.4\textwidth}
+			\centering
+		content://contacts/people/1 \\ tel:123
+		\end{minipage}\\  %fine riga tabella
+		&&\\
+		\centering\textit{CATEGORY} & \begin{minipage}[t]{0.4\textwidth}
+			\centering
+			Gives additional information\\about the action to execute.
+		\end{minipage} &
+		\begin{minipage}[t]{0.4\textwidth}
+			\centering
+			 CATEGORY\_LAUNCHER \\  CATEGORY\_ALTERNATIVE
+		\end{minipage}\\  %fine riga tabella
+		&&\\
+		\centering\textit{TYPE} & \begin{minipage}[t]{0.4\textwidth}
+			\centering
+			Specifies an explicit type \\(a MIME type) of the intent data. Normally the type is inferred\\ from the data itself. 
+		\end{minipage} &
+		\begin{minipage}[t]{0.4\textwidth}
+			\centering
+			type */*
+		\end{minipage}\\  %fine riga tabella
+		&&\\
+		\centering\textit{EXTRAS} & \begin{minipage}[t]{0.4\textwidth}
+			\centering
+		This is a Bundle of any additional information. This can be used to provide extended information to the component.
+		\end{minipage} &
+		\begin{minipage}[t]{0.4\textwidth}
+			\centering
+			EXTRA\_TEXT\\
+			EXTRA\_TITLE
+		\end{minipage}\\  %fine riga tabella
+	
+		\bottomrule
+		%
+	\end{tabular}
+\end{center}
+	%
+\end{table}
+The \tablename~\ref{tab:intent} explains in depth what an intent could contain, of course there are many types of action, data, categories and extra that are not reported here for reasons of brevity but that can be found in \cite{android2017intent}. The real problem, for the purposes of my system, is that the Android intent Java Class can no be serialized,automatically and send through the socket as it is. In computer science serialization is the process of translating data structures or object state into a format that can be stored, or transmitted across a network connection link, and reconstructed later in the same or another computer environment. When the resulting series of bits is reread according to the serialization format, it can be used to create a semantically identical clone of the original object \cite{marshall2015c++}. In a Java environment, like the Android one, Java Classes that implements the \textit{Serializable interface} can be automatically serialized, by the environment itself, and sent through a socket  and then automatically deserialized to reconstruct the original sent object by the receiver, but as already told the intent Class does not implement this functionality. I need therefore to find a way to do this process in a fully functional and also efficient way. There are, actually, many alternatives to accomplish this objective. For example I could generate a new Java Object, containing all the intent attributes, that implements the Java Serializable interface, convert intents to this new Object and then let Java perform its automatic serialization/serialization. As an alternative I could generate some kind of semi-structured data, using a well know, let me call it \textit{container language}, such as JSON or XML, which can be easily sent, as a string, over the socket and then parsed to rebuild the original Java Object.\\
+Since the effort required to develop one of the two solution, presented above as examples, is practically the same, I decided to opt for the second alternative, using a JSON structure, because it has substantial advantages.\\
+JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, it is completely language independent. These properties make JSON an ideal data-interchange
+language \cite{w3c2007introducing}.\\
+It is based mainly on two types of structures:
+\begin{itemize}
+	\item Key/Value pair set: it can be considered an object of an Object Oriented programming language,
+	\item Collection of elements: it can be considered an array of Objects.
+\end{itemize}
  \subsection{Data management Model}
 
  

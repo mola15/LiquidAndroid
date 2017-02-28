@@ -1,17 +1,17 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'Tesi.blg'
-[50] biber-MSWIN64:303> INFO - === 
-[102] Biber.pm:359> INFO - Reading 'Tesi.bcf'
-[212] Biber.pm:832> INFO - Using all citekeys in bib section 0
-[230] Biber.pm:3670> INFO - Processing section 0
-[266] Biber.pm:3840> INFO - Looking for bibtex format file 'Bibliografia.bib' for section 0
-[273] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[284] bibtex.pm:1292> INFO - Found BibTeX data source 'Bibliografia.bib'
-[367] Utils.pm:164> WARN - Name "Gosling, James; Joy, Bill; Steele, Guy L., Jr.; Bracha, Gilad" has too many commas: skipping name
-[415] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[415] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[415] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
-[415] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
-[440] bbl.pm:608> INFO - Writing 'Tesi.bbl' with encoding 'UTF-8'
-[444] bbl.pm:712> INFO - Output to Tesi.bbl
-[445] Biber.pm:109> INFO - WARNINGS: 1
+[37] biber-MSWIN64:303> INFO - === 
+[68] Biber.pm:359> INFO - Reading 'Tesi.bcf'
+[177] Biber.pm:832> INFO - Using all citekeys in bib section 0
+[195] Biber.pm:3670> INFO - Processing section 0
+[222] Biber.pm:3840> INFO - Looking for bibtex format file 'Bibliografia.bib' for section 0
+[228] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[236] bibtex.pm:1292> INFO - Found BibTeX data source 'Bibliografia.bib'
+[296] Utils.pm:164> WARN - Name "Gosling, James; Joy, Bill; Steele, Guy L., Jr.; Bracha, Gilad" has too many commas: skipping name
+[339] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[339] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[339] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
+[340] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
+[366] bbl.pm:608> INFO - Writing 'Tesi.bbl' with encoding 'UTF-8'
+[371] bbl.pm:712> INFO - Output to Tesi.bbl
+[371] Biber.pm:109> INFO - WARNINGS: 1

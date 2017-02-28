@@ -154,7 +154,7 @@ In this section I want to give some details of the application composition and w
 As briefly described in \ref{appframework} the Android application framework \textit{("AppFramework")} is the core of the Android \textit{development API}. It contains useful and needed components to build native apps.\\
 The main components with which each application is composed are:
 
-\subsubsection{Intents} Intents are objects that initiate actions from other app components, either within the same program \textit{(explicit intents)} or through another piece of software on the device \textit{(implicit intents)}.
+\subsubsection{Intents}\label{intents} Intents are objects that initiate actions from other app components, either within the same program \textit{(explicit intents)} or through another piece of software on the device \textit{(implicit intents)}.
 Acconrding to the official Google's Android for developer documentation, an Intent is a sort of messaging object which can be used to request an action from another application component (eg. activities). There are three fundamental use cases:
 \begin{itemize}
 	\item Starting an activity: we will see that activities represents a single screen in Android applications, intents allow to start activities by describing them and carrying any necessary data.
@@ -315,7 +315,7 @@ As described in \figurename~\ref{fig:2.10} RPC provides the localization of the 
 	\label{fig:2.11}
 \end{figure} 
 The \figurename~\ref{fig:2.11} shows in detail how RMI is supposed to work. Like RPC, RMI uses an IDL which is designed to support OO programming languages features such as inheritance and exception handling.
-\subsubsection{Message oriented} Message oriented communication is a style based and centered on the notion of simple messages and events.The most straightforward example of it is \textit{message passing}. Typically message passing is implemented directly on the network sublayers (eg. sockets). Message passing differs from conventional programming where a process, subroutine, or function is directly invoked by name. 
+\subsubsection{Message oriented} \label{messageo} Message oriented communication is a style based and centered on the notion of simple messages and events.The most straightforward example of it is \textit{message passing}. Typically message passing is implemented directly on the network sublayers (eg. sockets). Message passing differs from conventional programming where a process, subroutine, or function is directly invoked by name. 
 \begin{table}[h]
 	%
 	\caption{Comparison between communication models}

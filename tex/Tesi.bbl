@@ -19,6 +19,26 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{android2017intent}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e84e30b9390cdb64db6db2c9ab87846d}{%
+           family={Android},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \strng{fullhash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \strng{authornamehash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \strng{authorfullhash}{e84e30b9390cdb64db6db2c9ab87846d}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Intents}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://developer.android.com/reference/android/content/Intent.html
+      \endverb
+    \endentry
     \entry{secure2017android}{online}{}
       \name{author}{1}{}{%
         {{hash=e84e30b9390cdb64db6db2c9ab87846d}{%
@@ -221,6 +241,28 @@
       \field{year}{2006}
       \verb{url}
       \verb https://books.google.it/books?id=--R3jxPwQhUC
+      \endverb
+    \endentry
+    \entry{marshall2015c++}{online}{}
+      \name{author}{1}{}{%
+        {{hash=0b7fcfd17ffae9197a846fed46331d75}{%
+           family={Cline},
+           familyi={C\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0b7fcfd17ffae9197a846fed46331d75}
+      \strng{fullhash}{0b7fcfd17ffae9197a846fed46331d75}
+      \strng{authornamehash}{0b7fcfd17ffae9197a846fed46331d75}
+      \strng{authorfullhash}{0b7fcfd17ffae9197a846fed46331d75}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{C++ FAQ: "What's this "serialization" thing all about?"}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://web.archive.org/web/20150405013606/http://isocpp.org/wiki/faq/serialization
       \endverb
     \endentry
     \entry{devandroifundamentals}{online}{}
@@ -601,6 +643,26 @@
       \field{urldateera}{ce}
       \verb{url}
       \verb http://www.vogella.com/tutorials/Android/article.html
+      \endverb
+    \endentry
+    \entry{w3c2007introducing}{online}{}
+      \name{author}{1}{}{%
+        {{hash=446a1ae6601a5c59360c7d591c3992da}{%
+           family={W3C},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{446a1ae6601a5c59360c7d591c3992da}
+      \strng{fullhash}{446a1ae6601a5c59360c7d591c3992da}
+      \strng{authornamehash}{446a1ae6601a5c59360c7d591c3992da}
+      \strng{authorfullhash}{446a1ae6601a5c59360c7d591c3992da}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introducing JSON}
+      \field{year}{2007}
+      \verb{url}
+      \verb http://www.w3schools.com/xml/xml_soap.asp
       \endverb
     \endentry
     \entry{computer2002write}{online}{}

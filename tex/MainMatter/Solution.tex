@@ -198,7 +198,7 @@ Every implicit intent is characterized, mainly, by an \textit{ACTION}, \textit{D
 \end{center}
 	%
 \end{table}
-The \tablename~\ref{tab:intent} explains in depth what an intent could contain, of course there are many types of action, data, categories and extra that are not reported here for reasons of brevity but that can be found in \cite{android2017intent}. The real problem, for the purposes of my system, is that the Android intent Java Class can no be serialized,automatically and send through the socket as it is. In computer science serialization is the process of translating data structures or object state into a format that can be stored, or transmitted across a network connection link, and reconstructed later in the same or another computer environment. When the resulting series of bits is reread according to the serialization format, it can be used to create a semantically identical clone of the original object \cite{marshall2015c++}. In a Java environment, like the Android one, Java Classes that implements the \textit{Serializable interface} can be automatically serialized, by the environment itself, and sent through a socket  and then automatically deserialized to reconstruct the original sent object by the receiver, but as already told the intent Class does not implement this functionality. I need therefore to find a way to do this process in a fully functional and also efficient way. There are, actually, many alternatives to accomplish this objective. For example I could generate a new Java Object, containing all the intent attributes, that implements the Java Serializable interface, convert intents to this new Object and then let Java perform its automatic serialization/serialization. As an alternative I could generate some kind of semi-structured data, using a well know, let me call it \textit{container language}, such as JSON or XML, which can be easily sent, as a string, over the socket and then parsed to rebuild the original Java Object.\\
+The \tablename~\ref{tab:intent} explains in depth what an intent could contain, of course there are many types of action, data, categories and extra that are not reported here for reasons of brevity but that can be found in \cite{android2017intent}. The real problem, for the purposes of my system, is that the Android intent Java Class can no be serialized,automatically and send through the socket as it is. In computer science serialization is the process of translating data structures or object state into a format that can be stored, or transmitted across a network connection link, and reconstructed later in the same or another computer environment.\\ When the resulting series of bits is reread according to the serialization format, it can be used to create a semantically identical clone of the original object \cite{marshall2015c++}. In a Java environment, like the Android one, Java Classes that implements the \textit{Serializable interface} can be automatically serialized, by the environment itself, and sent through a socket  and then automatically deserialized to reconstruct the original sent object by the receiver, but as already told the intent Class does not implement this functionality. I need therefore to find a way to do this process in a fully functional and also efficient way. There are, actually, many alternatives to accomplish this objective. For example I could generate a new Java Object, containing all the intent attributes, that implements the Java Serializable interface, convert intents to this new Object and then let Java perform its automatic serialization/serialization. As an alternative I could generate some kind of semi-structured data, using a well know, let me call it \textit{container language}, such as JSON or XML, which can be easily sent, as a string, over the socket and then parsed to rebuild the original Java Object.\\
 Since the effort required to develop one of the two solution, presented above as examples, is practically the same, I decided to opt for the second alternative, using a JSON structure, because it has substantial advantages.\\
 JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, it is completely language independent. These properties make JSON an ideal data-interchange
 language \cite{w3c2007introducing}.\\
@@ -207,8 +207,456 @@ It is based mainly on two types of structures:
 	\item Key/Value pair set: it can be considered an object of an Object Oriented programming language,
 	\item Collection of elements: it can be considered an array of Objects.
 \end{itemize}
- \subsection{Data management Model}
+By converting any possible implicit intent in a \textit{JSON-intent} the system complies with the following properties:
+\begin{itemize}
+	\item \textit{M2M communication}, and also \textit{M2H communication}, as already stated JSON are really easy to read and understand by human and also by machines,
+	\item \textit{lightweight messages} and also \textit{small overhead}, it is well known that Serialization in Java produce a big overhead and serialization/deserialization to be more general lacks efficiency. JSON are merely \textit{well formatted Strings} which can be sent unaltered on the socket without the need be further converted. The sender send the JSON as a string and the receiver gets exactly that string.
+	\item \textit{freedom}, JSON is optimized to be used with a great variety of programming languages, the creation of a \textit{JSON-intent} opens up various possibilities for further development: using the correct syntax, any device, even non-Android, could be a client of my system. In this way it would be possible to send original Android intents to any Android device, with my service installed and active, from a Client running in different OS and using different programming languages. It is possible, in fact, to use Zeroconf to find the service in many other environment and to connect to the socket to send JSON-intents to the connected Android devices.
+\end{itemize}
+To obtain a general solution to convert any possible Android intent in to a JSON-intent, and viceversa, i need to define the syntax of new object which must fit as much as possible to the structure of the Android intent Class. In fact it would be very easy to convert the major fields that characterize a given intent that are mostly correctly formatted strings, if it were not for the fact that the bundle of extras can contain different types of structured data.
+\subsubsection{JSON-Intent sintax}
+In this subsection I am going to define step by step the syntax of my solution, explaining with listings and images all the elements.
+An important and remarkable reflection is needed here: unfortunately it is not possible for me alone to consider every kind of intents and to convert properly any kind of data, but my system will work with great majority of them. It is in fact unlikely that implicit intents will contain strange structured data types or \textit{Parcelables and Serializable} data which are usually used with implicit intents, which, for construction of the operating system, my system can not handle. For these reason I am not going to support, with this solution, that kind of data, since it would be very difficult, and highly inefficient, send and reconstruct Parcelables and Serializable data types over my system. That said, I want to proceed with the definition of the syntax of the JSON-Intents.\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.9\textwidth]{intentUML}
+	\caption{UML  structure for an Intent}
+	\label{fig:4.4}
+\end{figure}
+In \figurename~\ref{fig:4.4} it is shown the complete structure of an intent including the detailed description, using an UML model, of the bundle that is responsible of holding the Extras. The bundle is a sort of container of a non predetermined number of couples \textit{<Key,Value>} in which the Key is always an arbitrary String, while the Value can be any of the structured data types listed in the schema.
+The \textit{"*"} notation at the end of any attribute in the bundle, means precisely that the number of \textit{<Key,Value>} is variable, and optional, for any kind of structured Value data type.\\
+I have already analyzed the structure of an Android intent object in the \tablename~\ref{tab:intent}, now I am reproducing the same structure to convert it in a JSON-intent. Using some tables i would explain all the syntax i have created. In the \tablename~\ref{tab:JSON-Intent} it is shown the general structure for the JSON-Intent, precisely in the first column, \textit{Name}, there is in bold the String keyword used in JSON to identify the field. In the second column, \textit{Type}, it is explained which kind of data type the field, identified by the keyword in the first column, contains. Since JSON allows to store only \textit{String},	\textit{Boolean}, \textit{JSON Array}, \textit{Number} and \textit{JSON Object} data types in the third column, \textit{description}, there is a short explanation of how the conversion is performed.
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\begin{table}[h]
+	%
+	\caption{JSON-Intent fields}
+	%
+	\label{tab:JSON-Intent}
+	%
+	\centering
+	\begin{center}
+		
+		%
+		\begin{tabular}{>{\centering\arraybackslash} m{0.15\textwidth}p{0.25\textwidth}p{0.55\textwidth}}
+			%
+			
+			\toprule
+			%
+			\centering\textbf{Name} & \centering\textbf{Type}  &	\textbf{Description} \\
+			%
+			\midrule
+			%
+			\centering\textbf{action} & \begin{minipage}[t]{0.25\textwidth}
+				\centering
+				String
+			\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+				It was a String also in the original Intent Object and do not need to be further converted. It is used also to identify, by using intent filters, which applications can execute the intent once arrived to the receiver.
+			\end{minipage}\\%fine riga tabella
+		&&\\
+			\centering\textbf{[data]}\footnotemark[1] & \begin{minipage}[t]{0.25\textwidth}
+				\centering
+				String
+			\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+				It was a URI type in the Intent Object which can be easily stored as a string by using the URI.toString() method in Java.
+			\end{minipage}\\%fine riga tabella
+		&&\\
+			\centering\textbf{categories} & \begin{minipage}[t]{0.25\textwidth}
+			\centering
+			Array\\<Category\textsuperscript{+}> \footnotemark[2]\footnotemark[3]
+		\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+			It was a Set of Strings in the Intent Object so it can be converted in an array of Category JSON Objects \textit{(JSON Array)} containing all the category of the intent.
+		\end{minipage}\\%fine riga tabella
+		&&\\
+			\centering\textbf{[type]}\footnotemark[1] & \begin{minipage}[t]{0.25\textwidth}
+			\centering
+			String
+		\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+			It was a String also in the original Intent Object and do not need to be further converted.
+		\end{minipage}\\%fine riga tabella
+		&&\\
+			\centering\textbf{[extras]}\footnotemark[1] & \begin{minipage}[t]{0.25\textwidth}
+			\centering
+			Array\\<Bundle Object>\footnotemark[2]
+		\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+			It is a collection of all possible extras, it has to be converted in complex JSON Object which I will describe in the next tables.
+		\end{minipage}\\%fine riga tabella	
+			\bottomrule
+			%
+		\end{tabular}
+	\end{center}
+	%
+\end{table}
+\footnotetext[1]{The notation [Field] means that the field is optional}
+\footnotetext[2]{The notation Array<Type> means that the Array contains Objects of that type}
+\footnotetext[3]{The notation \textsuperscript{+} means that an Array must contain at least one Object}
 
+Since \textit{categories} and, as anticipated, \textit{extras} are complex fields, containing array data types, introduced by me, I need to give further explanations of my choices in translating this objects form Java to JSON.
+
+\begin{table}[h]
+	%
+	\caption{Category fields}
+	%
+	\label{tab:category}
+	%
+	\centering
+	\begin{center}
+		
+		%
+		\begin{tabular}{>{\centering\arraybackslash} m{0.15\textwidth}p{0.25\textwidth}p{0.55\textwidth}}
+			%
+			
+			\toprule
+			%
+			\centering\textbf{Name} & \centering\textbf{Type}  &	\textbf{Description} \\
+			%
+			\midrule
+			%
+			\centering\textbf{category} & \begin{minipage}[t]{0.25\textwidth}
+				\centering
+				String
+			\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+				It was a String also in the original Intent Object and do not need to be further converted.
+			\end{minipage}\\%fine riga tabella		
+			\bottomrule
+			%
+		\end{tabular}
+	\end{center}
+	%
+\end{table}
+
+In the \tablename~\ref{tab:category}, using the same notation of the previous table, it is shown how the \textit{Category JSON object} is structured. It is, merely, a simple object containing a single field using the keyword \textit{category} with a String value which is any possible Android intent's category.
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{table}[h]
+	%
+	\caption{JSON-Bundle Object fields}
+	%
+	\label{tab:Bundle}
+	%
+	\centering
+	\begin{center}
+		
+		%
+		\begin{tabular}{>{\centering\arraybackslash} m{0.15\textwidth}p{0.25\textwidth}p{0.55\textwidth}}
+			%
+			
+			\toprule
+			%
+			\centering\textbf{Name} & \centering\textbf{Type}  &	\textbf{Description} \\
+			%
+			\midrule
+				%
+			\centering\textbf{key} & \begin{minipage}[t]{0.25\textwidth}
+				\centering
+				String
+			\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+				It contains the keyword, an arbitrary string, used to store the specific extra in the original Java intent object.
+			\end{minipage}\\%fine riga tabella		
+			&&\\
+			%
+			\centering\textbf{type} & \begin{minipage}[t]{0.25\textwidth}
+				\centering
+				String
+			\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+				It is a string which describes the type of structured Java data type, it is used to correctly reconstruct the original Intent Object.
+			\end{minipage}\\%fine riga tabella		
+			&&\\
+			\centering\textbf{data} & \begin{minipage}[t]{0.25\textwidth}
+				\centering
+				Variable
+			\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
+				This filed is the one which contains the actual data, it can be a primitive data type such as a boolean a double and so and, or a supported array. The full description of this field is given in \tablename~\ref{tab:data}.
+			\end{minipage}\\%fine riga tabella		
+			\bottomrule
+			
+			%
+		\end{tabular}
+	\end{center}
+	%
+\end{table}
+In the same way the \tablename~\ref{tab:Bundle} shows the structure of the JSON-Bundle object.
+
+	%
+	
+
+		%
+		\begin{longtable}{|p{0.19\textwidth}|p{0.17\textwidth}p{0.17\textwidth}p{0.37\textwidth}|}
+			%
+			
+			\toprule
+			%
+			\centering\textbf{Java Object} & \multicolumn{3}{ |c| }{\textbf{JSON Object}}\\
+		
+			%
+			\midrule
+			\centering\textbf{name}	& \centering\textbf{type content}  &	\centering\textbf{data type} &	\textbf{description} \\ \hline
+			\multicolumn{4}{ |c| }{ }\\
+			\multicolumn{4}{ |c| }{\textbf{Primitive Data Types}}\\ \hline
+			&&&\\
+			%
+			\centering boolean & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{boolean}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+			\centering
+				Boolean
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+			The data filed contains the actual boolean value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering byte & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{byte}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Number
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual byte value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering CharSequence & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{charsequence}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				String
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual CharSequence value converted in String.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering double & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{double}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Number
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual double value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering float & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{float}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Number
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual float value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering int & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{integer}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Number
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual int value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering long & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{long}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Number
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual long value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			\centering short & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{short}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Number
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual short value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			\centering String & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{string}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				String
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains the actual String value.
+			\end{minipage}\\%fine riga tabella		
+			 \hline
+			\multicolumn{4}{ |c| }{ }\\
+			\multicolumn{4}{ |c| }{\textbf{Array Data Types}}\\ \hline
+			% inizio array
+			&&&\\
+			\centering boolean[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{aboolean}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"boolean"} and in the data filed the actual boolean value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering byte[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{abyte}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"byte"} and in the data filed the actual byte value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering CharSequence[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{acharsequence}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"charsequence"} and in the data filed the actual charsequence value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering double[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{adouble}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"double"} and in the data filed the actual double value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering float[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{afloat}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"float"} and in the data filed the actual float value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering int[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{ainteger}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"integer"} and in the data filed the actual int value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			%
+			\centering long[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{along}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"long"} and in the data filed the actual long value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			\centering short[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{ashort}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"short"} and in the data filed the actual short value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			\centering String[] & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{astring}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"string"} and in the data filed the actual string value.
+			\end{minipage}\\%fine riga tabella
+			 \hline
+			\multicolumn{4}{ |c| }{ }\\
+			\multicolumn{4}{ |c| }{\textbf{ArrayList Data Types}}\\ \hline
+			% inizio arraylist
+			&&&\\
+			%
+			\begin{minipage}[t]{0.19\textwidth}
+				\centering
+				 ArrayList\\<CharSequence>
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{alcharsequence}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"charsequence"} and in the data filed the actual charsequence value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			\begin{minipage}[t]{0.19\textwidth}
+				\centering
+				ArrayList\\<Integer>
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{alinteger}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"integer"} and in the data filed the actual integer value.
+			\end{minipage}\\%fine riga tabella		
+			&&&\\
+			\begin{minipage}[t]{0.19\textwidth}
+				\centering
+				ArrayList\\<String>
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				\textbf{alstring}
+			\end{minipage} & \begin{minipage}[t]{0.17\textwidth}
+				\centering
+				Array\\<Bundle Object>\footnotemark[2]
+			\end{minipage} & \begin{minipage}[t]{0.37\textwidth}
+				The data filed contains an JSON Array of Bundle Objects having in the type field \textit{"string"} and in the data filed the actual string value.
+			\end{minipage}\\%fine riga tabella
+			
+			\bottomrule
+			%
+			
+			\caption{Possible data types}
+			%
+			\label{tab:data}
+			%
+			\centering
+		\end{longtable}
+
+
+
+
+
+ \subsection{Data management Model}
+\section{Liquid Android API Library}
  
 
 

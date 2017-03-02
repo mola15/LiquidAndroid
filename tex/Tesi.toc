@@ -68,8 +68,10 @@
 \contentsline {section}{\numberline {4.3}Theoretical solution, extending the Android OS}{42}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Network Architecture}{43}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Communication Model}{46}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Data management Model}{49}{subsection.4.3.3}
-\contentsline {chapter}{\numberline {5}Case Study}{51}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{53}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{55}{chapter*.67}
-\contentsline {chapter}{Bibliography}{57}{section*.70}
+\contentsline {subsubsection}{JSON-Intent sintax}{49}{section*.67}
+\contentsline {subsection}{\numberline {4.3.3}Data management Model}{54}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Liquid Android API Library}{54}{section.4.4}
+\contentsline {chapter}{\numberline {5}Case Study}{55}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{57}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{59}{chapter*.72}
+\contentsline {chapter}{Bibliography}{61}{section*.75}

@@ -51,6 +51,9 @@ public class IntentConverter {
     final static String TYPE = "type";
     final static String DATA = "data";
     final static String KEY = "key";
+    final static String CATEGORIES = "categories";
+    final static String CATEGORY = "category";
+    final static String ITYPE = "itype";
 
 
     /**
@@ -64,6 +67,15 @@ public class IntentConverter {
 
             obj.put(ACTION,i.getAction());
             obj.put(DATA,i.getDataString());
+            obj.put(ITYPE, i.getType());
+            Set<String> cat = i.getCategories();
+            JSONArray car = new JSONArray();
+            for(String ct : cat){
+                JSONObject cto = new JSONObject();
+                cto.put(CATEGORY,ct);
+                car.put(cto);
+            }
+            obj.put(CATEGORIES,car);
             JSONArray extr = new JSONArray();
             Bundle b = i.getExtras();
             Set<String> keys = b.keySet();
@@ -295,6 +307,11 @@ public class IntentConverter {
         try {
             intent.setAction(j.getString(ACTION)); //parsing action
             intent.setData(Uri.parse(j.getString(DATA)));
+            //intent.setType(j.getString(ITYPE)); posso anche non farlo
+            JSONArray categories = j.getJSONArray(CATEGORIES);
+            for(int z = 0 ; z<categories.length();z++){
+                intent.addCategory(categories.getJSONObject(z).getString(CATEGORY));
+            }
             JSONArray extras = j.getJSONArray(EXTRAS);
             for(int k = 0;k<extras.length();k++){
                 JSONObject job = extras.getJSONObject(k);

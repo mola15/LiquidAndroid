@@ -263,9 +263,9 @@ I have already analyzed the structure of an Android intent object in the \tablen
 				It was a URI type in the Intent Object which can be easily stored as a string by using the URI.toString() method in Java.
 			\end{minipage}\\%fine riga tabella
 		&&\\
-			\centering\textbf{categories} & \begin{minipage}[t]{0.25\textwidth}
+			\centering\textbf{[categories]} & \begin{minipage}[t]{0.25\textwidth}
 			\centering
-			Array\\<Category\textsuperscript{+}> \footnotemark[2]\footnotemark[3]
+			Array\\<Category> \footnotemark[2]
 		\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
 			It was a Set of Strings in the Intent Object so it can be converted in an array of Category JSON Objects \textit{(JSON Array)} containing all the category of the intent.
 		\end{minipage}\\%fine riga tabella
@@ -291,7 +291,6 @@ I have already analyzed the structure of an Android intent object in the \tablen
 \end{table}
 \footnotetext[1]{The notation [Field] means that the field is optional}
 \footnotetext[2]{The notation Array<Type> means that the Array contains Objects of that type}
-\footnotetext[3]{The notation \textsuperscript{+} means that an Array must contain at least one Object}
 
 Since \textit{categories} and, as anticipated, \textit{extras} are complex fields, containing array data types, introduced by me, I need to give further explanations of my choices in translating this objects form Java to JSON.
 
@@ -353,7 +352,7 @@ In the \tablename~\ref{tab:category}, using the same notation of the previous ta
 			%
 			\midrule
 				%
-			\centering\textbf{key} & \begin{minipage}[t]{0.25\textwidth}
+			\centering\textbf{[key]\footnotemark[1]} & \begin{minipage}[t]{0.25\textwidth}
 				\centering
 				String
 			\end{minipage} & \begin{minipage}[t]{0.55\textwidth}
@@ -381,7 +380,7 @@ In the \tablename~\ref{tab:category}, using the same notation of the previous ta
 	\end{center}
 	%
 \end{table}
-In the same way the \tablename~\ref{tab:Bundle} shows the structure of the JSON-Bundle object.
+In the same way the \tablename~\ref{tab:Bundle} shows the structure of the JSON-Bundle object. Every single JSON-Bundle object represent a possible \textit{extra} of the original Java intent. The field \textit{key} contains the string keyword used to identify the extra. The \textit{type} field contains one of the keywords, in bold, defined in the next table, which is a String used to identify the structured Java data type, used to perform the so called \textit{deserialization}, by reconverting the JSON-Intent in a Android Java intent object. Depending on the type of data that it is necessary to store the \textit{data} field can contain the actual data, if the original Java type was a primitive data type, or an array of JSON-Bundle objects without the field \textit{key}, if the original data type was an Array or an ArrayList.\\
 
 	%
 	
@@ -651,11 +650,48 @@ In the same way the \tablename~\ref{tab:Bundle} shows the structure of the JSON-
 			\centering
 		\end{longtable}
 
+In the \tablename~\ref{tab:data} there is the definition for any Java types of data my translation supports: for every Java type, listed in the first column of the table, is provided the corresponding translation, using the last three columns.\\
+In this way I completed the translation of any generic Android implicit intent, which can, easily, be converted in a JSON-Intent by generating a JSON complying with the syntax defined above. The conversion process can be automatized developing an \textit{Intent Converter}, which I will include in the \textit{Liquid Android API}, which i will describe in the following sections.
 
-
-
-
+\subsubsection{JSON-Intent example}
+In this small subsection I would like to provide a full example of a JSON-Intent document which represents a theoretical proof of concept. Notice that I did not use all the fields, and obviously all the data types, I have defined in the previous pages: not all of them are
+mandatory to have a working system and maybe they can result redundant, and and make the example more difficult to understand.\\
+The use case describes a working implicit intent used to ask the Android OS to send an email.\\
+In the \lstlistingname~\ref{code:4.2} there is. in Java code, an example of a method which creates an Android implicit Intent to send an email and then asks the OS to resolve that Intent by using an Activity. In the \lstlistingname~\ref{code:4.3} there is exactly the same Intent converted using the syntax proposed above by me. The JSON-Intent thus created can be easily sent through the socket and then reconverted back to the original Java Intent object.
+\lstinputlisting[language=Java , caption=Implicit Intent example , label=code:4.2]{Codici/mailintent.java}
+\begin{lstinputlisting}[
+	morekeywords={action, itype, category, categories, extras, type, data, key},
+	caption={Conversion of the Intent in Listing \ref{code:4.2} to JSON-Intent},
+	label=code:4.3]
+	{Codici/mailintent.json}
+\end{lstinputlisting}
+\subsubsection{Possible Messages}
+Having thus defined the communication model and language, i need now to define the possible kind of messages the system can handle: as mentioned earlier Android intents can be used with different methods to start different kinds of Android components, the are mainly 4 : 
+\begin{itemize}
+	\item \textit{startActivity(Intent intent)}, ask the system to start an Activity to perform the operation contained in the intent passed as parameter.
+	\item \textit{startActivityForResult(Intent intent)}, it performs exactly the same operations of the previous method, farther, it is used to receive a result from the activity when it finishes. The caller activity receives the result as a separate Intent object in the activity's onActivityResult() callback.
+	\item \textit{startService(Intent intent)} ask the system to start a Service to perform the operation contained in the intent passed as parameter.
+	\item \textit{sendBroadcast(Intent intent)} ask the system to send a broadcast message that any app can receive.
+\end{itemize}
+Since my system is supposed to work, mainly, by using implicit intents, the most common method it will use will be the first. I want, also, to support the use of the other three methods, so since it is impossible to understand what kind of method it is needed only by analyzing any intent filed, i need to define standard attributes to let my system choose the right Android method to start the received intent. For these reasons my system will threat received intents with the first method unless unless otherwise specified. By including in the JSON-intent a standard extra field it is possible to support any method described above. Including in the extras array the extra with \textbf{key}:\textit{"andorid.intent.extra.LIQUIDMETHOD"}, \textbf{type}:\textit{"string"}, \textbf{data}:\textit{"RESULT" or "SERVICE" or "BROADCAST"} my system will start the received intent with the appropriate method. Furthermore during the development of my system I will analyze special cases of well known intents which need a result back, for example intents asking the OS to take a photo are supposed to receive back the taken picture.
  \subsection{Data management Model}
+ The last step is to establish how the system has to manage data created, or manipulated, by sending/resolving distributed intents. I found, basically, two main good solutions which I want to present to the readers of my work. They are both good solutions for such a problem in building my system, having different advantages and disadvantages.
+ \subsubsection{Files over the socket}
+ Since the system exploits the LAN and creates a working P2P network, it is possible to send the generated data directly using it by sending result intent or files over the socket. To continue with the previous example, in which one device of the network ask another one to take a photo, the device which perform the operation and holds the original picture can put it on the socket and send its file or the result intent,properly converted in a JSON-Intent, to the device that sent the request. In this way basically it is possible to realize any type of data management operation only by exploiting the underlying network. This first solution has the advantage of not having to use external services to the local network, indeed it do not need to use the Internet connection. There is however the drawback of having to serialize/deserialize any data to be sent over the socket.
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=.9\textwidth]{datamodel1}
+ 	\caption{Files Over the Socket example}
+ 	\label{fig:4.5}
+ \end{figure}
+ \subsubsection{Cloud Group}
+ It would be possible to easily implement a cloud group, with one of the well known cloud services supported by Android, such as \textit{Google drive}, where devices, while my system is running, can store and download data needed by the distributed intent and generated by executing them. This second solution has the advantage that can be easily implement using existing cloud systems, but has as drawback the fact of it needs an Internet connection and some security issues because data in that way can be accessed also outside my system.
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=.9\textwidth]{datamodel2}
+ 	\caption{Cloud Group example}
+ 	\label{fig:4.6}
+ \end{figure}
 \section{Liquid Android API Library}
  
 

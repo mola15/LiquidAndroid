@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //DA RIMUOVERE PROVE PER L'INTENT CONVERTER
+        /*
         Intent in = new Intent(Intent.ACTION_SEND);
         Uri i;
 
@@ -105,10 +106,15 @@ public class MainActivity extends AppCompatActivity {
         Intent i2 = IntentConverter.JSONToIntent(job);
         Log.e("intent rigenerato", i2.toUri(0));
         Log.e("intent rigenerato", "" + i2.getDoubleArrayExtra("doubles")[0]);
-
+           */
         //FINE DA RIMUOVERE
-
-
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_EMAIL, "example@example.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "example");
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        JSONObject job = IntentConverter.intentToJSON(intent);
+        Log.d("intento",job.toString());
         super.onCreate(savedInstanceState);
     }
 

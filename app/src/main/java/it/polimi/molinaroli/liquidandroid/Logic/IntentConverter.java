@@ -70,12 +70,16 @@ public class IntentConverter {
             obj.put(ITYPE, i.getType());
             Set<String> cat = i.getCategories();
             JSONArray car = new JSONArray();
-            for(String ct : cat){
-                JSONObject cto = new JSONObject();
-                cto.put(CATEGORY,ct);
-                car.put(cto);
+            try {
+                for (String ct : cat) {
+                    JSONObject cto = new JSONObject();
+                    cto.put(CATEGORY, ct);
+                    car.put(cto);
+                }
+                obj.put(CATEGORIES, car);
+            }catch(Exception e){
+                Log.d("cat","no categories");
             }
-            obj.put(CATEGORIES,car);
             JSONArray extr = new JSONArray();
             Bundle b = i.getExtras();
             Set<String> keys = b.keySet();

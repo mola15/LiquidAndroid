@@ -1,0 +1,17 @@
+{
+	"action": "android.intent.action.SEND",
+	"itype": "*\/*",
+	"categories": [{
+		"category": "android.intent.category.DEFAULT"
+	}],
+	"extras": [{
+		"type": "string",
+		"data": "example",
+		"key": "android.intent.extra.SUBJECT"
+	},
+	{
+		"type": "string",
+		"data": "example@example.com",
+		"key": "android.intent.extra.EMAIL"
+	}]
+}

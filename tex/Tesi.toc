@@ -69,9 +69,13 @@
 \contentsline {subsection}{\numberline {4.3.1}Network Architecture}{43}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Communication Model}{46}{subsection.4.3.2}
 \contentsline {subsubsection}{JSON-Intent sintax}{49}{section*.67}
-\contentsline {subsection}{\numberline {4.3.3}Data management Model}{54}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Liquid Android API Library}{54}{section.4.4}
-\contentsline {chapter}{\numberline {5}Case Study}{55}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{57}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{59}{chapter*.72}
-\contentsline {chapter}{Bibliography}{61}{section*.75}
+\contentsline {subsubsection}{JSON-Intent example}{55}{section*.72}
+\contentsline {subsubsection}{Possible Messages}{56}{section*.73}
+\contentsline {subsection}{\numberline {4.3.3}Data management Model}{57}{subsection.4.3.3}
+\contentsline {subsubsection}{Files over the socket}{57}{section*.74}
+\contentsline {subsubsection}{Cloud Group}{58}{section*.76}
+\contentsline {section}{\numberline {4.4}Liquid Android API Library}{58}{section.4.4}
+\contentsline {chapter}{\numberline {5}Case Study}{59}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{61}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{63}{chapter*.78}
+\contentsline {chapter}{Bibliography}{65}{section*.81}

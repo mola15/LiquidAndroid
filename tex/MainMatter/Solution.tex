@@ -676,7 +676,7 @@ Having thus defined the communication model and language, i need now to define t
 Since my system is supposed to work, mainly, by using implicit intents, the most common method it will use will be the first. I want, also, to support the use of the other three methods, so since it is impossible to understand what kind of method it is needed only by analyzing any intent filed, i need to define standard attributes to let my system choose the right Android method to start the received intent. For these reasons my system will threat received intents with the first method unless unless otherwise specified. By including in the JSON-intent a standard extra field it is possible to support any method described above. Including in the extras array the extra with \textbf{key}:\textit{"andorid.intent.extra.LIQUIDMETHOD"}, \textbf{type}:\textit{"string"}, \textbf{data}:\textit{"RESULT" or "SERVICE" or "BROADCAST"} my system will start the received intent with the appropriate method. Furthermore during the development of my system I will analyze special cases of well known intents which need a result back, for example intents asking the OS to take a photo are supposed to receive back the taken picture.
  \subsection{Data management Model}
  The last step is to establish how the system has to manage data created, or manipulated, by sending/resolving distributed intents. I found, basically, two main good solutions which I want to present to the readers of my work. They are both good solutions for such a problem in building my system, having different advantages and disadvantages.
- \subsubsection{Files over the socket}
+ \subsubsection{Files over the socket}\label{fos}
  Since the system exploits the LAN and creates a working P2P network, it is possible to send the generated data directly using it by sending result intent or files over the socket. To continue with the previous example, in which one device of the network ask another one to take a photo, the device which perform the operation and holds the original picture can put it on the socket and send its file or the result intent,properly converted in a JSON-Intent, to the device that sent the request. In this way basically it is possible to realize any type of data management operation only by exploiting the underlying network. This first solution has the advantage of not having to use external services to the local network, indeed it do not need to use the Internet connection. There is however the drawback of having to serialize/deserialize any data to be sent over the socket.
  \begin{figure}[h]
  	\centering
@@ -693,8 +693,99 @@ Since my system is supposed to work, mainly, by using implicit intents, the most
  	\label{fig:4.6}
  \end{figure}
 \section{Liquid Android API Library}
- 
+Once found, and described the so called theoretical solution, which mainly solves the \ref{middlewarescenario} scenario, I started the concrete development of the system, trying to solve the problem and also, to create a system which can be easily extended and used to build other purposes systems.\\
+In this section I will describe the \textit{Liquid Android Framework} as a development API, solving the second scenario, \ref{devAPI}, pointing out the main components, methods and configuration variables.
+\subsection{General Structure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.95\textwidth]{generaluml}
+	\caption{Liquid Android General UML}
+	\label{fig:4.7}
+	\begin{tabular}{ccc}
+		\textcolor{OliveGreen}{$\blacksquare$} Android Service & \textcolor{RoyalBlue}{$\blacksquare$} Android Activity & \textcolor{RoyalPurple}{$\blacksquare$} Standard Java Class\\
+	\end{tabular}
+\end{figure}
+I want to start giving an overview of the general structure of my system. I want to have few, but fully functional, components, and to accomplish the standard design pattern \textit{Model View Controller (MVC)}.\\
+In my API the model is represented by the JSON-Intent structure described in the previous sections: intents are the way in which my system communicates, so they are the main kind of data to deal with. Then there are the controller components, which are responsible to manage the data, and to build and maintain the network. Finally there are, also, \textit{User Interface (UI)} components, which are responsible for the interaction with the final user of the system.\\
+In \figurename~\ref{fig:4.7} there is the complete structure, by using an \textit{UML Class Diagram} of the framework, in which it is possible to identify the various components by looking at the legend under the picture: components in light-blue are Android activity used to interact with the user, so the are, indeed UI components, while all the other classes are identifiable as controller components. The arrows in figure explain the existing relations among the class components, pointing out the way in which they interact in the system.
+\subsection{Controller Components}
+First of all, I want to analyze the way in which the controller components build and maintain the network and then how they send/receive JSON-Intent objects and execute them.\\
+\subsubsection{NsdHelper}
+It is a standard Java Class component, which we can see as a \textit{Helper Class}. It contains all the methods used to register the network service and to search and resolve other devices which are using the system, by finding other services in the LAN which are using the same name and the same transport layer. This class is an implementation of the \textit{NSD Android API} already described in \ref{androidNSD}.
+Its main configuration parameters are:
+\begin{itemize}
+	\item \textit{SERVICE\_TYPE}, it is the string used to identify the network services in the LAN when the NsdHelper perform the register and discover operations. It uses the syntax: \textit{"\_<protocol>.\_<transportlayer>"}. 
+	\item \textit{SERVICE\_NAME}, it is the instance name: it is the visible name to other devices on the network. The name is visible to any device on the network that is using NSD to look for local services. The name, also, must be unique for any service on the network, and the NSD library automatically handles conflict resolution.
+\end{itemize}
+ Since i want to give a flexible development API library it is possible to change this parameter by using the proper setter method or by passing two strings to the NsdHelper constructor. For example is possible to use:
+ \begin{itemize}
+ 	\item \textit{setServiceType("\_<protocol>.\_<transportlayer>")}
+ 	\item \textit{setServiceName("name")}
+ 	\item \textit{new NsdHelper("\_<protocol>.\_<transportlayer>","name")} 
+ \end{itemize} to change the configuration parameters when initializing the NsdHelper Class component.\\
+Its main (public) methods are:
+\begin{itemize}
+	\item \textit{registerService(int port)}, this method performs the local network service registration, by using the variables described above and the service port passed as a parameter to this method.
+	\item \textit{discoverServices()}, this method performs the service discovery and resolution, by scanning the local network and saving found services in a list of resolved devices, containing the connection variables of the other compatible service in the network \textit{IP} and \textit{SERVICE\_PORT}.
+	\item \textit{stopDiscovery()}, this is the method used to stop the service discovery mechanism.
+\end{itemize}
 
+\subsubsection{Server}
+It is a standard Java Class component holding the server functionalities of the system. It is the components which opens the sockets and then waits and listens for invocations by other devices clients. It is responsible for the reconstruction of the intent object by using the received JSON-Intent from client, and also it has to allow the concurrency and let clients connect any time.
+To perform this duty my server component uses a multi-thread architecture: every time a client connects it starts a separated \textit{server-thread} to communicate with it. Once received the message the server translates it in a executable Android intent and then execute it by using one of the standard Android methods seen in the previous section when explaining the possible kind of messages.\\
+Its main (public) methods are:
+\begin{itemize}
+	\item \textit{initializeServerSocket()}, this method initialize the \textit{ServerSocket} Java component, by automatically selecting a free port in the LAN, which waits and listens for client connections.
+	\item \textit{startServer()}, this method is used to start the server-thread when a client performs an invocation, the started server-thread performs the operations contained in the received JSON-Intent message by reconstructing and passing it to the Android OS to be resolved.
+	\item \textit{stopServer()}, this method closes, and destroys, the server-thread when the client invocation is finished to avoid memory leaks when using the system. 
+\end{itemize}
+
+\subsubsection{Client}
+It is a standard Java Class component holding the client functionalities of the system. It is the components which connects to the  server sockets of the other devices in the network and then sends the message containing the intent to be executed. It is responsible for the conversion of the intent object in a JSON-Intent to be sent on the socket. Once created the message the client send it to the selected server and then closes itself in an asynchronous way, without waiting any ACK message or the result of the invocation.\\
+Its main (public) methods is:
+\begin{itemize}
+	\item \textit{startClient(Intent intent)}, this method send the intent, by translating it in a JSON-Intent, to the selected server. Then the client is automatically closed to avoid possible memory leaks when using the system. 
+\end{itemize}
+\subsubsection{IntentConverter}
+It is another \textit{Helper Class}. It contains all the logic and methods used to perform the conversion of any Android Java Intent object in JSON-Intent objects, and viceversa, using the syntax proposed in the previous chapter. This standard Java Class does not have any variable or parameter, and does not need, also a special constructor. It has only two main Static public methods that can be invoked by using the Class name. \\They are:
+\begin{itemize}
+	\item \textit{intentToJSON(Intent i)}, this is a Static method which performs the conversion from any Intent object, passed as parameter, to a JSON-Intent, returned by the method as a JSONObject, using the syntax created by me and explained in the previous chapter.
+	\item \textit{JSONToIntent(JSONObject j)}, this is a Static method which performs the reconstruction of the Java Intent object, by parsing a well formed JSONObject. It returns a fully working original Android Intent object.
+\end{itemize}
+\subsubsection{LiquidAndroidService}
+This is the Android background working service which really performs the extension of the Android OS giving to it distributed functionalities. When this component is started it is responsible of the initialization of the server, and the registration of the network service in the LAN, by calling the methods of the classes explained above, respectively the Server and the NsdHelper. This is a sort of container for the server side components of the middleware. It is implemented as a foreground working Android service, thus when it is in execution the user is alerted by a notification. A foreground service is a service that the user is actively aware of and is not a candidate for the system to kill when low on memory. A foreground service must provide a notification for the status bar, which is placed under the Ongoing heading. This means that the notification cannot be dismissed unless the service is either stopped or removed from the foreground \cite{devandroidrunning}.
+\subsection{UI Components}
+I want now to explain how the users can control the distributed intent flow, by using standard Android UI components. Even if my system is supposed to run in background it is also necessary to have few UI component to control the background working mechanism.
+\subsubsection{MainActivity}
+This is the UI component responsible for control the entire system. It has four important functionalities:
+\begin{itemize}
+	\item \textit{Listen to implicit intents}, when an implicit intent needs to be resolved, the Android OS starts the resolution mechanism already described in \figurename~\ref{fig:2.4}.
+		\begin{lstinputlisting}[
+		morekeywords={action, itype, category, categories, extras, type, data, key,intent,filter,activity},
+		caption={Intent filter example},
+		label=code:4.4]
+		{Codici/intentfilter.xml}
+	\end{lstinputlisting}
+	It searches for the best activity for the intent by comparing it to intent filters based on three aspects: \textit{Action}, \textit{Data (both URI and data type)} and \textit{Category}. A match is only successful if the actions and categories in the Intent match against the filter. So, to let the Liquid Android API listen for any kind of implicit intent, it must include an activity declared with any possible intent filter to be called when an intent need to be executed.\\
+	In \lstlistingname~\ref{code:4.4} there is and example of how an Activity needs to be declared in the manifest to be called by the OS when an implicit intent like the one in the JSON-Intent in the translation example, \ref{code:4.2} is triggered.
+	By extending the MainActivity component and adding any kind of intent filter to its declaration in the manifest, it is possible to listen practically to any type of existing implicit intents in the Android framework.
+	\item \textit{Find other devices in the network}, the MainActivity provides also this functionality by calling the methods of the NsdHelper class, and then it shows the resolved devices in the network in a ordered list.
+	\item \textit{Forward intents to selected devices}, once found the other devices in the network, the MainActivity let the user select on which device, or devices, forward the implicit intent it is managing at the moment. To perform this task the MainActivity starts the Client component and exploits its methods.
+	\item \textit{Start/stop the background service}, since when the background service is working the device is exposed to many threat, the user can control it by starting and stopping it every time it is needed by clicking on some special buttons in the MainActivity. 
+	
+\end{itemize}
+
+\subsubsection{ResultActivity}
+This is the UI component which can be used when a received intent needs to send data or results back to the caller. This Activity implements the \textit{onActivityResult()} callback method to manage the result or data produced by the received intent. In my framework API this problem is solved by using the files over the socket approach, described in \ref{fos}, so when the callback is triggered results are sent to the caller through the socket as JSON-Intent messages or serialized files, by using the Client class to send a message to the Server component of the caller. It is necessary to have this activity since it is impossible to call the \textit{startActivityForResult(intent)} method from a background service in Android.
+
+\subsection{Use Case}
+As already said several times i will use this API to fully develop the Liquid Android Apk which will be a working solution for the first and third problematic scenario, but the Liquid Android API can be used as an Android library in the development of native Android distributed applications. By including my API in any development project it is possible to speed up the process by exploiting my working mechanism and my methods already developed. Since the API is in Java is just as easy to extend the classes and override some of my methods to accomplish special purposes distributed systems.\\
+Exploiting my system would be easy to develop for example:
+\begin{itemize}
+	\item Distributed Android Computing systems, in which Android devices can share hardware resources to reach a common goal.
+	\item Android Computer Cluster, in which Android devices can be seen as node of clusters to perform the same task, controlled and scheduled by software.
+	\item Distributed Android File system, by refining the data management model.
+\end{itemize}
 
 
 %

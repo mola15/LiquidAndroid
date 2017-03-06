@@ -75,7 +75,18 @@
 \contentsline {subsubsection}{Files over the socket}{57}{section*.74}
 \contentsline {subsubsection}{Cloud Group}{58}{section*.76}
 \contentsline {section}{\numberline {4.4}Liquid Android API Library}{58}{section.4.4}
-\contentsline {chapter}{\numberline {5}Case Study}{59}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{61}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{63}{chapter*.78}
-\contentsline {chapter}{Bibliography}{65}{section*.81}
+\contentsline {subsection}{\numberline {4.4.1}General Structure}{58}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Controller Components}{59}{subsection.4.4.2}
+\contentsline {subsubsection}{NsdHelper}{59}{section*.79}
+\contentsline {subsubsection}{Server}{60}{section*.80}
+\contentsline {subsubsection}{Client}{61}{section*.81}
+\contentsline {subsubsection}{IntentConverter}{61}{section*.82}
+\contentsline {subsubsection}{LiquidAndroidService}{62}{section*.83}
+\contentsline {subsection}{\numberline {4.4.3}UI Components}{62}{subsection.4.4.3}
+\contentsline {subsubsection}{MainActivity}{62}{section*.84}
+\contentsline {subsubsection}{ResultActivity}{63}{section*.85}
+\contentsline {subsection}{\numberline {4.4.4}Use Case}{63}{subsection.4.4.4}
+\contentsline {chapter}{\numberline {5}Case Study}{65}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{67}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{69}{chapter*.86}
+\contentsline {chapter}{Bibliography}{71}{section*.89}

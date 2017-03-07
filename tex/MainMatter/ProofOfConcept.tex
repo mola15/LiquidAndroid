@@ -65,5 +65,24 @@ Non-functional requirements in this way complete my system, they are mainly:
 	the system will be available only on LANs is the first step in this direction.
 \end{itemize}
 \subsection{Used Technologies}
+This other subsection is an overview of the tools I have used to develop the
+Android application.\\
+Android applications are written using Java code and any API level of the Android framework. The \textit{Liquid Android APK} is been developed by using standard Android development tools and libraries without the need to rely on any third party API library. In particular I decided to make these choices.
+\begin{itemize}
+	\item \textit{Android API level 19}, as already explained several times I want that my system can be installed on the largest number of devices, so it is a compromise between the great innovation introduced starting from this API level, and the number of devices which can execute API level 19 apps.
+	\item \textit{Android NSD library}, it is a standard Android library I am using to register, discover and resolve my network service. It is an implementation of Zeroconf and it is compatible with other implementation such as Apple's bonjour.
+	\item \textit{Standard Java libraries}, I decided to use only libraries included in standard Java development kit distribution, the most important are :
+		\subitem \textit{org.json}, used to manage the JSON file, which are the messages exchanged by the devices using my application;
+		\subitem \textit{java.net}, containing the classes which are useful to implement the socket network communication.
+\end{itemize}
+Technically, I used an IDE to help in development, in particular AndroidStrudio based on IntelliJ IDEA, a
+modern solution released by Jet Brains. It contains modern tools to check Java
+compile time errors flagging them, and tools to check run time errors with a
+complete and verbose stack trace.Finally,
+it supports various VCS (Versioning control systems), to push the code inside
+repositories and to have a complete overview of commits and forks. I chose Git,
+one of the most famous VCS, and Bitbucket as repository to save my code.
+\subsection{Implementation}
+I have developed a fully working Android application called \textit{Liquid Android}. I have build the application using the API library i have created and already presented in \ref{API}, so the structure of my code follows exactly the one presented with the \textit{Liquid Android API} UML model, in \figurename~\ref{fig:4.7}.
 \section{Working Demo}
 \subsection{Live Test Cases}

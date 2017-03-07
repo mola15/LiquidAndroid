@@ -214,7 +214,7 @@ By converting any possible implicit intent in a \textit{JSON-intent} the system 
 	\item \textit{freedom}, JSON is optimized to be used with a great variety of programming languages, the creation of a \textit{JSON-intent} opens up various possibilities for further development: using the correct syntax, any device, even non-Android, could be a client of my system. In this way it would be possible to send original Android intents to any Android device, with my service installed and active, from a Client running in different OS and using different programming languages. It is possible, in fact, to use Zeroconf to find the service in many other environment and to connect to the socket to send JSON-intents to the connected Android devices.
 \end{itemize}
 To obtain a general solution to convert any possible Android intent in to a JSON-intent, and viceversa, i need to define the syntax of new object which must fit as much as possible to the structure of the Android intent Class. In fact it would be very easy to convert the major fields that characterize a given intent that are mostly correctly formatted strings, if it were not for the fact that the bundle of extras can contain different types of structured data.
-\subsubsection{JSON-Intent sintax}
+\subsubsection{JSON-Intent sintax}\label{syntax}
 In this subsection I am going to define step by step the syntax of my solution, explaining with listings and images all the elements.
 An important and remarkable reflection is needed here: unfortunately it is not possible for me alone to consider every kind of intents and to convert properly any kind of data, but my system will work with great majority of them. It is in fact unlikely that implicit intents will contain strange structured data types or \textit{Parcelables and Serializable} data which are usually used with implicit intents, which, for construction of the operating system, my system can not handle. For these reason I am not going to support, with this solution, that kind of data, since it would be very difficult, and highly inefficient, send and reconstruct Parcelables and Serializable data types over my system. That said, I want to proceed with the definition of the syntax of the JSON-Intents.\\
 \begin{figure}[h]
@@ -692,7 +692,7 @@ Since my system is supposed to work, mainly, by using implicit intents, the most
  	\caption{Cloud Group example}
  	\label{fig:4.6}
  \end{figure}
-\section{Liquid Android API Library}
+\section{Liquid Android API Library}\label{API}
 Once found, and described the so called theoretical solution, which mainly solves the \ref{middlewarescenario} scenario, I started the concrete development of the system, trying to solve the problem and also, to create a system which can be easily extended and used to build other purposes systems.\\
 In this section I will describe the \textit{Liquid Android Framework} as a development API, solving the second scenario, \ref{devAPI}, pointing out the main components, methods and configuration variables.
 \subsection{General Structure}
@@ -778,7 +778,7 @@ This is the UI component responsible for control the entire system. It has four 
 \subsubsection{ResultActivity}
 This is the UI component which can be used when a received intent needs to send data or results back to the caller. This Activity implements the \textit{onActivityResult()} callback method to manage the result or data produced by the received intent. In my framework API this problem is solved by using the files over the socket approach, described in \ref{fos}, so when the callback is triggered results are sent to the caller through the socket as JSON-Intent messages or serialized files, by using the Client class to send a message to the Server component of the caller. It is necessary to have this activity since it is impossible to call the \textit{startActivityForResult(intent)} method from a background service in Android.
 
-\subsection{Use Case}
+\subsection{Use Cases}
 As already said several times i will use this API to fully develop the Liquid Android Apk which will be a working solution for the first and third problematic scenario, but the Liquid Android API can be used as an Android library in the development of native Android distributed applications. By including my API in any development project it is possible to speed up the process by exploiting my working mechanism and my methods already developed. Since the API is in Java is just as easy to extend the classes and override some of my methods to accomplish special purposes distributed systems.\\
 Exploiting my system would be easy to develop for example:
 \begin{itemize}

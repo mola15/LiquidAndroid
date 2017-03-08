@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Button discover;
     Button display;
     Button start;
+    Button forward;
     NsdHelper helper;
     ListView serviceList;
     LiquidAndroidService mService;
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             bindService(intent, mConnection, 0);
             Log.d("bound", "" + mBound);
         }
+
         setContentView(R.layout.activity_main);
 
 
@@ -108,13 +112,17 @@ public class MainActivity extends AppCompatActivity {
         Log.e("intent rigenerato", "" + i2.getDoubleArrayExtra("doubles")[0]);
            */
         //FINE DA RIMUOVERE
+        /*
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("*/*");
+        intent.setType("*\/*");
         intent.putExtra(Intent.EXTRA_EMAIL, "example@example.com");
         intent.putExtra(Intent.EXTRA_SUBJECT, "example");
         intent.addCategory(Intent.CATEGORY_DEFAULT);
         JSONObject job = IntentConverter.intentToJSON(intent);
         Log.d("intento",job.toString());
+        */
+
+
         super.onCreate(savedInstanceState);
     }
 
@@ -207,6 +215,19 @@ public class MainActivity extends AppCompatActivity {
                 }}
 
             });
+
+        forward = (Button) findViewById(R.id.forward);
+        forward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("bindstate",""+ mBound);
+                if(mBound){
+                    //eseguo solo se ho il bind attivo
+                    helper = mService.getHelper();
+                    helper.showDialog(c);
+                }
+            }
+        });
 
         super.onStart();
 

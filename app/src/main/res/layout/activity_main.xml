@@ -10,16 +10,37 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="it.polimi.molinaroli.liquidandroid.MainActivity"
     android:orientation="vertical">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logov2"
+        android:layout_margin="10dp"/>
+
     <Button
-        android:text="Start"
+        android:layout_gravity="center"
+        android:text="Start Service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:id="@+id/startservice" />
+        android:id="@+id/startservice"
+        style="@style/Colored.Button"/>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:text="ForwardIntent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/forward"
+        style="@style/Colored.Button"/>
+<LinearLayout
+    android:padding="10dp"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
         <Button
             android:text="Display"
             android:layout_width="wrap_content"
@@ -27,6 +48,7 @@
             android:id="@+id/display"
             android:padding="5dp"/>
         <Button
+            android:layout_gravity="center"
             android:text="Discover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,6 +57,7 @@
 </LinearLayout>
 
     <ListView
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/servicelist">

@@ -16,16 +16,29 @@
 
 package it.polimi.molinaroli.liquidandroid.Logic;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.nsd.NsdServiceInfo;
 import android.net.nsd.NsdManager;
 import android.os.Build;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.jaredrummler.android.device.DeviceName;
 
 import java.util.ArrayList;
+
+import it.polimi.molinaroli.liquidandroid.MainActivity;
+import it.polimi.molinaroli.liquidandroid.R;
 
 public class NsdHelper {
     private int init;
@@ -41,11 +54,15 @@ public class NsdHelper {
     String registeredName;
     private ArrayList<NsdServiceInfo> services;
 
+    AlertDialog.Builder alertDialog;
+    Context activity;
+    ListView lv;
+
     public NsdHelper(Context context) {
         mContext = context;
         mNsdManager = (NsdManager) context.getSystemService(Context.NSD_SERVICE);
         services = new ArrayList<>();
-        mServiceName ="Liquid " + Build.ID;
+        mServiceName ="Liquid " + DeviceName.getDeviceName();
         setInit(2);
     }
 
@@ -216,6 +233,40 @@ public class NsdHelper {
     }
 
 
+    public void showDialog(Context context){
+        stopDiscovery();
+        services = new ArrayList<>();
+        activity = context;
+        alertDialog = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View convertView = (View) inflater.inflate(R.layout.dialoglist, null);
+        alertDialog.setView(convertView);
+        alertDialog.setTitle("Select Device to Forward");
+        lv = (ListView) convertView.findViewById(R.id.lv);
+        // lo creo e non ci metto l'adapter
+
+        // Set up the buttons
+        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //qui mando gli intenti
+                stopDiscovery();
+            }
+        });
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                stopDiscovery();
+                dialog.cancel();
+            }
+        });
+        discoverServices();
+        alertDialog.show();
+    }
+
+    //INNER CLASSES
+
+
     public class CustomResolveListener implements NsdManager.ResolveListener {
         @Override
         public void onResolveFailed(NsdServiceInfo serviceInfo, int errorCode) {
@@ -254,9 +305,46 @@ public class NsdHelper {
             }
             if (!present) {
                 getServices().add(serviceInfo);
+                //qui devo rimettere l'adapter nel dialog
+                CustomAdapter adapter = new CustomAdapter(activity, R.layout.serviceitem, getServices());
+                lv.setAdapter(adapter);
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // qui faccio il farward
+                    }
+                });
             }
             //qui ho risolto i servizi devo fare il display
             //setto l'adapter
         }
+    }
+
+
+    //innerclass adapter
+    public class CustomAdapter extends ArrayAdapter<NsdServiceInfo> {
+
+        public CustomAdapter(Context context, int textViewResourceId,
+                             ArrayList<NsdServiceInfo> objects) {
+            super(context, textViewResourceId, objects);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = (LayoutInflater) getContext()
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.serviceitem, null);
+            TextView nome = (TextView)convertView.findViewById(R.id.name);
+            TextView port = (TextView)convertView.findViewById(R.id.porta);
+            TextView ip = (TextView)convertView.findViewById(R.id.ip);
+            CheckBox s = (CheckBox) convertView.findViewById(R.id.selected);
+
+            NsdServiceInfo c = getItem(position);
+            nome.setText(c.getServiceName().replaceAll("Liquid ",""));
+            port.setText("" + c.getPort());
+            ip.setText(c.getHost().toString().replaceAll("/",""));
+            return convertView;
+        }
+
     }
 }

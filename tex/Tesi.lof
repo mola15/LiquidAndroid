@@ -36,5 +36,8 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Liquid Android General UML\relax }}{59}{figure.caption.78}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Code organization\relax }}{68}{figure.caption.89}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Main Liquid Android UI components\relax }}{70}{figure.caption.91}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Main Activity UI}}}{70}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Notification UI}}}{70}{subfigure.2.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

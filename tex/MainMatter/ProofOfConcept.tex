@@ -83,7 +83,7 @@ compile time errors flagging them, and tools to check run time errors with a
 complete and verbose stack trace.Finally,
 it supports various VCS (Versioning control systems), to push the code inside
 repositories and to have a complete overview of commits and forks. I chose Git,
-one of the most famous VCS, and Bitbucket as repository to save my code.
+one of the most famous VCS, and GitHub as repository to save my code.
 \subsection{Implementation}
 I have developed a fully working Android application called \textit{Liquid Android}. I have build the application using the API library i have created and already presented in \ref{API}, so the structure of my code follows exactly the one presented with the \textit{Liquid Android API} UML model, in \figurename~\ref{fig:4.7}. The components and the methods i have used, to create the application, are exactly the one presented in that figure with little modifications and adaptations.
 \subsubsection{Code organization}
@@ -96,14 +96,10 @@ I have developed a fully working Android application called \textit{Liquid Andro
 As anticipated, the code is organized following the \textit{MVC} design pattern, so the \textit{controller components} are all contained in the \textit{Logic} package, while the \textit{UI components} are left inside the \textit{Main} package of the application- Other components typical of the Android development framework are left in their standard locations, such as the XML file containing the \textit{application manifest}.
 
 \subsubsection{Implicit Intents to listen}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=.9\textwidth]{manifest}
-	\caption{Liquid Android MainActivity Manifest}
-	\label{fig:5.2}
-\end{figure}
-In \figurename~\ref{fig:5.2} there is part of the manifes, of my application, showing some common intent filter the \textit{Liquid Android} app can listen to. In figure we can see that is the MainActivity of the application which declare itself capable of managing intents to take a picture, send and email or open a map. By adding any intent filter to the manifest of the application Liquid Android can listen and forward, automatically any kind of Android implicit intent. This snippet of code is the way in which the \text{FR1} is practically implemented.\\\\
+\lstinputlisting[language=XML , caption=Liquid Android MainActivity Manifest example, label=code:5.1]{Codici/manifest.xml}
+In \lstlistingname~\ref{code:5.1} there is part of the manifes, of my application, showing some common intent filter the \textit{Liquid Android} app can listen to. In figure we can see that is the MainActivity of the application which declare itself capable of managing intents to take a picture, send and email or open a map. By adding any intent filter to the manifest of the application Liquid Android can listen and forward, automatically any kind of Android implicit intent. This snippet of code is the way in which the \text{FR1} is practically implemented.\\\\
 In the following section I want to describe my system in action, providing application's screenshots, UML diagrams, working tests and use cases.
 \section{Working Demo}
-blablablabla
+This section is intended to show the reader the \textit{Liquid Android Application} while it is working. After the structure and the implementation of the application were explained it is necessary to show the finished work. As anticipated, my application
+is simply a proof of concept of how it is possible to use a group of Android devices, as they were executing a single distributed operating system using well known  Android mechanisms. Uers should not worry about substrates, they can control everything with a single and simple standard Android UI.\\
 \subsection{Live Test Cases}

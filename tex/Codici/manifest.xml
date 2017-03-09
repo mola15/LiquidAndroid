@@ -1,33 +1,33 @@
 <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <!-- intent filters per ascoltare intenti impliciti -->
-            <!-- BROWSER -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="http" android:host="*" />
-            </intent-filter>
-            <!-- TAKE PHOTO WITH CAMERA -->
-            <intent-filter>
-                <action android:name="android.media.action.IMAGE_CAPTURE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <!-- EMAIL -->
-            <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="*/*"/>
-            </intent-filter>
-            <!-- MAP -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <data android:scheme="geo" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            ...
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+	<!-- intent filters per ascoltare intenti impliciti -->
+	<!-- BROWSER -->
+	<intent-filter>
+		<action android:name="android.intent.action.VIEW"/>
+		<category android:name="android.intent.category.DEFAULT" />
+		<data android:scheme="http" android:host="*" />
+	</intent-filter>
+	<!-- TAKE PHOTO WITH CAMERA -->
+	<intent-filter>
+		<action android:name="android.media.action.IMAGE_CAPTURE" />
+		<category android:name="android.intent.category.DEFAULT" />
+	</intent-filter>
+	<!-- EMAIL -->
+	<intent-filter>
+		<action android:name="android.intent.action.SEND"/>
+		<category android:name="android.intent.category.DEFAULT"/>
+		<data android:mimeType="*/*"/>
+	</intent-filter>
+	<!-- MAP -->
+	<intent-filter>
+		<action android:name="android.intent.action.VIEW" />
+		<data android:scheme="geo" />
+		<category android:name="android.intent.category.DEFAULT" />
+	</intent-filter>
+	...
  </activity>
 
 

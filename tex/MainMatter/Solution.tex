@@ -660,7 +660,8 @@ The use case describes a working implicit intent used to ask the Android OS to s
 In the \lstlistingname~\ref{code:4.2} there is. in Java code, an example of a method which creates an Android implicit Intent to send an email and then asks the OS to resolve that Intent by using an Activity. In the \lstlistingname~\ref{code:4.3} there is exactly the same Intent converted using the syntax proposed above by me. The JSON-Intent thus created can be easily sent through the socket and then reconverted back to the original Java Intent object.
 \lstinputlisting[language=Java , caption=Implicit Intent example , label=code:4.2]{Codici/mailintent.java}
 \begin{lstinputlisting}[
-	morekeywords={action, itype, category, categories, extras, type, data, key},
+%	morekeywords={action, itype, category, categories, extras, type, data, key},
+	language=JSON,
 	caption={Conversion of the Intent in Listing \ref{code:4.2} to JSON-Intent},
 	label=code:4.3]
 	{Codici/mailintent.json}
@@ -760,12 +761,7 @@ I want now to explain how the users can control the distributed intent flow, by 
 This is the UI component responsible for control the entire system. It has four important functionalities:
 \begin{itemize}
 	\item \textit{Listen to implicit intents}, when an implicit intent needs to be resolved, the Android OS starts the resolution mechanism already described in \figurename~\ref{fig:2.4}.
-		\begin{lstinputlisting}[
-		morekeywords={action, itype, category, categories, extras, type, data, key,intent,filter,activity},
-		caption={Intent filter example},
-		label=code:4.4]
-		{Codici/intentfilter.xml}
-	\end{lstinputlisting}
+	\lstinputlisting[language=XML , caption=Intent filter example, label=code:4.4]{Codici/intentfilter.xml}
 	It searches for the best activity for the intent by comparing it to intent filters based on three aspects: \textit{Action}, \textit{Data (both URI and data type)} and \textit{Category}. A match is only successful if the actions and categories in the Intent match against the filter. So, to let the Liquid Android API listen for any kind of implicit intent, it must include an activity declared with any possible intent filter to be called when an intent need to be executed.\\
 	In \lstlistingname~\ref{code:4.4} there is and example of how an Activity needs to be declared in the manifest to be called by the OS when an implicit intent like the one in the JSON-Intent in the translation example, \ref{code:4.2} is triggered.
 	By extending the MainActivity component and adding any kind of intent filter to its declaration in the manifest, it is possible to listen practically to any type of existing implicit intents in the Android framework.

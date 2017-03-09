@@ -93,6 +93,30 @@
 \usepackage{caption}		% didascalie
 %
 \usepackage{listings}		% codici
+
+\lstdefinelanguage{XML}
+{
+	basicstyle=\ttfamily\footnotesize,
+	morestring=[b]",
+	moredelim=[s][\bfseries\color{Maroon}]{<}{\ },
+	moredelim=[s][\bfseries\color{Maroon}]{</}{>},
+	moredelim=[l][\bfseries\color{Maroon}]{/>},
+	moredelim=[l][\bfseries\color{Maroon}]{>},
+	morecomment=[s]{<?}{?>},
+	morecomment=[s]{<!--}{-->},
+	commentstyle=\color{Green},
+	stringstyle=\color{blue},
+	identifierstyle=\color{red}
+}
+
+\lstdefinelanguage{JSON}
+{
+	basicstyle=\ttfamily\footnotesize,
+	morestring=[b]",
+	stringstyle=\color{blue},
+}
+
+
 %
 \usepackage[font=small]{quoting}	% citazioni
 %

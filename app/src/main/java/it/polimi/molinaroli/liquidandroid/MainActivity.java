@@ -29,6 +29,7 @@ import it.polimi.molinaroli.liquidandroid.Logic.Client;
 import it.polimi.molinaroli.liquidandroid.Logic.IntentConverter;
 import it.polimi.molinaroli.liquidandroid.Logic.LiquidAndroidService;
 import it.polimi.molinaroli.liquidandroid.Logic.NsdHelper;
+import xdroid.toaster.Toaster;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -144,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
                     startService(myIntent);
                     bindService(intent, mConnection, 0);
                     Log.d("bound", "" + mBound);
+                } else{
+                    Toaster.toast("Service already Started");
                 }
             }
         });
@@ -224,7 +227,9 @@ public class MainActivity extends AppCompatActivity {
                 if(mBound){
                     //eseguo solo se ho il bind attivo
                     helper = mService.getHelper();
-                    helper.showDialog(c);
+                    helper.showDialog(c,arrivalIntent,myServerPort);
+                } else{
+                    Toaster.toast("Service not Started");
                 }
             }
         });

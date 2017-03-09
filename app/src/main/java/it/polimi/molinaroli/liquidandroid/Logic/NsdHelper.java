@@ -58,6 +58,9 @@ public class NsdHelper {
     Context activity;
     ListView lv;
 
+    int vicini;
+    boolean[] acheck;
+
     public NsdHelper(Context context) {
         mContext = context;
         mNsdManager = (NsdManager) context.getSystemService(Context.NSD_SERVICE);
@@ -233,7 +236,7 @@ public class NsdHelper {
     }
 
 
-    public void showDialog(Context context){
+    public void showDialog(final Context context, final Intent arrivalIntent, final int myServerPort){
         stopDiscovery();
         services = new ArrayList<>();
         activity = context;
@@ -251,6 +254,36 @@ public class NsdHelper {
             public void onClick(DialogInterface dialog, int which) {
                 //qui mando gli intenti
                 stopDiscovery();
+                CustomAdapter a = (CustomAdapter) lv.getAdapter();
+
+                for(int i = 0; i< a.getCount(); i++){
+                    if (acheck[i]){
+                        final NsdServiceInfo s = (NsdServiceInfo) a.getItem(i);
+                        String action;
+                        action = arrivalIntent.getAction();
+                        Log.d("arrival intent",action);
+                        switch (action) {
+                            case "android.media.action.IMAGE_CAPTURE":  new Thread(new Runnable() {
+                                public void run() {
+
+                                    Log.d("Activity", "starting client");
+                                    Client client = new Client(s.getHost(), s.getPort(), context, myServerPort);
+                                }
+                            }).start();
+                                break;
+                            case Intent.ACTION_SEND: Log.d("Activity", "intent not yet coded"); break;
+                            default:new Thread(new Runnable() {
+                                public void run() {
+
+                                    Log.d("Activity", "starting client");
+                                    Client client = new Client(s.getHost(), s.getPort(), context,arrivalIntent);
+                                }
+                            }).start();
+                                break;
+                        }
+                    }
+                }
+
             }
         });
         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -306,12 +339,24 @@ public class NsdHelper {
             if (!present) {
                 getServices().add(serviceInfo);
                 //qui devo rimettere l'adapter nel dialog
-                CustomAdapter adapter = new CustomAdapter(activity, R.layout.serviceitem, getServices());
+                final CustomAdapter adapter = new CustomAdapter(activity, R.layout.serviceitem, getServices());
+                vicini = getServices().size();
+                acheck = new boolean[vicini];
+                for(int i = 0; i<vicini;i++){
+                    acheck[i] = false;
+                }
                 lv.setAdapter(adapter);
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        // qui faccio il farward
+                        CheckBox c = (CheckBox) view.findViewById(R.id.selected);
+                        if (c.isChecked()){
+                            c.setChecked(false);
+                        }else{
+                            c.setChecked(true);
+                        }
+                        acheck[position] = c.isChecked();
+
                     }
                 });
             }
@@ -323,6 +368,7 @@ public class NsdHelper {
 
     //innerclass adapter
     public class CustomAdapter extends ArrayAdapter<NsdServiceInfo> {
+        ArrayList<CheckBox> cb = new ArrayList<>();
 
         public CustomAdapter(Context context, int textViewResourceId,
                              ArrayList<NsdServiceInfo> objects) {
@@ -339,6 +385,8 @@ public class NsdHelper {
             TextView ip = (TextView)convertView.findViewById(R.id.ip);
             CheckBox s = (CheckBox) convertView.findViewById(R.id.selected);
 
+            cb.add(position,s);
+
             NsdServiceInfo c = getItem(position);
             nome.setText(c.getServiceName().replaceAll("Liquid ",""));
             port.setText("" + c.getPort());
@@ -346,5 +394,11 @@ public class NsdHelper {
             return convertView;
         }
 
+        public ArrayList<CheckBox> getCheckBoxes (){
+            return cb;
+        }
     }
+
+
+
 }

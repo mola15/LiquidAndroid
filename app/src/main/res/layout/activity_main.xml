@@ -48,12 +48,14 @@
     android:orientation="horizontal">
 
         <Button
+            android:visibility="gone"
             android:text="Display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/display"
             android:padding="5dp"/>
         <Button
+            android:visibility="gone"
             android:layout_gravity="center"
             android:text="Discover"
             android:layout_width="wrap_content"

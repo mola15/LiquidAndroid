@@ -39,5 +39,11 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Main Liquid Android UI components\relax }}{70}{figure.caption.91}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Main Activity UI}}}{70}{subfigure.2.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Notification UI}}}{70}{subfigure.2.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dialogs Components\relax }}{71}{figure.caption.92}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {App Chooser Dialog UI}}}{71}{subfigure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forward Dialog UI}}}{71}{subfigure.3.2}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces JSON-Intent execution\relax }}{72}{figure.caption.93}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {App Chooser}}}{72}{subfigure.4.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Third party Browser Activity}}}{72}{subfigure.4.2}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

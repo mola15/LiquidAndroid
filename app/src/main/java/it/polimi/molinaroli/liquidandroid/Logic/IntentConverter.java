@@ -66,8 +66,10 @@ public class IntentConverter {
         try {
 
             obj.put(ACTION,i.getAction());
+            Log.d("converter data",i.getDataString());
             obj.put(DATA,i.getDataString());
-            obj.put(ITYPE, i.getType());
+            //obj.put(ITYPE, i.getType());
+            /*
             Set<String> cat = i.getCategories();
             JSONArray car = new JSONArray();
             try {
@@ -80,220 +82,209 @@ public class IntentConverter {
             }catch(Exception e){
                 Log.d("cat","no categories");
             }
+            */
             JSONArray extr = new JSONArray();
             Bundle b = i.getExtras();
-            Set<String> keys = b.keySet();
-            for(String key : keys){
-                Object cur = b.get(key);
+            try {
+                Set<String> keys = b.keySet();
+                for (String key : keys) {
+                    Object cur = b.get(key);
 
-                JSONObject j = new JSONObject();
-                //INIZIO PRIMITIVI
-                if (cur instanceof Integer){
-                    j.put(TYPE,INTEGER);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof String){
-                    j.put(TYPE,STRING);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof Boolean ){
-                    j.put(TYPE,BOOLEAN);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof Byte){
-                    j.put(TYPE,BYTE);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof Double){
-                    j.put(TYPE,DOUBLE);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof Float){
-                    j.put(TYPE,FLOAT);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof CharSequence){
-                    j.put(TYPE,CHARSEQUENCE);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof Long){
-                    j.put(TYPE,LONG);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof Short){
-                    j.put(TYPE,SHORT);
-                    j.put(DATA,cur);
-                    j.put(KEY,key);
-                } //INIZIO VETTORI
-                else if (cur instanceof int[]){
-                    int[] v = (int[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,INTEGER);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,AINTEGER);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof String[]){
-                    String[] v = (String[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,STRING);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,ASTRING);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof boolean[] ){
-                    boolean[] v = (boolean[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,BOOLEAN);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,ABOOLEAN);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof byte[]){
-                    byte[] v = (byte[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,BYTE);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,ABYTE);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof double[]){
-                    double[] v = (double[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,DOUBLE);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,ADOUBLE);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof float[]){
-                    float[] v = (float[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,FLOAT);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,AFLOAT);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof CharSequence[]){
-                    CharSequence[] v = (CharSequence[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,CHARSEQUENCE);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,ACHARSEQUENCE);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof long[]){
-                    long[] v = (long[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,LONG);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,ALONG);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }
-                else if (cur instanceof short[]){
-                    short[] v = (short[]) cur;
-                    JSONArray ar = new JSONArray();
-                    for(int k = 0;k<v.length;k++){
-                        JSONObject job = new JSONObject();
-                        job.put(TYPE,SHORT);
-                        job.put(DATA,v[k]);
-                        ar.put(job);
-                    }
-                    j.put(TYPE,ASHORT);
-                    j.put(DATA,ar);
-                    j.put(KEY,key);
-                }//INIZIO ARRAYLIST
-                else if (cur instanceof ArrayList<?>){
-                    Object o = ((ArrayList<?>)cur).get(0);
-                    if (o instanceof String){
-                        ArrayList<String> al = (ArrayList<String>) cur;
+                    JSONObject j = new JSONObject();
+                    //INIZIO PRIMITIVI
+                    if (cur instanceof Integer) {
+                        j.put(TYPE, INTEGER);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof String) {
+                        j.put(TYPE, STRING);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof Boolean) {
+                        j.put(TYPE, BOOLEAN);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof Byte) {
+                        j.put(TYPE, BYTE);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof Double) {
+                        j.put(TYPE, DOUBLE);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof Float) {
+                        j.put(TYPE, FLOAT);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof CharSequence) {
+                        j.put(TYPE, CHARSEQUENCE);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof Long) {
+                        j.put(TYPE, LONG);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } else if (cur instanceof Short) {
+                        j.put(TYPE, SHORT);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    } //INIZIO VETTORI
+                    else if (cur instanceof int[]) {
+                        int[] v = (int[]) cur;
                         JSONArray ar = new JSONArray();
-                        for(String s : al){
+                        for (int k = 0; k < v.length; k++) {
                             JSONObject job = new JSONObject();
-                            job.put(TYPE,STRING);
-                            job.put(DATA,s);
+                            job.put(TYPE, INTEGER);
+                            job.put(DATA, v[k]);
                             ar.put(job);
                         }
-                        j.put(TYPE,ALSTRING);
-                        j.put(DATA,ar);
-                        j.put(KEY,key);
-                    }else if (o instanceof Integer){
-                        ArrayList<Integer> al = (ArrayList<Integer>) cur;
+                        j.put(TYPE, AINTEGER);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof String[]) {
+                        String[] v = (String[]) cur;
                         JSONArray ar = new JSONArray();
-                        for(Integer s : al){
+                        for (int k = 0; k < v.length; k++) {
                             JSONObject job = new JSONObject();
-                            job.put(TYPE,INTEGER);
-                            job.put(DATA,s);
+                            job.put(TYPE, STRING);
+                            job.put(DATA, v[k]);
                             ar.put(job);
                         }
-                        j.put(TYPE,ALINTEGER);
-                        j.put(DATA,ar);
-                        j.put(KEY,key);
-                    }else if (o instanceof  CharSequence){
-                        ArrayList<CharSequence> al = (ArrayList<CharSequence>) cur;
+                        j.put(TYPE, ASTRING);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof boolean[]) {
+                        boolean[] v = (boolean[]) cur;
                         JSONArray ar = new JSONArray();
-                        for(CharSequence s : al){
+                        for (int k = 0; k < v.length; k++) {
                             JSONObject job = new JSONObject();
-                            job.put(TYPE,CHARSEQUENCE);
-                            job.put(DATA,s);
+                            job.put(TYPE, BOOLEAN);
+                            job.put(DATA, v[k]);
                             ar.put(job);
                         }
-                        j.put(TYPE,ALCHARSEQUENCE);
-                        j.put(DATA,ar);
-                        j.put(KEY,key);
-                    }
+                        j.put(TYPE, ABOOLEAN);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof byte[]) {
+                        byte[] v = (byte[]) cur;
+                        JSONArray ar = new JSONArray();
+                        for (int k = 0; k < v.length; k++) {
+                            JSONObject job = new JSONObject();
+                            job.put(TYPE, BYTE);
+                            job.put(DATA, v[k]);
+                            ar.put(job);
+                        }
+                        j.put(TYPE, ABYTE);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof double[]) {
+                        double[] v = (double[]) cur;
+                        JSONArray ar = new JSONArray();
+                        for (int k = 0; k < v.length; k++) {
+                            JSONObject job = new JSONObject();
+                            job.put(TYPE, DOUBLE);
+                            job.put(DATA, v[k]);
+                            ar.put(job);
+                        }
+                        j.put(TYPE, ADOUBLE);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof float[]) {
+                        float[] v = (float[]) cur;
+                        JSONArray ar = new JSONArray();
+                        for (int k = 0; k < v.length; k++) {
+                            JSONObject job = new JSONObject();
+                            job.put(TYPE, FLOAT);
+                            job.put(DATA, v[k]);
+                            ar.put(job);
+                        }
+                        j.put(TYPE, AFLOAT);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof CharSequence[]) {
+                        CharSequence[] v = (CharSequence[]) cur;
+                        JSONArray ar = new JSONArray();
+                        for (int k = 0; k < v.length; k++) {
+                            JSONObject job = new JSONObject();
+                            job.put(TYPE, CHARSEQUENCE);
+                            job.put(DATA, v[k]);
+                            ar.put(job);
+                        }
+                        j.put(TYPE, ACHARSEQUENCE);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof long[]) {
+                        long[] v = (long[]) cur;
+                        JSONArray ar = new JSONArray();
+                        for (int k = 0; k < v.length; k++) {
+                            JSONObject job = new JSONObject();
+                            job.put(TYPE, LONG);
+                            job.put(DATA, v[k]);
+                            ar.put(job);
+                        }
+                        j.put(TYPE, ALONG);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    } else if (cur instanceof short[]) {
+                        short[] v = (short[]) cur;
+                        JSONArray ar = new JSONArray();
+                        for (int k = 0; k < v.length; k++) {
+                            JSONObject job = new JSONObject();
+                            job.put(TYPE, SHORT);
+                            job.put(DATA, v[k]);
+                            ar.put(job);
+                        }
+                        j.put(TYPE, ASHORT);
+                        j.put(DATA, ar);
+                        j.put(KEY, key);
+                    }//INIZIO ARRAYLIST
+                    else if (cur instanceof ArrayList<?>) {
+                        Object o = ((ArrayList<?>) cur).get(0);
+                        if (o instanceof String) {
+                            ArrayList<String> al = (ArrayList<String>) cur;
+                            JSONArray ar = new JSONArray();
+                            for (String s : al) {
+                                JSONObject job = new JSONObject();
+                                job.put(TYPE, STRING);
+                                job.put(DATA, s);
+                                ar.put(job);
+                            }
+                            j.put(TYPE, ALSTRING);
+                            j.put(DATA, ar);
+                            j.put(KEY, key);
+                        } else if (o instanceof Integer) {
+                            ArrayList<Integer> al = (ArrayList<Integer>) cur;
+                            JSONArray ar = new JSONArray();
+                            for (Integer s : al) {
+                                JSONObject job = new JSONObject();
+                                job.put(TYPE, INTEGER);
+                                job.put(DATA, s);
+                                ar.put(job);
+                            }
+                            j.put(TYPE, ALINTEGER);
+                            j.put(DATA, ar);
+                            j.put(KEY, key);
+                        } else if (o instanceof CharSequence) {
+                            ArrayList<CharSequence> al = (ArrayList<CharSequence>) cur;
+                            JSONArray ar = new JSONArray();
+                            for (CharSequence s : al) {
+                                JSONObject job = new JSONObject();
+                                job.put(TYPE, CHARSEQUENCE);
+                                job.put(DATA, s);
+                                ar.put(job);
+                            }
+                            j.put(TYPE, ALCHARSEQUENCE);
+                            j.put(DATA, ar);
+                            j.put(KEY, key);
+                        }
 
-                }//ho analizzato tutti i tipi possibili e costruito l'oggetto
-                extr.put(j); //da controllare se funziona
+                    }//ho analizzato tutti i tipi possibili e costruito l'oggetto
+                    extr.put(j); //da controllare se funziona
+                }//fine for degli extra
+                obj.put(EXTRAS, extr);
+            }catch (Exception e){
+                Log.d("converter", "noextras");
             }
-            obj.put(EXTRAS,extr);
         } catch (JSONException e) {
             Toaster.toast("error convertin intent to json");
             e.printStackTrace();
@@ -312,10 +303,12 @@ public class IntentConverter {
             intent.setAction(j.getString(ACTION)); //parsing action
             intent.setData(Uri.parse(j.getString(DATA)));
             //intent.setType(j.getString(ITYPE)); posso anche non farlo
+            /*
             JSONArray categories = j.getJSONArray(CATEGORIES);
             for(int z = 0 ; z<categories.length();z++){
                 intent.addCategory(categories.getJSONObject(z).getString(CATEGORY));
             }
+            */
             JSONArray extras = j.getJSONArray(EXTRAS);
             for(int k = 0;k<extras.length();k++){
                 JSONObject job = extras.getJSONObject(k);

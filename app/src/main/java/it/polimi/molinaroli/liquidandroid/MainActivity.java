@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.net.Uri;
 import android.net.nsd.NsdServiceInfo;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
@@ -13,20 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 import it.polimi.molinaroli.liquidandroid.Logic.Client;
-import it.polimi.molinaroli.liquidandroid.Logic.IntentConverter;
 import it.polimi.molinaroli.liquidandroid.Logic.LiquidAndroidService;
 import it.polimi.molinaroli.liquidandroid.Logic.NsdHelper;
 import xdroid.toaster.Toaster;
@@ -88,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
-
+        Log.e("azione intent",getIntent().getAction());
 
         //DA RIMUOVERE PROVE PER L'INTENT CONVERTER
         /*
@@ -175,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     helper = mService.getHelper();
                     helper.stopDiscovery();
                     // faccio il display anche se non so se li ho risolti
-                    final CustomAdapter adapter = new CustomAdapter(c, R.layout.serviceitem, helper.getServices());
+                    final CustomAdapterActivity adapter = new CustomAdapterActivity(c, R.layout.serviceitem, helper.getServices());
                     serviceList.setAdapter(adapter);
                     serviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
@@ -239,10 +233,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //innerclass adapter
-    public class CustomAdapter extends ArrayAdapter<NsdServiceInfo> {
+    public class CustomAdapterActivity extends ArrayAdapter<NsdServiceInfo> {
 
-        public CustomAdapter(Context context, int textViewResourceId,
-                             ArrayList<NsdServiceInfo> objects) {
+        public CustomAdapterActivity(Context context, int textViewResourceId,
+                                     ArrayList<NsdServiceInfo> objects) {
             super(context, textViewResourceId, objects);
         }
 

@@ -23,6 +23,8 @@ import android.content.Intent;
 import android.net.nsd.NsdServiceInfo;
 import android.net.nsd.NsdManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -254,33 +256,46 @@ public class NsdHelper {
             public void onClick(DialogInterface dialog, int which) {
                 //qui mando gli intenti
                 stopDiscovery();
+                if(!arrivalIntent.getAction().equals("android.intent.action.MAIN")){
                 CustomAdapter a = (CustomAdapter) lv.getAdapter();
 
                 for(int i = 0; i< a.getCount(); i++){
-                    if (acheck[i]){
+                    if (acheck[i]) {
                         final NsdServiceInfo s = (NsdServiceInfo) a.getItem(i);
                         String action;
                         action = arrivalIntent.getAction();
-                        Log.d("arrival intent",action);
+                        Log.d("arrival intent", action);
                         switch (action) {
-                            case "android.media.action.IMAGE_CAPTURE":  new Thread(new Runnable() {
-                                public void run() {
+                            case "android.media.action.IMAGE_CAPTURE":
+                                new Thread(new Runnable() {
+                                    public void run() {
 
-                                    Log.d("Activity", "starting client");
-                                    Client client = new Client(s.getHost(), s.getPort(), context, myServerPort);
-                                }
-                            }).start();
+                                        Log.d("helper", "starting client");
+                                        Client client = new Client(s.getHost(), s.getPort(), context, myServerPort);
+                                    }
+                                }).start();
                                 break;
-                            case Intent.ACTION_SEND: Log.d("Activity", "intent not yet coded"); break;
-                            default:new Thread(new Runnable() {
-                                public void run() {
+                            case Intent.ACTION_SEND:
+                                Log.d("Activity", "intent not yet coded");
+                                break;
+                            default: Log.e("helper",s.getHost().toString());
+                                Log.e("helper",""+s.getPort());
+                                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                    public void run() {
+                                        // code goes here
+                                        new Thread(new Runnable() {
+                                            public void run() {
+                                                Client client = new Client(s.getHost(), s.getPort(), context, arrivalIntent);
+                                            }
+                                        }).start();
+                                    }
+                                });
 
-                                    Log.d("Activity", "starting client");
-                                    Client client = new Client(s.getHost(), s.getPort(), context,arrivalIntent);
-                                }
-                            }).start();
                                 break;
                         }
+                    }else{
+                        dialog.cancel();
+                    }
                     }
                 }
 
@@ -345,20 +360,26 @@ public class NsdHelper {
                 for(int i = 0; i<vicini;i++){
                     acheck[i] = false;
                 }
-                lv.setAdapter(adapter);
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        CheckBox c = (CheckBox) view.findViewById(R.id.selected);
-                        if (c.isChecked()){
-                            c.setChecked(false);
-                        }else{
-                            c.setChecked(true);
-                        }
-                        acheck[position] = c.isChecked();
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    public void run() {
+                        // code goes here
+                        lv.setAdapter(adapter);
+                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                CheckBox c = (CheckBox) view.findViewById(R.id.selected);
+                                if (c.isChecked()){
+                                    c.setChecked(false);
+                                }else{
+                                    c.setChecked(true);
+                                }
+                                acheck[position] = c.isChecked();
 
+                            }
+                        });
                     }
                 });
+
             }
             //qui ho risolto i servizi devo fare il display
             //setto l'adapter

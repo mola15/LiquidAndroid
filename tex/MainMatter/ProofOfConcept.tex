@@ -106,16 +106,21 @@ I set up the demo by creating a LAN with a wireless router, and then I installed
 I developed, also, for testing purposes, a simple client application able to generate standard Android implicit intents, which I will use to perform some live test cases. I called this Android app, \textit{Intent Generator} which has the only feature of create intents and then ask the OS to resolve them. The same result can be obtained using any standard Android app which generates implicit intents and passes them to the OS to be solved.
 \subsection{Liquid Android UI}
 \begin{figure}[h]
+	\centering
+	\begin{minipage}{.49\textwidth}\centering
 	\subfloat[Main Activity UI\label{subfig-1:main}]{%
-		\includegraphics[width=0.37\textwidth]{main}
+		\includegraphics[width=0.75\textwidth]{main}
 	}
-	\hfill
+	\end{minipage}
+	\begin{minipage}{.49\textwidth}\centering
 	\subfloat[Notification UI\label{subfig-2:notification}]{%
-		\includegraphics[width=0.37\textwidth]{notification}
+		\includegraphics[width=0.75\textwidth]{notification}
 	}
+	\end{minipage}
 	\caption{Main Liquid Android UI components}
 	\label{fig:5.2}
 \end{figure}
+
 Once installed the Liquid Android application on a compatible device, users can control it by its MainActivity and its \textit{foreground service} notification, when the service is in execution. The \figurename~\ref{fig:5.2} shows the Liquid Android application's main UI components. By clicking the button \textit{Start Service} the middleware executes and the extension of the Android OS is performed by the application. Once clicked the button the server component of the application is up, and the network service is registered in the LAN, moreover the notification showed in \ref{subfig-2:notification} appears in the Android notification area. From that notification, users can control the status of the service, because it can be removed from the Android notification area until the service is stopped by clicking the stop button, embedded in the notification. The other embedded open button, instead, starts the MainActivity, in \ref{subfig-1:main}, and put it in foreground. The second button in the MainActivity, \textit{Forward Intent}, can be used only while the service is in execution. When clicked, it automatically search for devices in the LAN with the service installed and in execution, and let the user to forward a previously intercepted implicit intent.
 
 

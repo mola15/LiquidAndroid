@@ -25,6 +25,7 @@ import static xdroid.toaster.Toaster.toast;
 
 
 import it.polimi.molinaroli.liquidandroid.MainActivity;
+import xdroid.toaster.Toaster;
 
 import static android.R.attr.id;
 
@@ -68,21 +69,25 @@ public class Client {
             OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
             out = new PrintWriter(new BufferedWriter(osw), true);
 
-
+            Log.e("client","lancio startclient");
             startClient(i);
 
         } catch (IOException e1) {
             // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
             // verrà chiusa dal metodo run() del thread
+            Log.e("client","IO exception di comunicazione");
+            Toaster.toast("IO exception di comunicazione");
             try {
                 socket.close();
             } catch (IOException e2) {
+                e2.printStackTrace();
             }
         } catch (NullPointerException e3){
+            e3.printStackTrace();
             //non c'è la serversocket
-
+            Log.e("client","null pointer");
             CharSequence text = "Server non più disponibile";
-            toast(text);
+            Toaster.toast(text);
 
 
         }
@@ -248,6 +253,7 @@ public class Client {
         try {
             out.println("INTENT");
             out.println(IntentConverter.intentToJSON(i).toString());
+            Log.d("client","intento spedito");
             in.readLine(); //mi conferma che ha ricevuto l'intento
         } catch (IOException e) {
             e.printStackTrace();

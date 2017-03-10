@@ -85,6 +85,7 @@ public class ResultActivity extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeFile(getIntent().getStringExtra("IMAGE"));
             iv = (ImageView) findViewById(R.id.image);
             iv.setImageBitmap(bitmap);
+            galleryAddPic(getIntent().getStringExtra("IMAGE"));
         }
     }
 
@@ -157,12 +158,13 @@ public class ResultActivity extends AppCompatActivity {
     /**
     metodo per aggiungere l'immagine alla galleria
      */
-    private void galleryAddPic() {
+    private void galleryAddPic(String mCurrentPhotoPath) {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(mCurrentPhotoPath);
         Uri contentUri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
     }
+
 
 }

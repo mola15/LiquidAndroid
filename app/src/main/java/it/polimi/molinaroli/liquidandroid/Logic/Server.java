@@ -214,6 +214,7 @@ public class Server {
 
                     }else if (str.equals("INTENT")){
                         String json = in.readLine();
+                        Log.d("server","intento ricevuto");
                         try {
                             JSONObject job = new JSONObject(json);
                             Intent i = IntentConverter.JSONToIntent(job);

@@ -97,7 +97,7 @@ As anticipated, the code is organized following the \textit{MVC} design pattern,
 
 \subsubsection{Implicit Intents to listen}
 \lstinputlisting[language=XML , caption=Liquid Android MainActivity Manifest example, label=code:5.1]{Codici/manifest.xml}
-In \lstlistingname~\ref{code:5.1} there is part of the manifes, of my application, showing some common intent filter the \textit{Liquid Android} app can listen to. In figure we can see that is the MainActivity of the application which declare itself capable of managing intents to take a picture, send and email or open a map. By adding any intent filter to the manifest of the application Liquid Android can listen and forward, automatically any kind of Android implicit intent. This snippet of code is the way in which the \text{FR1} is practically implemented.\\\\
+In \lstlistingname~\ref{code:5.1} there is part of the manifest, of my application, showing some common intent filters which the \textit{Liquid Android} app can listen to. In figure we can see that is the MainActivity of the application which declare itself capable of managing intents to take a picture, send and email or open a map. By adding any intent filter to the manifest of the application Liquid Android can listen and forward, automatically any kind of Android implicit intent. This snippet of code is the way in which the \text{FR1} is practically implemented.\\\\
 In the following section I want to describe my system in action, providing application's screenshots, UML diagrams, working tests and use cases.
 \section{Working Demo}
 This section is intended to show the reader the \textit{Liquid Android Application} while it is working. After the structure and the implementation of the application were explained it is necessary to show the finished work. As anticipated, my application
@@ -153,6 +153,150 @@ When any Android component asked the system to resolve an implicit intent, which
 	\caption{JSON-Intent execution}
 	\label{fig:5.4}
 \end{figure}
-The \figurename~\ref{fig:5.4} describes the working mechanism above explained, in this particular case the devices received an intent to view the web-page \textit{http://Google.it}. By selecting, in \ref{subfig-1:appchooser}, \textit{Open with Chrome}, the process terminates with the execution of the browser activity, in \ref{subfig-2:browser}, showing the exactly that page.
+The \figurename~\ref{fig:5.4} describes the working mechanism above explained, in this particular case the devices received an intent to view the web-page \textit{http://Google.it}. By selecting, in \ref{subfig-1:appchooser}, \textit{Open with Chrome}, the process terminates with the execution of the browser activity, in \ref{subfig-2:browser}, showing exactly that page.
 
 \subsection{Live Test Cases}
+In this subsection I want to present two live tests I performed to prove that my application respects all the constrains and fulfill all the functional, and also non-functional, requirements.
+As already explained, I created a second simple Android application working as a client for the Liquid Android middleware. This application \textit{Intent Generator} is composed by a single activity in which there are some buttons to let the user create easily implicit intents to be resolved by the Android OS.
+\begin{figure}[h]
+	\centering
+	\begin{minipage}{.49\textwidth}\centering
+		\subfloat[Intent Generator MainActivity\label{subfig-1:intentmain}]{%
+			\includegraphics[width=0.75\textwidth]{intentgenerator}
+		}
+	\end{minipage}
+	\begin{minipage}{.49\textwidth}\centering
+		\subfloat[Intent Generator data Picker\label{subfig-2:picker}]{%
+			\includegraphics[width=0.75\textwidth]{picker}
+		}
+	\end{minipage}
+	\caption{Intent Generator UI}
+	\label{fig:5.5}
+\end{figure}
+In \figurename~\ref{fig:5.5} there are two screenshots of the \textit{Intent Generator} application. In \ref{subfig-1:intentmain}, there is the main activity, with which I generate some common implicit intents, to be forwarded using the Liquid Android middleware, by simply pressing the desired button in the UI. When the intent to be generated needs extra data the applications shows a \textit{Dialog Picker} to let insert additional data to the intent, as shown, in \ref{subfig-2:picker}, when the \textit{SEND EMAIL} button is pressed.\\
+By using this environment I have performed the tests I am presenting in this section. Both test cover all the functionalities the systems must have, taking in to account, also the data management problem. The first test is use the system to forward an intent to send a text email from one device to another in the system. The second one is a bit more complicated, one device of the network ask two other devices to take a picture with their camera and then to have the taken photos back.
+\subsubsection{Send Email Live Test}
+In this live test scenario I assume that there are two Android devices, with the Liquid Android middleware application already installed and with the service in execution.
+In \figurename~\ref{fig:5.6} it is shown the complete UML sequence diagram, which completely describes this live test.\\
+The first device starts the process by using the Intent Generator MainActivity, precisely by pressing the \textit{SEND EMAIL} button, already shown in \ref{subfig-1:intentmain}. Then he compiles the fields in the dialog and, once done, the implicit intent is created by the application and passed to the Android OS. The OS looks for activities capable of handling the so generated intent, and ask the user, by showing the App Chooser, with which compatible application he wants to resolve the intent. In this case the user selects the liquid android application, and ends on its MainActivity.\\
+At this point the \textit{Forward Intent button} is pressed and the intent is automatically converted and sent to the selected device/s. When the intent arrives to the target, the Liquid Android Service reconverts it in an intent object to be executed and passes it to the OS.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{sequence1}
+	\caption{Live test 1 Sequence Diagram}
+	\label{fig:5.6}
+\end{figure}
+The Android OS starts again a resolution process and at the end shows again the App Chooser. Now the user selects the Gmail application and completes the action by sending the email from the Gmail activity, already filled with the data the user inserted in the first device.\\
+In \figurename~\ref{fig:5.7} there is the complete flow of actions presented with some real screenshots of the applications I have developed. In particular the screens from \textit{a} to \textit{d} are taken from the first device I have used, a Huawei P9, and screens \textit{e} and \textit{f} are taken from the target device, a LG L70.
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[Send Email\label{subfig-1:intentg}]{%
+			\includegraphics[width=0.9\textwidth]{intentgenerator}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[Picker Dialog\label{subfig-2:chooser}]{%
+			\includegraphics[width=0.9\textwidth]{picker}
+		}
+	\end{minipage}
+	\centering
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[App Chooser\label{subfig-3:liquid}]{%
+			\includegraphics[width=0.9\textwidth]{sendwith}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[Forward Dialog\label{subfig-4:chooser2}]{%
+			\includegraphics[width=0.9\textwidth]{alert}
+		}
+	\end{minipage}
+	\phantomcaption 
+\end{figure}
+\begin{figure}[h]
+\ContinuedFloat
+\centering
+\begin{minipage}{.24\textwidth}\centering
+	\bigskip
+	\subfloat[App Chooser\label{subfig-5:chooser2}]{%
+		\includegraphics[width=0.9\textwidth]{condividicon}
+	}
+\end{minipage}
+\begin{minipage}{.24\textwidth}\centering
+	\bigskip
+	\subfloat[Gmail Activity\label{subfig-6:chooser}]{%
+		\includegraphics[width=0.9\textwidth]{gmail}
+	}
+\end{minipage}
+\caption{Complete email live test screenshots}
+\label{fig:5.7}
+\end{figure}
+\subsubsection{Take Photo Live Test}
+The second test I want to report exploits the Android \textit{startActivityforResult()} mechanism: it handles more complex data, and returns them to the caller. The environment I have used is exactly the one described in the previous test: three Android devices connected in the same LAN with the Liquid Android application already installed, and the background service already in execution. I want to prove that the middleware can work with more than two devices and how it manages concurrent requests. To do this I want that one device in the network, ask the other two devices to pick a photo at the same time, and once done, send the two different picture, taken with two different devices, to the original caller. I started the test by using the Intent Generator app, to generate the photo intent. When the intent is triggered the Android OS opens the app Chooser, showing the Liquid Android application as an alternative to resolve the intent. I have forwarded the intent, using the forward button, and sent it to the other two devices in the network. Once the intent arrived, the Liquid Android service triggers it, and passes it to the Liquid Android Result Activity, which starts the Android camera waiting for results. Once the user have taken the photo, with the camera, the Results Activity brings it, and send the picture back to the caller. When the picture arrives back to the caller the Liquid Android application, shows it in its Result activity. Since the intent was forwarded in two devices, when the two picture are sent back to the caller, the two result are concurrent. My system allows that concurrency by accepting different calls using different threads and then it puts in foreground the last call arrived using a LIFO policy. This complete test scenario is described, as done with the other test, showing the interaction of the components, and their activation in the UML sequence diagram in \figurename~\ref{fig:5.8}. In the diagram only two devices are present, but the third device involved in the test has exactly the same behavior the \textit{device 2} showed in the picture.\\\\\\\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{sequence2}
+	\caption{Live test 2 Sequence Diagram}
+	\label{fig:5.8}
+\end{figure}\\
+As already done with the previous live test case, I want to provide a set of screenshots showing the application behavior while running this example.\\
+In \figurename~\ref{fig:5.9} there is the complete flow of actions presented with some real screenshots of the applications I have developed. In particular the screens from \textit{a} to \textit{c} are taken from the first device I have used, a Huawei P9, to generate and forward the so called photo intent.\\
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[Send Email\label{subfig-1:intentg2}]{%
+			\includegraphics[width=0.9\textwidth]{intentgenerator}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[App Chooser\label{subfig-2:chooser2}]{%
+			\includegraphics[width=0.9\textwidth]{photochooser}
+		}
+	\end{minipage}
+	\centering
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[Forward Dialog\label{subfig-3:liquid2}]{%
+			\includegraphics[width=0.9\textwidth]{alert}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[App Chooser\label{subfig-4:chooser3}]{%
+			\includegraphics[width=0.9\textwidth]{chosphoto2}
+		}
+	\end{minipage}
+	\phantomcaption
+\end{figure}
+\begin{figure}[h!]
+	\ContinuedFloat
+	\centering
+	\begin{minipage}{.24\textwidth}\centering
+		\bigskip
+		\subfloat[Android Camera\label{subfig-5:camera2}]{%
+			\includegraphics[width=0.9\textwidth]{camera2}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\bigskip
+		\subfloat[App Chooser\label{subfig-6:chooser2}]{%
+			\includegraphics[width=0.9\textwidth]{chosephoto3}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\bigskip
+		\subfloat[Android Camera\label{subfig-7:camera2}]{%
+			\includegraphics[width=0.9\textwidth]{camera1}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\bigskip
+		\subfloat[Result Activity\label{subfig-8:chooser2}]{%
+			\includegraphics[width=0.9\textwidth]{received1}
+		}
+	\end{minipage}
+	\caption{Complete email intent example screenshots}
+	\label{fig:5.9}
+\end{figure}\\
+Screens \textit{d} and \textit{e} are taken from the first target device, a LG L70, used to take the first picture. Screens \textit{f} and \textit{g} are taken instead, from the second target device, a Google Nexus 5, used to take the second picture. In the end screen \textit{h} is taken again from the first device, showing the picture taken. All the pictures taken while performing this test, are saved locally on the local storage of the devices which have actually taken the picture, moreover they are saved in the local data storage of the caller device, and are accessible form its gallery application.
+\\\\\\
+\par This section exhausts the topic, the next chapter deals with the conclusions which can be drawn from my thesis and any future work which can be done to extend and make the work as complete as possible.

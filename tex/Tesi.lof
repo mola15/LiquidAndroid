@@ -45,5 +45,26 @@
 \contentsline {figure}{\numberline {5.4}{\ignorespaces JSON-Intent execution\relax }}{72}{figure.caption.93}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {App Chooser}}}{72}{subfigure.4.1}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Third party Browser Activity}}}{72}{subfigure.4.2}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Intent Generator UI\relax }}{73}{figure.caption.94}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Intent Generator MainActivity}}}{73}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Intent Generator data Picker}}}{73}{subfigure.5.2}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Live test 1 Sequence Diagram\relax }}{74}{figure.caption.96}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Send Email}}}{74}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Picker Dialog}}}{74}{subfigure.7.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {App Chooser}}}{74}{subfigure.7.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Forward Dialog}}}{74}{subfigure.7.4}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Complete email live test screenshots\relax }}{75}{figure.caption.98}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {App Chooser}}}{75}{subfigure.7.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Gmail Activity}}}{75}{subfigure.7.6}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Live test 2 Sequence Diagram\relax }}{76}{figure.caption.100}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Send Email}}}{76}{subfigure.9.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {App Chooser}}}{76}{subfigure.9.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Forward Dialog}}}{76}{subfigure.9.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {App Chooser}}}{76}{subfigure.9.4}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Complete email intent example screenshots\relax }}{77}{figure.caption.102}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Android Camera}}}{77}{subfigure.9.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {App Chooser}}}{77}{subfigure.9.6}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Android Camera}}}{77}{subfigure.9.7}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Result Activity}}}{77}{subfigure.9.8}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

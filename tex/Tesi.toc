@@ -99,6 +99,8 @@
 \contentsline {section}{\numberline {5.2}Working Demo}{70}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Liquid Android UI}{70}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Live Test Cases}{72}{subsection.5.2.2}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{73}{chapter.6}
-\contentsline {chapter}{Figures Copyright}{75}{chapter*.94}
-\contentsline {chapter}{Bibliography}{77}{section*.97}
+\contentsline {subsubsection}{Send Email Live Test}{73}{section*.95}
+\contentsline {subsubsection}{Take Photo Live Test}{75}{section*.99}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Works}{79}{chapter.6}
+\contentsline {chapter}{Figures Copyright}{81}{chapter*.103}
+\contentsline {chapter}{Bibliography}{83}{section*.106}

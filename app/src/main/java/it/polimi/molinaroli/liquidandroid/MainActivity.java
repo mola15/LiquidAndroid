@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             bindService(intent, mConnection, 0);
             Log.d("bound", "" + mBound);
             Log.d("helperinit",""+mService.getHelper().getInit());
-        } else if ((arrivalIntent.getAction().equals("android.media.action.IMAGE_CAPTURE")) || (arrivalIntent.getAction().equals(Intent.ACTION_VIEW)) || (arrivalIntent.getAction().equals(Intent.ACTION_SEND))){/*
+        } else if ((arrivalIntent.getAction().equals("android.media.action.IMAGE_CAPTURE")) || (arrivalIntent.getAction().equals(Intent.ACTION_VIEW)) || (arrivalIntent.getAction().equals(Intent.ACTION_SEND)) || (arrivalIntent.getAction().equals(Intent.ACTION_SENDTO))){/*
             Intent stop = new Intent(this,LiquidAndroidService.class);
             stopService(stop);
             per ore non gli faccio fare niente dovrebbe funzionare cmq

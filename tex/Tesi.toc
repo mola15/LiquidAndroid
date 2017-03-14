@@ -102,5 +102,7 @@
 \contentsline {subsubsection}{Send Email Live Test}{73}{section*.95}
 \contentsline {subsubsection}{Take Photo Live Test}{75}{section*.99}
 \contentsline {chapter}{\numberline {6}Conclusions and Future Works}{79}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusions}{79}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Works}{80}{section.6.2}
 \contentsline {chapter}{Figures Copyright}{81}{chapter*.103}
 \contentsline {chapter}{Bibliography}{83}{section*.106}

@@ -1,17 +1,17 @@
 [0] Config.pm:354> INFO - This is Biber 2.7
 [0] Config.pm:357> INFO - Logfile is 'Tesi.blg'
 [36] biber-MSWIN64:303> INFO - === 
-[66] Biber.pm:359> INFO - Reading 'Tesi.bcf'
-[175] Biber.pm:832> INFO - Using all citekeys in bib section 0
-[192] Biber.pm:3670> INFO - Processing section 0
-[220] Biber.pm:3840> INFO - Looking for bibtex format file 'Bibliografia.bib' for section 0
-[225] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[233] bibtex.pm:1292> INFO - Found BibTeX data source 'Bibliografia.bib'
-[288] Utils.pm:164> WARN - Name "Gosling, James; Joy, Bill; Steele, Guy L., Jr.; Bracha, Gilad" has too many commas: skipping name
-[338] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[338] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[338] Biber.pm:3499> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-US'
-[338] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
-[366] bbl.pm:608> INFO - Writing 'Tesi.bbl' with encoding 'UTF-8'
-[370] bbl.pm:712> INFO - Output to Tesi.bbl
-[371] Biber.pm:109> INFO - WARNINGS: 1
+[65] Biber.pm:359> INFO - Reading 'Tesi.bcf'
+[173] Biber.pm:832> INFO - Using all citekeys in bib section 0
+[191] Biber.pm:3670> INFO - Processing section 0
+[216] Biber.pm:3840> INFO - Looking for bibtex format file 'Bibliografia.bib' for section 0
+[221] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[228] bibtex.pm:1292> INFO - Found BibTeX data source 'Bibliografia.bib'
+[294] Utils.pm:164> WARN - Name "Gosling, James; Joy, Bill; Steele, Guy L., Jr.; Bracha, Gilad" has too many commas: skipping name
+[321] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[321] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[321] Biber.pm:3499> INFO - Sorting list 'none/global/' of type 'entry' with scheme 'none' and locale 'en-US'
+[321] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
+[341] bbl.pm:608> INFO - Writing 'Tesi.bbl' with encoding 'UTF-8'
+[346] bbl.pm:712> INFO - Output to Tesi.bbl
+[347] Biber.pm:109> INFO - WARNINGS: 1

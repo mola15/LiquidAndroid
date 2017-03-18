@@ -66,13 +66,21 @@ public class IntentConverter {
         try {
 
             obj.put(ACTION,i.getAction());
-            Log.d("converter data",i.getDataString());
-            obj.put(DATA,i.getDataString());
-            //obj.put(ITYPE, i.getType());
-            /*
+            try {
+                Log.d("converter data", i.getDataString());
+                obj.put(DATA, i.getDataString());
+            }catch (NullPointerException e){
+                Log.d("converter data", "nodata");
+            }
+            try{
+                obj.put(ITYPE, i.getType());
+            }catch (Exception e){
+                Log.d("converter data", "notype");
+            }
+            try {
             Set<String> cat = i.getCategories();
             JSONArray car = new JSONArray();
-            try {
+
                 for (String ct : cat) {
                     JSONObject cto = new JSONObject();
                     cto.put(CATEGORY, ct);
@@ -82,14 +90,15 @@ public class IntentConverter {
             }catch(Exception e){
                 Log.d("cat","no categories");
             }
-            */
+
             JSONArray extr = new JSONArray();
             Bundle b = i.getExtras();
             try {
                 Set<String> keys = b.keySet();
                 for (String key : keys) {
                     Object cur = b.get(key);
-
+                    Log.e("converter extra key",key);
+                    Log.e("converter extra type", cur.toString());
                     JSONObject j = new JSONObject();
                     //INIZIO PRIMITIVI
                     if (cur instanceof Integer) {
@@ -98,6 +107,10 @@ public class IntentConverter {
                         j.put(KEY, key);
                     } else if (cur instanceof String) {
                         j.put(TYPE, STRING);
+                        j.put(DATA, cur);
+                        j.put(KEY, key);
+                    }else if (cur instanceof Uri) {
+                        j.put(TYPE, "uri");
                         j.put(DATA, cur);
                         j.put(KEY, key);
                     } else if (cur instanceof Boolean) {
@@ -315,6 +328,10 @@ public class IntentConverter {
                 String tipo;
                 tipo = job.getString(TYPE);
                 switch (tipo){
+                    case "uri":
+                        Uri u = Uri.parse(job.getString(DATA));
+                        intent.putExtra(job.getString(KEY),u);
+                        break;
                     case BOOLEAN:
                         boolean d = job.getBoolean(DATA);
                         intent.putExtra(job.getString(KEY),d);

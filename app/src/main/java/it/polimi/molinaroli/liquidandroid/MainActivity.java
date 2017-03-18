@@ -21,6 +21,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import it.polimi.molinaroli.liquidandroid.Logic.Client;
+import it.polimi.molinaroli.liquidandroid.Logic.IntentConverter;
 import it.polimi.molinaroli.liquidandroid.Logic.LiquidAndroidService;
 import it.polimi.molinaroli.liquidandroid.Logic.NsdHelper;
 import xdroid.toaster.Toaster;
@@ -116,7 +117,11 @@ public class MainActivity extends AppCompatActivity {
         JSONObject job = IntentConverter.intentToJSON(intent);
         Log.d("intento",job.toString());
         */
-
+        try {
+            Log.e("intento arrivato", IntentConverter.intentToJSON(getIntent()).toString());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         super.onCreate(savedInstanceState);
     }

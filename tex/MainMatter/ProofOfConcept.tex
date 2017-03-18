@@ -23,8 +23,7 @@ choices and descriptions of what has been done. The third part is a working demo
 just described system, with live working test cases. It contains screenshots of the
 application while it is running and a complete description to explain each case
 step by step.
-\section{Design Choices}
-\subsection{Application Description}
+\section{Conception}
 As already specified in the previous chapter my system has been implemented as a standard Android application, which can be installed on any Android device starting from the API level 19, Android 4.4 KitKat. The final APK package contains all the files needed for the system installation, and, once installed, the application performs the extension of the Android OS giving to it distributed functionalities. I will use the complete API described in \ref{API} to implement a background working middleware to distribute implicit intent in a LAN to any Android device with the service installed. In this way every time one of the device, having the \textit{Liquid Android APK}
 installed, triggers an implicit intent, my application could intercept and send it to any other device to be resolved and executed. The idea of this prototype is to prove that what I have stated, providing the theoretical solution, can work with a real configuration of Android devices in any LAN. Doing this, the thesis work is somehow \textit{"proved"}: my communication language, defined with a JSON file, is concretely usable and working, not to worry the users about the kind of implicit intent they need to execute in one of the devices in the network. The translation process does not represent an issue for my application, because I have developed an automatic intent translator using the correct syntax proposed by me. I will not develop clients for third party systems, even if I stated that it would be possible, especially in Java environments, but I will implement a simple Android application client, generating some standard implicit intent to perform some test with my system.
 \subsection{Requirements}
@@ -188,7 +187,7 @@ At this point the \textit{Forward Intent button} is pressed and the intent is au
 \end{figure}
 The Android OS starts again a resolution process and at the end shows again the App Chooser. Now the user selects the Gmail application and completes the action by sending the email from the Gmail activity, already filled with the data the user inserted in the first device.\\
 In \figurename~\ref{fig:5.7} there is the complete flow of actions presented with some real screenshots of the applications I have developed. In particular the screens from \textit{a} to \textit{d} are taken from the first device I have used, a Huawei P9, and screens \textit{e} and \textit{f} are taken from the target device, a LG L70.
-
+\\\\
 \begin{figure}[h]
 	\centering
 	\begin{minipage}{.24\textwidth}\centering
@@ -213,7 +212,9 @@ In \figurename~\ref{fig:5.7} there is the complete flow of actions presented wit
 		}
 	\end{minipage}
 	\phantomcaption 
+	\label{fig:5.7}
 \end{figure}
+
 \begin{figure}[h]
 \ContinuedFloat
 \centering
@@ -230,7 +231,6 @@ In \figurename~\ref{fig:5.7} there is the complete flow of actions presented wit
 	}
 \end{minipage}
 \caption{Complete email live test screenshots}
-\label{fig:5.7}
 \end{figure}
 \subsubsection{Take Photo Live Test}
 The second test I want to report exploits the Android \textit{startActivityforResult()} mechanism: it handles more complex data, and returns them to the caller. The environment I have used is exactly the one described in the previous test: three Android devices connected in the same LAN with the Liquid Android application already installed, and the background service already in execution. I want to prove that the middleware can work with more than two devices and how it manages concurrent requests. To do this I want that one device in the network, ask the other two devices to pick a photo at the same time, and once done, send the two different picture, taken with two different devices, to the original caller. I started the test by using the Intent Generator app, to generate the photo intent. When the intent is triggered the Android OS opens the app Chooser, showing the Liquid Android application as an alternative to resolve the intent. I have forwarded the intent, using the forward button, and sent it to the other two devices in the network. Once the intent arrived, the Liquid Android service triggers it, and passes it to the Liquid Android Result Activity, which starts the Android camera waiting for results. Once the user have taken the photo, with the camera, the Results Activity brings it, and send the picture back to the caller. When the picture arrives back to the caller the Liquid Android application, shows it in its Result activity. Since the intent was forwarded in two devices, when the two picture are sent back to the caller, the two result are concurrent. My system allows that concurrency by accepting different calls using different threads and then it puts in foreground the last call arrived using a LIFO policy. This complete test scenario is described, as done with the other test, showing the interaction of the components, and their activation in the UML sequence diagram in \figurename~\ref{fig:5.8}. In the diagram only two devices are present, but the third device involved in the test has exactly the same behavior the \textit{device 2} showed in the picture.\\\\\\\\
@@ -266,6 +266,7 @@ In \figurename~\ref{fig:5.9} there is the complete flow of actions presented wit
 		}
 	\end{minipage}
 	\phantomcaption
+	\label{fig:5.9}
 \end{figure}
 \begin{figure}[h!]
 	\ContinuedFloat
@@ -295,7 +296,7 @@ In \figurename~\ref{fig:5.9} there is the complete flow of actions presented wit
 		}
 	\end{minipage}
 	\caption{Complete photo intent live test screenshots}
-	\label{fig:5.9}
+	
 \end{figure}\\
 Screens \textit{d} and \textit{e} are taken from the first target device, a LG L70, used to take the first picture. Screens \textit{f} and \textit{g} are taken instead, from the second target device, a Google Nexus 5, used to take the second picture. In the end screen \textit{h} is taken again from the first device, showing the picture taken. All the pictures taken while performing this test, are saved locally on the local storage of the devices which have actually taken the picture, moreover they are saved in the local data storage of the caller device, and are accessible form its gallery application.
 \\\\\\

@@ -101,8 +101,12 @@
 \contentsline {subsection}{\numberline {5.2.2}Live Test Cases}{70}{subsection.5.2.2}
 \contentsline {subsubsection}{Send Email Live Test}{71}{section*.97}
 \contentsline {subsubsection}{Take Photo Live Test}{73}{section*.101}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{77}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusions}{77}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Work}{78}{section.6.2}
-\contentsline {chapter}{Figures Copyright}{79}{chapter*.105}
-\contentsline {chapter}{Bibliography}{81}{section*.108}
+\contentsline {section}{\numberline {5.3}Liquid Museum}{75}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}System Structure}{75}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Functionalities}{76}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Liquid Museum Live tests}{77}{subsection.5.3.3}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{79}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusions}{79}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{80}{section.6.2}
+\contentsline {chapter}{Figures Copyright}{81}{chapter*.107}
+\contentsline {chapter}{Bibliography}{83}{section*.110}

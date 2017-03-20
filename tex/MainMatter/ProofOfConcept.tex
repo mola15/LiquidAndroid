@@ -312,9 +312,14 @@ The distributed application I have developed is composed of two APKs, one acting
 \end{figure}
 I developed the two applications using the mechanisms described in the previous sections of this work. I embedded the Liquid Android API structure, and I used it to let the server application spread intents, exploiting JSON-Intents, to all the devices having the client application installed and with the service already started. \figurename~\ref{fig:5.10} describes the complete structure of this application. In this case I decided to solve the data management problem with a cloud solution. Data, in fact, are stored in the cloud using the \textit{Firebase Platform}, by Google, which provides, among other things, a cloud storage, in which it is possible to easily save and manage any kind of file. The Liquid Museum application has been designed to be used by a tourist guide while he, or she, is doing his job, in a museum, during a guided tour with a group of tourist. The client app, Museum client, has been designed to be installed on the tourists' devices, to receive extra contents, in the form of distributed intents, while following their tourist guide in the museum guided tour. In this way the server applications works as a controller for the client one, and it can retrieve the right contents in the cloud and spread them to the clients, only by pressing some buttons in a control Activity. In this way the use of my distributed application enriches the guided tour providing insights, images, audios and video contents.
 \subsection{Functionalities}
-As I stated in the previous subsection, the client app can only connects to the server one to receive JSON-Intents, reconstruct the original Android intent and execute it. It contains only a simple UI to start the service, which is exactly the same of the Liquid Android API: it works in background and can be controlled with the very same notification I have described in \figurename~\ref{subfig-2:notification}. \\
+As I stated in the previous subsection, the client app can only connect to the server one, to receive JSON-Intents, reconstruct the original Android intent and execute it. It contains only a simple UI to start the service, which is exactly the same of the Liquid Android API: it works in background and can be controlled with the very same notification I have described in \figurename~\ref{subfig-2:notification}. \\
 To speed up the development and test phase of this application the two applications register their service using the same name \textit{Museum}, but in a real museum environment, in which different tourist guides performs different guided tours at the same time there is the need to let the user change this name, in order to connect only the desired devices to the tourist guide's Android device. To solve this problem it would be enough to record the various services by adding to the name, the \textit{ID} of the tourist guide.\\
-The server app have a control interface activity, with which it is possible to send contents to all the clients in range only by pressing a button. In particular my application can send video, audio and picture contents and also web contents, such as \textit{URLs}. Furthermore the server application con play/pause the audio contents previously sent to the clients by using the audio controls button.\\
+The server is designed to spread contents to the clients app in range. It has, indeed, a control interface activity, with which it is possible to send contents to all the clients in range only by pressing a button. In particular my application can:
+\begin{itemize}
+	\item connect to the Firebase cloud to know which content are available,
+	\item send audio, video, picture or web pages to client, in the form of JSON-Intents,
+	\item control the audio media player of each client in range by using di audio control button.
+\end{itemize}
 \begin{figure}[h]
 	\centering
 	\begin{minipage}{.49\textwidth}\centering
@@ -330,8 +335,40 @@ The server app have a control interface activity, with which it is possible to s
 	\caption{Liquid Museum and Museum Client UIs}
 	\label{fig:5.11}
 \end{figure}
-\figurename~\ref{fig:5.11} shows the UIs for the two applications, in particular in \ref{subfig-1:liquidmuseum} there is the server application UI for \textit{Liquid Museum}, while in \ref{subfig-2:museumcclient} there is the client application UI for \textit{Museum Client}.
+\figurename~\ref{fig:5.11} shows the UIs for the two applications, in particular in \ref{subfig-1:liquidmuseum} there is the server application UI for \textit{Liquid Museum}, while in \ref{subfig-2:museumcclient} there is the client application UI for \textit{Museum Client}. In this specific application I used only few contents to give some example, but this app can be easily extended to be used in the real world in a real museum guided tour. All the contents I put on the Firebase Cloud storage are available for free, and they are related to a real museum, the Louvre Museum.
 \subsection{Liquid Museum Live tests}
+As I did for the Liquid Android application, I performed a live test with the Liquid Museum application. I installed the server component on a LG L70 device running Android Marshmallow (\textit{API Level 23}), and the client component application on a Huawei P9, which also runs Android Marshmallow, and on a Google Nexus 5, running Android Lollipop (\textit{API Level 21}). The only requirements, for the system to work properly, are that all the devices involved must be connected to the same LAN and they must have also access to the Internet network to download contents form the Firebase cloud storage server. When the service is started in each device, the tourist guide can use its own machine to send content to any device in range with the service already in execution. Furthermore there is not the need to perform any set up phase, in fact, if a new device becomes available at any time, the server application automatically detects it and send commands, which are JSON-Intent, even to it.
+\subsubsection{Audio scenario}
+The most complete test scenario I performed, is the one in which the Liquid Museum server component sends to every client in range a JSON-Intent to play a audio file. In this case the guide holding a smartphone and executing the server component of my distributed application, by pressing the \textit{Audio} button, in Figure \ref{subfig-1:liquidmuseum}, send a JSON-Intent containing the link to the file to be played in all the clients connected. When the button is pressed the Liquid Museum application, automatically, finds clients in range, prepares a regular Android intent, converts it in to a JSON-Intent, using my \textit{Intent Converter}, and then send the message to every client it finds. Devices running the client application. \textit{MuseumClient} receive the JSON-Intent, reconvert it in an Android intent to be executed, and then trigger the usual standard Android intent resolution mechanism. At this point, tourists who are using the client application, can select with which application execute the intent. For testing purposes I used the \textit{VLC media player} application for android, because it is free and I think is one of the most functional and complete multimedia player app which can be installed in Android systems. The process ends when the user selects the right application in the chooser and then the client device plays the audio file.\\
+At this point I want to focus the attention on the possibility to remote control the playback of the audio file from the server application. By pressing the \textit{play/pause} button, the tourist guide con pause, and also resume, the playback in all the device connected. When this button is pressed the server application acts as a remote by simulating the pressure of a media key button. To do this, in Android it is possible to send a \textit{broadcast intent} emulating the pressure of a physical button on the keyboard. For this reason when the intent arrives to the client it is necessary to start it by calling the \textit{sendBrpadcast(intent)} function, so the server must declare its intentions by adding the extra I have defined in Section \ref{pm} : having as fields \textbf{key}:\textit{"andorid.intent.extra.LIQUIDMETHOD"}, \textbf{type}:\textit{"string"} and \textbf{data}:\textit{"BROADCAST"}. In this way the client application, once the original Android intent object is rebuilt, can handle it in the right way, by colling the correct system method.
+\figurename~\ref{fig:5.12} shows some screenshots of the execution of this example, in particular, the sub-figure \textit{a} is taken from the LG L70 running the server application component, instead all the other sub-figures are taken from the Huawei P9 running the client application component. \\\\
+\begin{figure}[ht!]
+	\centering
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[LiquidMuseum\label{subfig-1:server}]{%
+			\includegraphics[width=0.9\textwidth]{liquidmuseum}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[MuseumCLient\label{subfig-2:client}]{%
+			\includegraphics[width=0.9\textwidth]{museumclient}
+		}
+	\end{minipage}
+	\centering
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[App chooser\label{subfig-3:mchooser}]{%
+			\includegraphics[width=0.9\textwidth]{mchooser}
+		}
+	\end{minipage}
+	\begin{minipage}{.24\textwidth}\centering
+		\subfloat[VLC player\label{subfig-4:player}]{%
+			\includegraphics[width=0.9\textwidth]{mudio}
+		}
+	\end{minipage}
+	\caption{Liquid Museum running example screenshots}
+	\label{fig:5.12}
+\end{figure}
 
+\bigskip
 \bigskip
 \par This section exhausts the topic, the next chapter deals with the conclusions which can be drawn from my thesis and any future work which can be done to extend and make the work as complete as possible.

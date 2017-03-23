@@ -2147,16 +2147,22 @@
     <bcf:citekey order="25">apple2017bonjour</bcf:citekey>
     <bcf:citekey order="26">sourceforge2011jmdns</bcf:citekey>
     <bcf:citekey order="27">devandroidnsd</bcf:citekey>
-    <bcf:citekey order="28">boinc2017open</bcf:citekey>
-    <bcf:citekey order="29">htc2017power</bcf:citekey>
-    <bcf:citekey order="30">cha2009trust</bcf:citekey>
-    <bcf:citekey order="31">bondi2000characteristics</bcf:citekey>
-    <bcf:citekey order="32">lamport1978time</bcf:citekey>
-    <bcf:citekey order="33">android2017intent</bcf:citekey>
-    <bcf:citekey order="34">android2017intent</bcf:citekey>
-    <bcf:citekey order="35">marshall2015c++</bcf:citekey>
-    <bcf:citekey order="36">w3c2007introducing</bcf:citekey>
-    <bcf:citekey order="37">devandroidrunning</bcf:citekey>
+    <bcf:citekey order="28">6258144</bcf:citekey>
+    <bcf:citekey order="29">jan2005sidebar</bcf:citekey>
+    <bcf:citekey order="30">boinc2017open</bcf:citekey>
+    <bcf:citekey order="31">htc2017power</bcf:citekey>
+    <bcf:citekey order="32">cha2009trust</bcf:citekey>
+    <bcf:citekey order="33">bondi2000characteristics</bcf:citekey>
+    <bcf:citekey order="34">lamport1978time</bcf:citekey>
+    <bcf:citekey order="35">android2017intent</bcf:citekey>
+    <bcf:citekey order="36">android2017intent</bcf:citekey>
+    <bcf:citekey order="37">marshall2015c++</bcf:citekey>
+    <bcf:citekey order="38">w3c2007introducing</bcf:citekey>
+    <bcf:citekey order="39">devandroidrunning</bcf:citekey>
+    <bcf:citekey order="40">devandroiddash</bcf:citekey>
+    <bcf:citekey order="41">vogel2016android</bcf:citekey>
+    <bcf:citekey order="42">tanenbaum2010distributed</bcf:citekey>
+    <bcf:citekey order="43">calvert2011tcp</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none/global/" type="entry" sortscheme="none" sortnamekeyscheme="global" labelprefix="">

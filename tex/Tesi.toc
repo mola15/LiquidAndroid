@@ -50,64 +50,66 @@
 \contentsline {paragraph}{jmDNS}{23}{section*.57}
 \contentsline {paragraph}{Android NSD}{23}{section*.58}
 \contentsline {section}{\numberline {2.4}Existing Solutions}{24}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Boincoid and HTC Power to Give}{24}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Plex for Android}{24}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Other Solutions}{25}{subsection.2.4.3}
-\contentsline {subsubsection}{Goolgle Home and Cast API}{25}{section*.60}
-\contentsline {subsubsection}{DroidMote and Remote control systems }{25}{section*.61}
-\contentsline {chapter}{\numberline {3}Problem Analysis}{27}{chapter.3}
-\contentsline {section}{\numberline {3.1}Contextualization}{27}{section.3.1}
-\contentsline {section}{\numberline {3.2}Considered Devices}{28}{section.3.2}
-\contentsline {section}{\numberline {3.3}Definition}{28}{section.3.3}
-\contentsline {section}{\numberline {3.4}Problem scenarios}{30}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Background middleware}{30}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Development API}{31}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Data management}{32}{subsection.3.4.3}
-\contentsline {section}{\numberline {3.5}Constraints}{33}{section.3.5}
-\contentsline {chapter}{\numberline {4}Proposed Solution}{37}{chapter.4}
-\contentsline {section}{\numberline {4.1}General Idea}{37}{section.4.1}
-\contentsline {section}{\numberline {4.2}Proposed Solution}{40}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Network Architecture}{40}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Communication Model}{44}{subsection.4.2.2}
-\contentsline {subsubsection}{JSON-Intent sintax}{47}{section*.69}
-\contentsline {subsubsection}{JSON-Intent example}{52}{section*.74}
-\contentsline {subsubsection}{Possible Messages}{54}{section*.75}
-\contentsline {subsection}{\numberline {4.2.3}Data management Model}{54}{subsection.4.2.3}
-\contentsline {subsubsection}{Files over socket}{54}{section*.76}
-\contentsline {subsubsection}{Cloud Group}{55}{section*.78}
-\contentsline {section}{\numberline {4.3}Liquid Android API Library}{56}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}General Structure}{56}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Controller Components}{56}{subsection.4.3.2}
-\contentsline {subsubsection}{NsdHelper}{57}{section*.81}
-\contentsline {subsubsection}{Server}{58}{section*.82}
-\contentsline {subsubsection}{Client}{59}{section*.83}
-\contentsline {subsubsection}{IntentConverter}{59}{section*.84}
-\contentsline {subsubsection}{LiquidAndroidService}{60}{section*.85}
-\contentsline {subsection}{\numberline {4.3.3}UI Components}{60}{subsection.4.3.3}
-\contentsline {subsubsection}{MainActivity}{60}{section*.86}
-\contentsline {subsubsection}{ResultActivity}{61}{section*.87}
-\contentsline {subsection}{\numberline {4.3.4}Use Cases}{61}{subsection.4.3.4}
-\contentsline {chapter}{\numberline {5}Case Study}{63}{chapter.5}
-\contentsline {section}{\numberline {5.1}Conception}{63}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Requirements}{64}{subsection.5.1.1}
-\contentsline {subsubsection}{Functional Requirements}{64}{section*.88}
-\contentsline {subsubsection}{Non-Functional Requirements}{64}{section*.89}
-\contentsline {subsection}{\numberline {5.1.2}Used Technologies}{65}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Implementation}{66}{subsection.5.1.3}
-\contentsline {subsubsection}{Code organization}{66}{section*.90}
-\contentsline {subsubsection}{Implicit Intents to listen}{67}{section*.92}
-\contentsline {section}{\numberline {5.2}Working Demo}{67}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Liquid Android UI}{68}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Live Test Cases}{70}{subsection.5.2.2}
-\contentsline {subsubsection}{Send Email Live Test}{71}{section*.97}
-\contentsline {subsubsection}{Take Photo Live Test}{73}{section*.101}
-\contentsline {section}{\numberline {5.3}Liquid Museum}{75}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}System Structure}{75}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Functionalities}{76}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Liquid Museum Live tests}{77}{subsection.5.3.3}
-\contentsline {subsubsection}{Audio scenario}{78}{section*.107}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{81}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusions}{81}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Work}{82}{section.6.2}
-\contentsline {chapter}{Figures Copyright}{83}{chapter*.109}
-\contentsline {chapter}{Bibliography}{85}{section*.112}
+\contentsline {subsection}{\numberline {2.4.1}Academic Solutions}{24}{subsection.2.4.1}
+\contentsline {subsubsection}{DroidCluster}{24}{section*.59}
+\contentsline {subsection}{\numberline {2.4.2}Commercial Solutions}{25}{subsection.2.4.2}
+\contentsline {subsubsection}{Boincoid and HTC Power to Give}{25}{section*.60}
+\contentsline {subsubsection}{Plex for Android}{25}{section*.61}
+\contentsline {subsubsection}{Goolgle Home and Cast API}{26}{section*.63}
+\contentsline {subsubsection}{DroidMote and Remote control systems}{26}{section*.64}
+\contentsline {chapter}{\numberline {3}Problem Analysis}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Contextualization}{29}{section.3.1}
+\contentsline {section}{\numberline {3.2}Considered Devices}{30}{section.3.2}
+\contentsline {section}{\numberline {3.3}Definition}{30}{section.3.3}
+\contentsline {section}{\numberline {3.4}Problem scenarios}{32}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Background middleware}{32}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Development API}{33}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Data management}{34}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Constraints}{35}{section.3.5}
+\contentsline {chapter}{\numberline {4}Proposed Solution}{39}{chapter.4}
+\contentsline {section}{\numberline {4.1}General Idea}{39}{section.4.1}
+\contentsline {section}{\numberline {4.2}Proposed Solution}{42}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Network Architecture}{42}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Communication Model}{46}{subsection.4.2.2}
+\contentsline {subsubsection}{JSON-Intent sintax}{49}{section*.72}
+\contentsline {subsubsection}{JSON-Intent example}{54}{section*.77}
+\contentsline {subsubsection}{Possible Messages}{56}{section*.78}
+\contentsline {subsection}{\numberline {4.2.3}Data management Model}{56}{subsection.4.2.3}
+\contentsline {subsubsection}{Files over socket}{56}{section*.79}
+\contentsline {subsubsection}{Cloud Group}{57}{section*.81}
+\contentsline {section}{\numberline {4.3}Liquid Android API Library}{58}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}General Structure}{58}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Controller Components}{58}{subsection.4.3.2}
+\contentsline {subsubsection}{NsdHelper}{59}{section*.84}
+\contentsline {subsubsection}{Server}{60}{section*.85}
+\contentsline {subsubsection}{Client}{61}{section*.86}
+\contentsline {subsubsection}{IntentConverter}{61}{section*.87}
+\contentsline {subsubsection}{LiquidAndroidService}{62}{section*.88}
+\contentsline {subsection}{\numberline {4.3.3}UI Components}{62}{subsection.4.3.3}
+\contentsline {subsubsection}{MainActivity}{62}{section*.89}
+\contentsline {subsubsection}{ResultActivity}{63}{section*.90}
+\contentsline {subsection}{\numberline {4.3.4}Use Cases}{63}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {5}Case Study}{65}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conception}{65}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Requirements}{66}{subsection.5.1.1}
+\contentsline {subsubsection}{Functional Requirements}{66}{section*.91}
+\contentsline {subsubsection}{Non-Functional Requirements}{66}{section*.92}
+\contentsline {subsection}{\numberline {5.1.2}Used Technologies}{67}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Implementation}{68}{subsection.5.1.3}
+\contentsline {subsubsection}{Code organization}{68}{section*.93}
+\contentsline {subsubsection}{Implicit Intents to listen}{69}{section*.95}
+\contentsline {section}{\numberline {5.2}Working Demo}{69}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Liquid Android UI}{70}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Live Test Cases}{72}{subsection.5.2.2}
+\contentsline {subsubsection}{Send Email Live Test}{73}{section*.100}
+\contentsline {subsubsection}{Take Photo Live Test}{75}{section*.104}
+\contentsline {section}{\numberline {5.3}Liquid Museum}{77}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}System Structure}{77}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Functionalities}{78}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Liquid Museum Live tests}{79}{subsection.5.3.3}
+\contentsline {subsubsection}{Audio scenario}{80}{section*.110}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{83}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusions}{83}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{84}{section.6.2}
+\contentsline {chapter}{Figures Copyright}{85}{chapter*.112}
+\contentsline {chapter}{Bibliography}{87}{section*.114}

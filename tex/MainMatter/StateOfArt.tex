@@ -16,7 +16,7 @@
 % ------------------------------------------------------------------------ %
 %
 \section{Android OS} \label{androidos}
-\par As already mentioned, the Android operating system is an open source OS developed by Google based on Linux kernel, that can be installed on many different kind of devices.\\
+\par As already mentioned,in Section \ref{(motivation)} the Android operating system is an open source OS developed by Google based on Linux kernel, that can be installed on many different kind of devices.\\
 In this section I want to give to the reader the basic knowledge of the Android framework to understand why and how the operating system works.
 \subsection{Brief History} \label{briefhist}
 \par
@@ -151,7 +151,7 @@ Applications are pieces of software written in \textit{java code} running on top
 
 \subsection{Application Framework}
 In this section I want to give some details of the application composition and work flow to better understand the subsequent sections in which I will describe the given problem and the proposed solution.\\
-As briefly described in \ref{appframework} the Android application framework \textit{("AppFramework")} is the core of the Android \textit{development API}. It contains useful and needed components to build native apps.\\
+As briefly described in Section \ref{appframework}, the Android application framework \textit{("AppFramework")} is the core of the Android \textit{development API}. It contains useful and needed components to build native apps.\\
 The main components with which each application is composed are:
 
 \subsubsection{Intents}\label{intents} Intents are objects that initiate actions from other app components, either within the same program \textit{(explicit intents)} or through another piece of software on the device \textit{(implicit intents)}.
@@ -185,7 +185,7 @@ The \figurename~\ref{fig:2.4} explains well how an intent is resolved by the OS 
 
 \subsection{Security}\label{androidsecurity}
 \par
-As described in \ref{briefhist} Android was born to be a good mobile OS and it is mainly for this reason that the system is designed to protect personal and sensible data form malicious guys.\\
+As described in Section \ref{briefhist}, Android was born to be a good mobile OS and it is mainly for this reason that the system is designed to protect personal and sensible data form malicious guys.\\
 Like the rest of the system, Android's security model also takes advantages of the security features offered by the Linux kernel. Linux is a \textit{multiuser OS} and its kernel can isolate user data from one another: one user can not access another user's file unless explicitly granted permission. Android takes advantages of this user isolation, considering each application a different user provided with a dedicated \textit{UID (User ID)} \cite{elenkov2014android} Android in fact, is designed for smartphones that are personal devices and do not need, usually, a multi physical user support.
 The most important security techniques adopted by Android are:
 
@@ -214,7 +214,7 @@ The most important security techniques adopted by Android are:
 
 \subsection{Connectivity}\label{connectivity}
 \par
-As already amply explained previously many Android design choices are due to the fact that it was thought for mobile devices which must have connectivity to intercommunicate among them.\\
+As already explained previously many Android design choices are due to the fact that it was thought for mobile devices which must have connectivity to intercommunicate among them.\\
 With the evolution of various wireless communication technologies, Android devices, nowadays, are equipped whit different kinds of modulus, the most common are:
 \begin{itemize}
 	\item Wi-Fi
@@ -295,7 +295,7 @@ There are many challenges in distributed systems field: distributed applications
 		%
 	\end{table}
 
-\subsection{Comunication Model}
+\subsection{Comunication Model} \label{mpi}
 \par
 There are, in distributed system literature, some well known techniques to let communicate machines, programs and components. Each of the methods described later exploits the network protocols by acting as a middleware: they use and mask lower layer protocols to provide ready to use communication services.
 
@@ -419,7 +419,7 @@ For sake of brevity here are not reported any detail of name resolution systems,
 \section{Technical Background}\label{techback}
 This section has the aim to give to readers a useful technical background to understand the implemented and proposed solution in the following chapters.
 \subsection{Liquid Computing}\label{liquid computing}
-The term was coined for Apple's liquid computing feature and  refers to a style of work-flow interaction of applications and computing services across multiple devices, such as computers, smartphones, and tablets.\\
+The term was coined for Apple's liquid computing feature and refers to a style of work-flow interaction of applications and computing services across multiple devices, such as computers, smartphones, and tablets.\\
 In a liquid computing approach, a person might work on a task on one device, then go to another device that detects the task in progress at the first device and offer to take over that task.
 In other terms liquid computation is a sort of what is called \textit{ubiquitous computing} which is a model of man-machine interaction in which information elaboration is integrated in everyday objects.
 \subsubsection{Examples}
@@ -431,8 +431,8 @@ There are some implementation of this concept in mobile computer science, the mo
 \end{itemize}
 
 \subsection{Java network programming}
-Since the entire Android development API is written in Java, the whole implemented solution will be in Java.\\ Java is a known general-purpose computer programming language that is concurrent, class-based, object-oriented \cite{gosling2005the}, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA) \cite{computer2002write}, meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.\\
-The \textit{Java Development Kit (JDK)} includes many utility libraries, useful to develop any kind of application, I want to focus attention on network programming libraries to be used when developing distributed system using Java code.
+Since the entire Android development API is written in Java, the whole implemented solution will be in Java.\\ Java is a known general-purpose computer programming language that is concurrent, class-based, object-oriented \cite{gosling2005the}, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA) \cite{computer2002write}, meaning that compiled Java can run on all platforms that support Java without the need for recompilation.\\
+The \textit{Java Development Kit (JDK)} includes many utility libraries, useful to develop any kind of application, I want to focus attention on network programming libraries to be used when developing distributed system using Java.
 There are, currently many different possibilities among which to choose to let Java software components communicate on the network, the most simple and common are \textit{Sockets} and \textit{Java RMI}.
 \subsubsection{Sockets} \label{socket} Sockets are abstractions through which an application may send and receive data, in much the same way as an open file handle allows an application to read and write data to stable storage.
 A socket allows an application to plug in to the network and communicate with other applications that are plugged in to the same network. Information written to the socket by
@@ -453,7 +453,7 @@ Java provide a network library with which is very easy to implement a client/ser
 %\lstinputlisting[language=Java , caption=DateClient example]{Codici/DateClient.java}
 %Comments in the example gives the full explanation of how simple client/server Java application using TCP sockets works.
 
-\subsubsection{Java RMI} Java RMI it is an implementation of \textit{Remote Method Invocation} previously discussed in \ref{RMI}. It represent the best alternative to sockets when building network applications. Java RMI is a complete middleware itself, in fact, it raises the level of abstraction of the network communication environment.
+\subsubsection{Java RMI} Java RMI it is an implementation of \textit{Remote Method Invocation} previously discussed in Section \ref{RMI}. It represent the best alternative to sockets when building network applications. Java RMI is a complete middleware itself, in fact, it raises the level of abstraction of the network communication environment.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{JavaRMI}
@@ -478,14 +478,22 @@ Zeroconf is paradigm and its component can be implemented in many ways and using
 Adding NSD to your Android applications allows users to identify other devices on the local network that support the services the app requests. This is useful for a variety of peer-to-peer applications such as file sharing or multi-player gaming. Android's NSD APIs simplify the effort required for the implementation of such features \cite{devandroidnsd}.
 
 \section{Existing Solutions}\label{existings}
+In this section I want to analyze some existing solutions, in order to highlight the difference between them and the purpose of this thesis. I want to dwell on both academic and on commercial solutions, in order to have a complete background for the problems faced in this work.
+\subsection{Academic Solutions}
+From the academic point of view, there are no similar works, which have the purpose of extending a mobile operating systems to add to it distributed OS functionalities. Also in this case, I found some works in which developers, uses multiple mobile devices to reach a common goal but using specific purposes systems, with different solutions in terms of network composition, communication language and data management model.\\
+This shows how, more and more developers, and anyway insiders, are interested in exploiting the growing computing power of these kind of devices, to perform complex tasks, but at the same time, it is a demonstration of the lack of a framework, easy to use, to speed up the development phase of such systems.
+\subsubsection{DroidCluster}
+The most interesting work I analyzed is \textit{DroidCluster} \cite{6258144}, a paper presented at the 32nd International Conference on Distributed Systems Workshop, in 2012. The authors of this work, performed a complete analysis and a comparison between standard computer clusters and a cluster composed of Android mobile devices. They stated that if yesterday's clustered workstations could compute climate models or simulate nuclear explosions, cluster of today's smartphones could do as well. Actually they were right, they performed an experiment using a cluster of six Android nodes connected at the same WiFi LAN communicating each other through MPI (message oriented communication), a technology I have already discussed in Section \ref{mpi}. To perform the test, they decided to run \textit{LINPACK}, which is a software library for performing numerical linear algebra on digital computers. The parallel LINPACK benchmark implementation called HPL (High Performance Linpack) is used to benchmark and rank supercomputers  \cite{jan2005sidebar}. However, to enable the installation of the needed testing tools, they need root access. Their results demonstrate which mobile computing platforms today surpas the computational power of workstations from a few years ago. So it is possible to integrate Android devices into a distributed cluster in a way that does not interfere the running Android system and application.\\
+The work I will develop and describe in the following chapter of this thesis, is supposed to work exactly in the same way of this experiment: I want to exploit the standard Android OS mechanisms and the WiFi connection to extend it and give distributed OS functionalities ready to use. In a sense this work is a feasibility study of what I am going to do in my thesis work. Moreover I do not want to root the system to create the distributed system, in order to ensure a higher level of security.
+\subsection{Commercial Solutions}
 Android distributed systems already exists as specific purposes application to be installed on multiple devices, what it is different to the aim of this thesis work is that these application are closed source projects that can not be reused to build other purposes systems and there is not a coherent framework, library or API to be used to easily build such systems.
 I want to give some examples pointing out the nice features have this native distributed Android systems.
-\subsection{Boincoid and HTC Power to Give}
+\subsubsection{Boincoid and HTC Power to Give}
 Boincoid and HTC Power to Give are Android application which aim is  to exploit Android devices computation power to contribute to scientific discoveries by doing some task. The common idea is to have an Android distributed supercomputer which can handle heavy task and compute tons of data for larger purposes.\\
 BOINC is an open-source software platform for computing using volunteered resources \cite{boinc2017open}. It is a program that lets you donate your idle computer time to science projects. Boincoid is a port of the BOINC platform to the Android operating system. The result is an Android BOINC client that behaves exactly like the original one.\\
 HTC Power to give is very similar to Boincoid, it is a \textit{CSR (Corporate Social Responsibility)} initiative from HTC that has been jointly developed with Dr. David Anderson at University of California, Berkeley. Using the HTC Power To Give, owners of Android OS smartphones can choose to ‘give back’ by supporting key research projects around the world. Scientific research often requires a vast amount of processing power for data modeling and analysis. HTC Power To Give, supported by the world’s largest single distributed volunteer computing platform BOINC, lets users donate their unused smartphone computing power to science programmes across diverse fields as astronomy, environment, medicine and physics \cite{htc2017power}.
 
-\subsection{Plex for Android}
+\subsubsection{Plex for Android}
 Plex platform is a great, maybe the best, media content streaming distributed system platform. It is mainly composed of two components, the media server, and a client with which enjoy the contents. \figurename~\ref{fig:4.1} illustrates the Plex Platform structure.
 \begin{figure}[h]
 	\centering
@@ -497,13 +505,11 @@ The Plex Media Server either running on Windows, macOS, Linux, FreeBSD or a NAS 
 The players can either be the Plex Apps available for mobile devices, smart TVs, and streaming boxes, or the web UI of the Plex Media Server called Plex Web App, or the old Plex player called Plex Home Theater.\\
 In particular Plex for Android application can connect to the media server to play its content and in addition it can search for Plex players in a LAN and send streamed content such as videos, movies or photo, to another player that can be also an Android device. In this way the Android Plex application client can behave like the Liquid Android system i want to develop. It can send a sort of \textit{Android intent}, to reproduce a media, from one device to another, and then it can send commands such as pause, rewind, forward and so on. The limits of such a system are that it is possible to send, and play, only multimedia contents, and only to devices which have the Plex app activity in foreground on the device.
 
-\subsection{Other Solutions}
-I want to provide, in this subsection, a brief analysis of two more concrete solutions for the problems faced in this thesis work.
 \subsubsection{Goolgle Home and Cast API}
 Google itself provides an application to control and send contents form an Android device, to some special devices in home network. \textit{Google Home} is an Android application which can find, setup, manage and control, Google's home devices like the \textit{Google Chromecast}. In this way is easy to setup and control and Android distributed system in which user can sent multimedia contents and command to the Google Home devices in the LAN. For these reason Google provides a development library, included in the Android framework, called \textit{Cast API} with which it is easy, for a developer, to build applications that can send multimedia streams to other Google devices specifically built for these purposes.\\
 Also in this case the limitation is the kind of content, only multimedia, and also the type of devices involved which are limited number of special purposes devices.
 
-\subsubsection{DroidMote and Remote control systems }
+\subsubsection{DroidMote and Remote control systems}
 If we consider the possibility to control remote devices in a LAN, there are actually many different kind of applications that can do that also in an Android environment.
 DroidMote is probably the most complete application to control remotely an Android device from another one. It is composed by two parts, the server, to be installed in the device to be controlled, and the client, to be installed in the one which controls. With this application is possible to control entirely the device running the server component: is it possible to open applications, perform tasks, open system settings and so on.\\
 These kind of systems are capable to generate local intents in remote devices over a LAN but in a completely different way from I want to develop the solution to the given problem. In this case the \textit{controller} is explicitly controlling the remote device as it is using only the \textit{controlled} one. These systems are solution only to the problem of remote control, they can not exploit distributed Android devices computation power, in fact in an environment like this Android devices are not cooperating to perform task but one of them is only controlling another one.

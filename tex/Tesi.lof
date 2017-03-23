@@ -21,59 +21,59 @@
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Publish-subscribe architecture\relax }}{18}{figure.caption.48}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces TCP/IP sockets\relax }}{21}{figure.caption.51}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Java RMI structure\relax }}{22}{figure.caption.53}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Plex Platform\relax }}{25}{figure.caption.59}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Plex Platform\relax }}{26}{figure.caption.62}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Distributed intent resolution\relax }}{29}{figure.caption.62}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Liquid Android working as stand alone middleware APK\relax }}{31}{figure.caption.63}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Liquid Android API working example\relax }}{32}{figure.caption.64}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Liquid Android API data management example\relax }}{32}{figure.caption.65}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Distributed intent resolution\relax }}{31}{figure.caption.65}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Liquid Android working as stand alone middleware APK\relax }}{33}{figure.caption.66}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Liquid Android API working example\relax }}{34}{figure.caption.67}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Liquid Android API data management example\relax }}{34}{figure.caption.68}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Liquid Android working example\relax }}{39}{figure.caption.66}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces P2P Liquid Android network example\relax }}{41}{figure.caption.67}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces UML structure for an Intent\relax }}{48}{figure.caption.70}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Files Over the Socket example\relax }}{55}{figure.caption.77}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Cloud Group example\relax }}{55}{figure.caption.79}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Liquid Android General UML\relax }}{57}{figure.caption.80}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Liquid Android working example\relax }}{41}{figure.caption.69}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces P2P Liquid Android network example\relax }}{43}{figure.caption.70}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces UML structure for an Intent\relax }}{50}{figure.caption.73}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Files Over the Socket example\relax }}{57}{figure.caption.80}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Cloud Group example\relax }}{57}{figure.caption.82}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Liquid Android General UML\relax }}{59}{figure.caption.83}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Code organization\relax }}{66}{figure.caption.91}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Main Liquid Android UI components\relax }}{68}{figure.caption.93}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Main Activity UI}}}{68}{subfigure.2.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Notification UI}}}{68}{subfigure.2.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Dialogs Components\relax }}{69}{figure.caption.94}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {App Chooser Dialog UI}}}{69}{subfigure.3.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forward Dialog UI}}}{69}{subfigure.3.2}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces JSON-Intent execution\relax }}{70}{figure.caption.95}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {App Chooser}}}{70}{subfigure.4.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Third party Browser Activity}}}{70}{subfigure.4.2}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Intent Generator UI\relax }}{71}{figure.caption.96}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Intent Generator MainActivity}}}{71}{subfigure.5.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Intent Generator data Picker}}}{71}{subfigure.5.2}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Live test 1 Sequence Diagram\relax }}{72}{figure.caption.98}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Send Email}}}{72}{subfigure.7.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Picker Dialog}}}{72}{subfigure.7.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {App Chooser}}}{72}{subfigure.7.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Forward Dialog}}}{72}{subfigure.7.4}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Complete email live test screenshots\relax }}{73}{figure.caption.100}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {App Chooser}}}{73}{subfigure.7.5}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Gmail Activity}}}{73}{subfigure.7.6}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Live test 2 Sequence Diagram\relax }}{74}{figure.caption.102}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Send Email}}}{74}{subfigure.9.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {App Chooser}}}{74}{subfigure.9.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Forward Dialog}}}{74}{subfigure.9.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {App Chooser}}}{74}{subfigure.9.4}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Complete photo intent live test screenshots\relax }}{75}{figure.caption.104}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Android Camera}}}{75}{subfigure.9.5}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {App Chooser}}}{75}{subfigure.9.6}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Android Camera}}}{75}{subfigure.9.7}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Result Activity}}}{75}{subfigure.9.8}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Liquid Museum distributed structure\relax }}{76}{figure.caption.105}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Liquid Museum and Museum Client UIs\relax }}{77}{figure.caption.106}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Liquid Museum MainActivity}}}{77}{subfigure.11.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Museum Client MainActivity}}}{77}{subfigure.11.2}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Liquid Museum running example screenshots\relax }}{79}{figure.caption.108}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LiquidMuseum}}}{79}{subfigure.12.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {MuseumCLient}}}{79}{subfigure.12.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {App chooser}}}{79}{subfigure.12.3}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {VLC player}}}{79}{subfigure.12.4}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Code organization\relax }}{68}{figure.caption.94}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Main Liquid Android UI components\relax }}{70}{figure.caption.96}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Main Activity UI}}}{70}{subfigure.2.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Notification UI}}}{70}{subfigure.2.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dialogs Components\relax }}{71}{figure.caption.97}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {App Chooser Dialog UI}}}{71}{subfigure.3.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forward Dialog UI}}}{71}{subfigure.3.2}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces JSON-Intent execution\relax }}{72}{figure.caption.98}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {App Chooser}}}{72}{subfigure.4.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Third party Browser Activity}}}{72}{subfigure.4.2}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Intent Generator UI\relax }}{73}{figure.caption.99}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Intent Generator MainActivity}}}{73}{subfigure.5.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Intent Generator data Picker}}}{73}{subfigure.5.2}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Live test 1 Sequence Diagram\relax }}{74}{figure.caption.101}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Send Email}}}{74}{subfigure.7.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Picker Dialog}}}{74}{subfigure.7.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {App Chooser}}}{74}{subfigure.7.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Forward Dialog}}}{74}{subfigure.7.4}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Complete email live test screenshots\relax }}{75}{figure.caption.103}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {App Chooser}}}{75}{subfigure.7.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Gmail Activity}}}{75}{subfigure.7.6}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Live test 2 Sequence Diagram\relax }}{76}{figure.caption.105}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Send Email}}}{76}{subfigure.9.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {App Chooser}}}{76}{subfigure.9.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Forward Dialog}}}{76}{subfigure.9.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {App Chooser}}}{76}{subfigure.9.4}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Complete photo intent live test screenshots\relax }}{77}{figure.caption.107}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Android Camera}}}{77}{subfigure.9.5}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {App Chooser}}}{77}{subfigure.9.6}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {Android Camera}}}{77}{subfigure.9.7}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {Result Activity}}}{77}{subfigure.9.8}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Liquid Museum distributed structure\relax }}{78}{figure.caption.108}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Liquid Museum and Museum Client UIs\relax }}{79}{figure.caption.109}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Liquid Museum MainActivity}}}{79}{subfigure.11.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Museum Client MainActivity}}}{79}{subfigure.11.2}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Liquid Museum running example screenshots\relax }}{81}{figure.caption.111}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {LiquidMuseum}}}{81}{subfigure.12.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {MuseumCLient}}}{81}{subfigure.12.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {App chooser}}}{81}{subfigure.12.3}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {VLC player}}}{81}{subfigure.12.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

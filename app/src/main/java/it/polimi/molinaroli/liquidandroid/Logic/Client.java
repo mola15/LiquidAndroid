@@ -52,8 +52,6 @@ public class Client {
      * @param i
      */
     public Client(InetAddress addr, int port, Context c, Intent i) {
-        this.data = data;
-        this.code = code;
         this.context = c;
         try {
             socket = new Socket(addr, port);
@@ -93,45 +91,13 @@ public class Client {
         }
     }
 
-
-    public Client(InetAddress addr, int port, Context c, String data, int code) {
-        this.data = data;
-        this.code = code;
-        this.context = c;
-        try {
-            socket = new Socket(addr, port);
-            Log.d("Client", "Client started Client Socket:" + socket.toString());
-        } catch (IOException e) {
-            Log.d("Client","socket non creata");
-        }
-        // Se la creazione della socket fallisce non è necessario fare nulla
-        try {
-            //entro qui quando è connesso alla socket
-            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
-            in = new BufferedReader(isr);
-            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
-            out = new PrintWriter(new BufferedWriter(osw), true);
-
-
-            startClient(data);
-
-        } catch (IOException e1) {
-            // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
-            // verrà chiusa dal metodo run() del thread
-            try {
-                socket.close();
-            } catch (IOException e2) {
-            }
-        } catch (NullPointerException e3){
-            //non c'è la serversocket
-
-            CharSequence text = "Server non più disponibile";
-            toast(text);
-
-
-        }
-    }
-
+    /**
+     * Client to ask the server to take a picture with the camera
+     * @param addr
+     * @param port
+     * @param c
+     * @param serverPort
+     */
     public Client(InetAddress addr, int port, Context c, int serverPort) {
         this.serverPort = serverPort;
         this.context = c;
@@ -153,15 +119,11 @@ public class Client {
                 startClient();
 
         } catch (IOException e1) {
-            // in seguito ad ogni fallimento la socket deve essere chiusa, altrimenti
-            // verrà chiusa dal metodo run() del thread
             try {
                 socket.close();
             } catch (IOException e2) {
             }
         } catch (NullPointerException e3){
-            //non c'è la serversocket
-
             CharSequence text = "Server non più disponibile";
             toast(text);
 
@@ -169,6 +131,13 @@ public class Client {
         }
     }
 
+    /**
+     * client to send back the image file
+     * @param addr
+     * @param port
+     * @param c
+     * @param f
+     */
     public Client(InetAddress addr, int port, Context c, String f) {
         this.context = c;
         try {
@@ -209,15 +178,12 @@ public class Client {
         }
     }
 
+    /**
+     * starts the client specifying the return port of its server to get data back
+     */
     public void startClient() {
         try {
-
-            //prova mando intento per aprire google.it
-                out.println(serverPort); //mando la porta per il ritorno
-                // String mess = "http://google.it";
-                // out.println(mess);
-                // Log.d("client", mess);
-                //leggo dal server
+                out.println(serverPort);
                 String str = in.readLine();
                 System.out.println("server: " + str);
             //chiudo la socket e il thread del server
@@ -232,23 +198,11 @@ public class Client {
         }
     }
 
-    public void startClient(String data) {
-        try {
-            out.println("URL");
-            out.println(data);
-            in.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        out.println("END");
 
-        try {
-            System.out.println("Client closing...");
-            socket.close();
-        } catch (IOException e) {
-        }
-    }
-
+    /**
+     * starts the client and passes the intent to be forwarded
+     * @param i
+     */
     public void startClient(Intent i) {
         try {
             out.println("INTENT");
@@ -268,22 +222,16 @@ public class Client {
     }
 
 
-/*prima c'era bitmap come parametro*/
+    /**
+     * returns the image taken from the camera to the caller
+     * @param file
+     */
     public void startReturnClient(String file) {
         try {
             out.println("IMAGE");
-            //Mando indietro al server che l'ha richesto il file con l'immagine
-            Log.d("returnClient","scrittaimmagine");
-            /*metodo funzionante con la bitmap
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.PNG, 0, bos);
-            byte[] array = bos.toByteArray();
 
-            OutputStream o = socket.getOutputStream();
-            DataOutputStream dos = new DataOutputStream(o);
-            dos.writeInt(array.length);
-            dos.write(array, 0, array.length);
-            FINE METODO FUNZIONANTE PER LA BITMAP*/
+            Log.d("returnClient","scrittaimmagine");
+
             File f = new File(file);
             byte[] bytes = new byte[(int) f.length()];
             Log.d("filel", ""+ file.length());
@@ -296,9 +244,6 @@ public class Client {
                 oos.writeObject(bytes);
                 oos.flush();
 
-
-            // mando indietro la foto e poi chiudo la connessione
-            //String str = in.readLine();
             out.println("END");
             Log.d("returnClient","scrittaend");
 

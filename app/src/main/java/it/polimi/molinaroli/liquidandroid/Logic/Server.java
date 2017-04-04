@@ -142,23 +142,6 @@ public class Server {
                     Log.d("Server",str);
                     if (str.equals("END")) break; //esce dal while
                     else if (str.equals("IMAGE")){
-                        //caso che gestisce l'arrivo di una immagine
-                        //devo leggere tutta la immagine
-
-                        /*METODO FUNZIONANTE CON LA BITMAP
-                        InputStream in = socket.getInputStream();
-                        DataInputStream input = new DataInputStream(in);
-                        byte[] data;//String read = input.readLine();
-                        int len= input.readInt();
-                        data = new byte[len];
-                        if (len > 0) {
-                            input.readFully(data, 0, data.length);
-                        }
-                        //a questo punto dentro data dovrebbe esserci la bitmap
-                        //dopo dovrebbe esserci end e finisce chiude entrambi i thread
-                        //ora dovrei mandarla alla activity posso startarla da qui ??
-                        Log.d("server","lettura immagine in corso");
-                        FINE METODO FUNZIONANTE CON LA BITMAP*/
                         try {
                             File file = createImageFile();
                             Log.d("server","file creato");
@@ -191,27 +174,6 @@ public class Server {
                         }catch (IOException e){
                             e.printStackTrace();
                         }
-                        /*
-                        Intent i = new Intent(context,ResultActivity.class);
-                        //i.putExtra("IMAGE",data); CON LA BITMAP
-                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        Log.d("server","intento apertura immagine");
-                        context.startActivity(i);
-                        */
-                    }else if (str.equals("URL")){
-                        String url = in.readLine();
-                        out.println("url letta");
-                        Intent viewIntent = new Intent();
-                        viewIntent.setAction(Intent.ACTION_VIEW);
-                        viewIntent.setData(Uri.parse(url));
-                        viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        // Verify that the intent will resolve to an activity
-                        if (viewIntent.resolveActivity(c.getPackageManager()) != null) {
-                            c.startActivity(viewIntent);
-                        } else{
-                            Log.d("server","errore nell apertura del browser");
-                        }
-
                     }else if (str.equals("INTENT")){
                         String json = in.readLine();
                         Log.d("server","intento ricevuto");
@@ -227,28 +189,10 @@ public class Server {
                             e.printStackTrace();
                         }
                     } else {
+                        //return the result image with the help of the resultactivity
                         int rport = Integer.valueOf(str); // leggo la porta bisogna vedere se è giusto
-                        //per ora gestisce tutto il resto
-                        //esegue quello che deve eseguire
-                        //possibile caso di uscita
-                        //metodo per scrivere sul buffer in uscita (scrive sul client)
                         Log.i("server client mess:", str);
                         Log.d("Server", "building intent");
-
-                        // Create the text message with a string
-                    /* PROVA APERTURA BROWSER
-                    Intent viewIntent = new Intent();
-                    viewIntent.setAction(Intent.ACTION_VIEW);
-                    viewIntent.setData(Uri.parse(str));
-                    viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    // Verify that the intent will resolve to an activity
-                    if (viewIntent.resolveActivity(c.getPackageManager()) != null) {
-                        c.startActivity(viewIntent);
-                    } else{
-                        Log.d("server","ramo else");
-                    }
-                    out.println(str);
-                     END PROVA APERTURA BROWSER */
                         Intent cIntent = new Intent(c, ResultActivity.class);
                         cIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         cIntent.putExtra("INDIRIZZO", socket.getInetAddress().toString());
@@ -259,8 +203,6 @@ public class Server {
                     }
 
                 }
-
-               //cose da farlgi fare in uscita
                 Log.d("Server","ServerThread closing...");
             } catch (IOException e) {}
             try {

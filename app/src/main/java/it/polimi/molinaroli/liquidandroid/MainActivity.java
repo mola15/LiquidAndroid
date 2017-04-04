@@ -71,52 +71,18 @@ public class MainActivity extends AppCompatActivity {
             bindService(intent, mConnection, 0);
             Log.d("bound", "" + mBound);
             Log.d("helperinit",""+mService.getHelper().getInit());
-        } else if ((arrivalIntent.getAction().equals("android.media.action.IMAGE_CAPTURE")) || (arrivalIntent.getAction().equals(Intent.ACTION_VIEW)) || (arrivalIntent.getAction().equals(Intent.ACTION_SEND)) || (arrivalIntent.getAction().equals(Intent.ACTION_SENDTO))){/*
-            Intent stop = new Intent(this,LiquidAndroidService.class);
-            stopService(stop);
-            per ore non gli faccio fare niente dovrebbe funzionare cmq
-            */
-            //voglio che sia partito il servizio e quindi dico che mbound è true;
-            final Intent intent = new Intent(this, LiquidAndroidService.class);
-            bindService(intent, mConnection, 0);
-            Log.d("bound", "" + mBound);
+        } else{
+            try {
+                final Intent intent = new Intent(this, LiquidAndroidService.class);
+                bindService(intent, mConnection, 0);
+                Log.d("bound", "" + mBound);
+            }catch(Exception e){
+                mBound = false;
+            }
         }
 
         setContentView(R.layout.activity_main);
         Log.e("azione intent",getIntent().getAction());
-
-        //DA RIMUOVERE PROVE PER L'INTENT CONVERTER
-        /*
-        Intent in = new Intent(Intent.ACTION_SEND);
-        Uri i;
-
-        in.putExtra("nome","marco");
-        int[] num = {1,2,3};
-        in.putExtra("integers",num);
-        double[] num2 = {1.2,2.2,3.3};
-        in.putExtra("doubles",num2);
-        byte b = -10;
-        in.putExtra("byte",b);
-        in.setData(Uri.parse("geo:37.7749,-122.4194"));
-        Log.e("intent originale", in.toUri(0));
-        Log.e("intent originale", "" + in.getDoubleArrayExtra("doubles")[0]);
-
-        JSONObject job = IntentConverter.intentToJSON(in);
-        Log.e("Json",job.toString());
-        Intent i2 = IntentConverter.JSONToIntent(job);
-        Log.e("intent rigenerato", i2.toUri(0));
-        Log.e("intent rigenerato", "" + i2.getDoubleArrayExtra("doubles")[0]);
-           */
-        //FINE DA RIMUOVERE
-        /*
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("*\/*");
-        intent.putExtra(Intent.EXTRA_EMAIL, "example@example.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "example");
-        intent.addCategory(Intent.CATEGORY_DEFAULT);
-        JSONObject job = IntentConverter.intentToJSON(intent);
-        Log.d("intento",job.toString());
-        */
         try {
             Log.e("intento arrivato", IntentConverter.intentToJSON(getIntent()).toString());
         }catch(Exception e){
@@ -131,22 +97,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         final Intent intent = new Intent(this, LiquidAndroidService.class);
-
-
         c = this;
         start = (Button) findViewById(R.id.startservice) ;
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("bindstate",""+ mBound);
-                if(!mBound) {
+                try {
                     Intent myIntent = new Intent(getApplicationContext(), LiquidAndroidService.class);
                     startService(myIntent);
                     bindService(intent, mConnection, 0);
                     Log.d("bound", "" + mBound);
-                } else{
-                    Toaster.toast("Service already Started");
-                }
+                  } catch (Exception e){
+                Toaster.toast("Service not Started");
+            }
             }
         });
 
@@ -156,12 +120,14 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Log.d("bindstate",""+ mBound);
-                    if(mBound) {
+                    try {
                         helper = mService.getHelper();
                         //reinizializzo il vettore di servizi
                         helper.setServices(new ArrayList<NsdServiceInfo>());
                         helper.discoverServices();
                         // faccio il display anche se non so se li ho risolti
+                    }catch (Exception e){
+                        Toaster.toast("Service not Started");
                     }
                 }
             });
@@ -180,11 +146,6 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             final NsdServiceInfo s = (NsdServiceInfo) adapter.getItem(position);
-                            // quando ci clicco su lancio il client per parlare col server
-                            // posso scegliere qui o dal client passando l'intento da decidere cosa è meglio
-                            //penso di farlo di la mandare l'intento e poi gestire tutti i parametri
-                            //per ora lo faccio qui perche ho solo pochi esempi
-                            //qui leggo l'intento e in base al tipo lancio il client giusto
                             String action;
                             action = arrivalIntent.getAction();
                             Log.d("arrival intent",action);
@@ -223,13 +184,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("bindstate",""+ mBound);
-                if(mBound){
+               try {
                     //eseguo solo se ho il bind attivo
                     helper = mService.getHelper();
                     helper.showDialog(c,arrivalIntent,myServerPort);
-                } else{
-                    Toaster.toast("Service not Started");
-                }
+               }catch (Exception e){
+                   Toaster.toast("Service not Started");
+               }
             }
         });
 

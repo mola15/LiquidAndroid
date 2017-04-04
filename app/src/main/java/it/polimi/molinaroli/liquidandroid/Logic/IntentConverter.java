@@ -15,10 +15,6 @@ import java.util.Set;
 
 import xdroid.toaster.Toaster;
 
-/**
- * class to convert intent in a JSON object an vice versa
- */
-
 public class IntentConverter {
 
     final static String ACTION = "action";
@@ -57,7 +53,7 @@ public class IntentConverter {
 
 
     /**
-     * convert an intent into a JSON to be sent on the socket
+     * convert an intent into a JSON-Intent to be sent on the socket
      * @param i
      * @return
      */
@@ -66,9 +62,10 @@ public class IntentConverter {
         try {
 
             obj.put(ACTION,i.getAction());
+
             try {
                 Log.d("converter data", i.getDataString());
-                obj.put(DATA, i.getDataString());
+                obj.put(DATA, i.getData().toString());
             }catch (NullPointerException e){
                 Log.d("converter data", "nodata");
             }
@@ -78,8 +75,8 @@ public class IntentConverter {
                 Log.d("converter data", "notype");
             }
             try {
-            Set<String> cat = i.getCategories();
-            JSONArray car = new JSONArray();
+                Set<String> cat = i.getCategories();
+                JSONArray car = new JSONArray();
 
                 for (String ct : cat) {
                     JSONObject cto = new JSONObject();
@@ -306,7 +303,7 @@ public class IntentConverter {
     }
 
     /**
-     * converts a JSONObject into a regular android intent
+     * converts a JSON-Intent into a regular android intent
      * @param j
      * @return
      */
@@ -314,14 +311,21 @@ public class IntentConverter {
         Intent intent = new Intent();
         try {
             intent.setAction(j.getString(ACTION)); //parsing action
-            intent.setData(Uri.parse(j.getString(DATA)));
-            //intent.setType(j.getString(ITYPE)); posso anche non farlo
+            try {
+                intent.setData(Uri.parse(j.getString(DATA)));
+            }catch (Exception e){
+                Log.e("converter","no data");
+            }
+            try {
+                intent.setType(j.getString(ITYPE));
+            }catch(Exception e) {
+                Log.e("converter","no type");
+            }
             /*
             JSONArray categories = j.getJSONArray(CATEGORIES);
             for(int z = 0 ; z<categories.length();z++){
                 intent.addCategory(categories.getJSONObject(z).getString(CATEGORY));
-            }
-            */
+            }*/
             JSONArray extras = j.getJSONArray(EXTRAS);
             for(int k = 0;k<extras.length();k++){
                 JSONObject job = extras.getJSONObject(k);

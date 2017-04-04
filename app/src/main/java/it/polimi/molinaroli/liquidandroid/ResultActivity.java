@@ -73,14 +73,6 @@ public class ResultActivity extends AppCompatActivity {
                 }
             }
         }else{
-            //qui apro la bitmap
-            /* FUNZIONANTE CON LA BITMAP
-            byte[] byteArray = getIntent().getByteArrayExtra("IMAGE");
-            Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray , 0, byteArray .length);
-            iv = (ImageView) findViewById(R.id.image);
-            iv.setImageBitmap(bitmap);
-            */
-            //BISOGNEREBBE APRIRE IL FILE DI IMMAGINE IN REALTà MANDO SOLO UN TOAST
             Toaster.toast("image received");
             Bitmap bitmap = BitmapFactory.decodeFile(getIntent().getStringExtra("IMAGE"));
             iv = (ImageView) findViewById(R.id.image);
@@ -89,6 +81,12 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * automatically starts the return client to send data back
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -156,7 +154,7 @@ public class ResultActivity extends AppCompatActivity {
 
     }
     /**
-    metodo per aggiungere l'immagine alla galleria
+    ads the image to the gallery
      */
     private void galleryAddPic(String mCurrentPhotoPath) {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);

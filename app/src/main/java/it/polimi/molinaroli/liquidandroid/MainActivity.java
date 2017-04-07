@@ -115,69 +115,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
             serviceList = (ListView) findViewById(R.id.servicelist);
-            discover = (Button) findViewById(R.id.discover);
-            discover.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("bindstate",""+ mBound);
-                    try {
-                        helper = mService.getHelper();
-                        //reinizializzo il vettore di servizi
-                        helper.setServices(new ArrayList<NsdServiceInfo>());
-                        helper.discoverServices();
-                        // faccio il display anche se non so se li ho risolti
-                    }catch (Exception e){
-                        Toaster.toast("Service not Started");
-                    }
-                }
-            });
-            display = (Button) findViewById(R.id.display);
-            display.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("bindstate",""+ mBound);
-                    if(mBound){
-                    helper = mService.getHelper();
-                    helper.stopDiscovery();
-                    // faccio il display anche se non so se li ho risolti
-                    final CustomAdapterActivity adapter = new CustomAdapterActivity(c, R.layout.serviceitem, helper.getServices());
-                    serviceList.setAdapter(adapter);
-                    serviceList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            final NsdServiceInfo s = (NsdServiceInfo) adapter.getItem(position);
-                            String action;
-                            action = arrivalIntent.getAction();
-                            Log.d("arrival intent",action);
-                            switch (action) {
-                                case "android.media.action.IMAGE_CAPTURE":  new Thread(new Runnable() {
-                                        public void run() {
-
-                                            Log.d("Activity", "starting client");
-                                            Client client = new Client(s.getHost(), s.getPort(), c, myServerPort);
-                                        }
-                                    }).start();
-                                    break;
-                                case Intent.ACTION_SEND: Log.d("Activity", "intent not yet coded"); break;
-                                case Intent.ACTION_VIEW: new Thread(new Runnable() {
-                                    public void run() {
-
-                                        Log.d("Activity", "starting client");
-                                        Client client = new Client(s.getHost(), s.getPort(), c,arrivalIntent.getData().toString(),0);
-                                    }
-                                }).start();
-                                    break;
-                                default: Log.d("Activity", "intent not yet coded");
-                                    //caso generale che impacchetta l'intento e lo spedisce
-                                    Client client = new Client(s.getHost(), s.getPort(), c,arrivalIntent);
-                                    break;
-                            }
-                        }
-                    });
-                    Log.d("Activity", "" + helper.getServices().size());
-                }}
-
-            });
 
         forward = (Button) findViewById(R.id.forward);
         forward.setOnClickListener(new View.OnClickListener() {
